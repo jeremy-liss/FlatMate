@@ -1,10 +1,14 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
+import Header from './Header'
+import ShoppingList from './shoppingList'
 
-// This might need to be turned into a stateful component (aka container)
+// App function will need editing
 const App = () => (
   <div className='app'>
+    <Header />
+    <ShoppingList />
   </div>
 )
 
