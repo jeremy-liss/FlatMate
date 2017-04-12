@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-const List = () => (
+const ShoppingList = () => (
 
   <div>
     <h1>Shopping List</h1>
@@ -14,4 +14,4 @@ const List = () => (
 )
 
 
-export default List
+export default ShoppingList

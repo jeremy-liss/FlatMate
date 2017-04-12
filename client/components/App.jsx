@@ -1,12 +1,17 @@
 import React from 'react'
 
-import Main from './Main'
 import Calendar from './Calendar'
 import DefaultPage from './DefaultPage'
+import Header from './Header'
+import Main from './Main'
+import Roster from './Roster'
+import ShoppingList from './ShoppingList'
 
-// This might need to be turned into a stateful component (aka container)
+// App function will need editing
 const App = () => (
+
   <div className='app'>
+    <Header />
     <Main />
   </div>
 )
