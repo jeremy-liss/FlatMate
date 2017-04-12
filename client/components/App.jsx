@@ -4,6 +4,7 @@ import Calendar from './Calendar'
 import DefaultPage from './DefaultPage'
 import Header from './Header'
 import Main from './Main'
+import Register from './Register'
 import Roster from './Roster'
 import ShoppingList from './ShoppingList'
 
@@ -12,7 +13,7 @@ const App = () => (
 
   <div className='app'>
     <Header />
-    <Main />
+    <Register />
   </div>
 )
 
