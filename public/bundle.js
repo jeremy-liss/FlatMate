@@ -23770,6 +23770,10 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _Main = __webpack_require__(216);
+	
+	var _Main2 = _interopRequireDefault(_Main);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	// This might need to be turned into a stateful component (aka container)
@@ -23777,11 +23781,87 @@
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'app' },
-	    'Hello'
+	    _react2.default.createElement(_Main2.default, null)
 	  );
 	};
 	
 	exports.default = App;
+
+/***/ },
+/* 216 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _ProfileBar = __webpack_require__(217);
+	
+	var _ProfileBar2 = _interopRequireDefault(_ProfileBar);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Main = function Main() {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'main' },
+	    _react2.default.createElement(_ProfileBar2.default, null),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'listLink' },
+	      _react2.default.createElement('img', { src: '', alt: 'link to shopping list' })
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'calendarLink' },
+	      _react2.default.createElement('img', { src: '', alt: 'link to calendar' })
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'rosterLink' },
+	      _react2.default.createElement('img', { src: '', alt: 'link to roster' })
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'billsLink' },
+	      _react2.default.createElement('img', { src: '', alt: 'link to bills' })
+	    )
+	  );
+	};
+	
+	exports.default = Main;
+
+/***/ },
+/* 217 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var ProfileBar = function ProfileBar() {
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    'Hello User! | Your job this week is: ... | You owe $0'
+	  );
+	};
+	
+	exports.default = ProfileBar;
 
 /***/ }
 /******/ ]);
