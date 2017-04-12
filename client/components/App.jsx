@@ -1,4 +1,5 @@
 import React from 'react'
+import { HashRouter as Router, Route } from 'react-router-dom'
 
 import Calendar from './Calendar'
 import DefaultPage from './DefaultPage'
@@ -14,7 +15,16 @@ const App = () => (
 
   <div className='app'>
     <Header />
-    <Main />
+    <Router>
+      <div>
+        <Route exact path='/home' component={Main} />
+        <Route path='/' component={DefaultPage} />
+        <Route path='/register' component={Register} />
+        <Route path='/roster' component={Roster} />
+        <Route path='/shoppinglist' component={ShoppingList} />
+        <Route path='/bills' component={Bills} />
+      </div>
+    </Router>
   </div>
 )
 
