@@ -23814,7 +23814,7 @@
 	    'div',
 	    { className: 'app' },
 	    _react2.default.createElement(_Header2.default, null),
-	    _react2.default.createElement(_Main2.default, null)
+	    _react2.default.createElement(_Calendar2.default, null)
 	  );
 	};
 	
