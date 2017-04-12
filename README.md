@@ -1,4 +1,4 @@
-# FlateMate
+# FlatMate
 
 An app to help flatters organise flat life.
 
