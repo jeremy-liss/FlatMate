@@ -5,8 +5,6 @@ import DefaultPage from './DefaultPage'
 import Header from './Header'
 import Main from './Main'
 import Roster from './Roster'
-import Calendar from './Calendar'
-import DefaultPage from './DefaultPage'
 import ShoppingList from './ShoppingList'
 
 // App function will need editing
