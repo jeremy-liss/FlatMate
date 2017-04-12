@@ -23770,6 +23770,10 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _Calendar = __webpack_require__(216);
+	
+	var _Calendar2 = _interopRequireDefault(_Calendar);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	// This might need to be turned into a stateful component (aka container)
@@ -23777,11 +23781,46 @@
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'app' },
-	    'Hello'
+	    _react2.default.createElement(_Calendar2.default, null)
 	  );
 	};
 	
 	exports.default = App;
+
+/***/ },
+/* 216 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var Calendar = function Calendar() {
+	  return _react2.default.createElement(
+	    'div',
+	    null,
+	    _react2.default.createElement(
+	      'h1',
+	      null,
+	      'Calendar'
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'calendar' },
+	      'Calendar goes here'
+	    )
+	  );
+	};
+	
+	exports.default = Calendar;
 
 /***/ }
 /******/ ]);
