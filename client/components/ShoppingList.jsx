@@ -7,7 +7,7 @@ const ShoppingList = () => (
     <h1>Shopping List</h1>
       <form action="/form" method="post">
         Shopping List:
-      <input type="text" name="" value="">
+      <input type="text" name="" value="" />
       <button type="add">Add</button>
       </form>
   </div>
