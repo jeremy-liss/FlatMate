@@ -23770,6 +23770,10 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _DefaultPage = __webpack_require__(216);
+	
+	var _DefaultPage2 = _interopRequireDefault(_DefaultPage);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	// This might need to be turned into a stateful component (aka container)
@@ -23777,11 +23781,84 @@
 	  return _react2.default.createElement(
 	    'div',
 	    { className: 'app' },
-	    'Hello'
+	    _react2.default.createElement(_DefaultPage2.default, null)
 	  );
 	};
 	
 	exports.default = App;
+
+/***/ },
+/* 216 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var DefaultPage = function DefaultPage() {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'defaultPage' },
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'info-box' },
+	      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in tellus viverra, mattis diam ac, ornare augue. Ut fermentum et dolor non volutpat. Proin commodo, nunc eu ullamcorper congue, velit elit tempus mauris, vitae aliquet mi mauris ut metus. Curabitur vehicula arcu et velit vulputate, ut gravida massa finibus. Vestibulum elementum urna id neque sodales, eu volutpat ipsum vestibulum. Sed id magna cursus, aliquet ante nec, suscipit augue. Pellentesque vulputate est metus, et ornare ligula faucibus ac.'
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'logins' },
+	      _react2.default.createElement(
+	        'div',
+	        { id: 'fb-login' },
+	        _react2.default.createElement(
+	          'p',
+	          null,
+	          _react2.default.createElement(
+	            'a',
+	            { href: 'http://www.facebook.com/login' },
+	            _react2.default.createElement('img', { src: 'https://www.peacerun.org/static/media/uploads/global/frontpageimages/facebook.png' })
+	          )
+	        )
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { id: 'login-box' },
+	        _react2.default.createElement(
+	          'form',
+	          { action: '#', method: 'get', id: 'login' },
+	          _react2.default.createElement('input', { type: 'text', placeholder: 'Email', name: 'email' }),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement('input', { type: 'text', placeholder: 'Password', name: 'password' }),
+	          _react2.default.createElement('br', null),
+	          _react2.default.createElement(
+	            'button',
+	            { type: 'submit', form: 'login', value: 'Submit' },
+	            'Login'
+	          )
+	        )
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { id: 'register-link' },
+	        _react2.default.createElement(
+	          'form',
+	          { action: 'https://en-gb.facebook.com/login/' },
+	          _react2.default.createElement('input', { type: 'submit', value: 'Register' })
+	        )
+	      )
+	    )
+	  );
+	};
+	
+	exports.default = DefaultPage;
 
 /***/ }
 /******/ ]);
