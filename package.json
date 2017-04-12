@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node server/index",
     "watch": "nodemon -e js,jsx -x npm test",
-    "dev": "nodemon --watch server server/index & webpack --watch"
+    "dev": "nodemon --watch server server/index & webpack --watch",
+    "knex": "knex"
   },
   "keywords": [
     "react",
@@ -35,6 +36,7 @@
   },
   "dependencies": {
     "body-parser": "^1.17.1",
-    "express": "^4.15.2"
+    "express": "^4.15.2",
+    "knex": "^0.12.9"
   }
 }
