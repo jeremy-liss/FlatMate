@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Header from './Header'
-import ShoppingList from './shoppingList'
+import ShoppingList from './ShoppingList'
 import Main from './Main'
 import Roster from './Roster'
 
