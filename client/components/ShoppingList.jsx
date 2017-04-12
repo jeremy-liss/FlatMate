@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 
 const ShoppingList = () => (
 
-  <div>
+  <div className="Shoppinglist">
     <h1>Shopping List</h1>
       <form action="/form" method="post">
         Shopping List:
