@@ -10,19 +10,19 @@ import Roster from './Roster'
 import ShoppingList from './ShoppingList'
 import Bills from './Bills'
 
-// App function will need editing
 const App = () => (
 
   <div className='app'>
     <Header />
     <Router>
       <div>
-        <Route exact path='/home' component={Main} />
-        <Route path='/' component={DefaultPage} />
+        <Route exact path='/' component={DefaultPage} />
+        <Route path='/home' component={Main} />
         <Route path='/register' component={Register} />
         <Route path='/roster' component={Roster} />
         <Route path='/shoppinglist' component={ShoppingList} />
         <Route path='/bills' component={Bills} />
+        <Route path='/calendar' component={Calendar} />
       </div>
     </Router>
   </div>

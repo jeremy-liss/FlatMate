@@ -23806,7 +23806,6 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	// App function will need editing
 	var App = function App() {
 	  return _react2.default.createElement(
 	    'div',
@@ -23818,12 +23817,13 @@
 	      _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/home', component: _Main2.default }),
-	        _react2.default.createElement(_reactRouterDom.Route, { path: '/', component: _DefaultPage2.default }),
+	        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _DefaultPage2.default }),
+	        _react2.default.createElement(_reactRouterDom.Route, { path: '/home', component: _Main2.default }),
 	        _react2.default.createElement(_reactRouterDom.Route, { path: '/register', component: _Register2.default }),
 	        _react2.default.createElement(_reactRouterDom.Route, { path: '/roster', component: _Roster2.default }),
 	        _react2.default.createElement(_reactRouterDom.Route, { path: '/shoppinglist', component: _ShoppingList2.default }),
-	        _react2.default.createElement(_reactRouterDom.Route, { path: '/bills', component: _Bills2.default })
+	        _react2.default.createElement(_reactRouterDom.Route, { path: '/bills', component: _Bills2.default }),
+	        _react2.default.createElement(_reactRouterDom.Route, { path: '/calendar', component: _Calendar2.default })
 	      )
 	    )
 	  );
@@ -27405,6 +27405,11 @@
 	      'div',
 	      { className: 'calendar' },
 	      'Calendar goes here'
+	    ),
+	    _react2.default.createElement(
+	      'a',
+	      { href: '#/home' },
+	      'Return Home'
 	    )
 	  );
 	};
@@ -27472,7 +27477,7 @@
 	          { id: 'login-box' },
 	          _react2.default.createElement(
 	            'form',
-	            { action: '/home', method: 'get', id: 'login' },
+	            { action: '#/home', method: 'get', id: 'login' },
 	            _react2.default.createElement('input', { type: 'text', placeholder: 'Email', name: 'email' }),
 	            _react2.default.createElement('br', null),
 	            _react2.default.createElement('input', { type: 'text', placeholder: 'Password', name: 'password' }),
@@ -27493,7 +27498,7 @@
 	          { id: 'register-link' },
 	          _react2.default.createElement(
 	            'form',
-	            { action: 'https://www.facebook.com/login/' },
+	            { action: '#/register' },
 	            _react2.default.createElement('input', { type: 'submit', value: 'Register' })
 	          )
 	        )
@@ -27565,12 +27570,20 @@
 	      _react2.default.createElement(
 	        'div',
 	        { className: 'six columns' },
-	        _react2.default.createElement('img', { src: '', alt: 'link to shopping list' })
+	        _react2.default.createElement(
+	          'a',
+	          { href: '#/shoppinglist' },
+	          _react2.default.createElement('img', { src: '', alt: 'link to shopping list' })
+	        )
 	      ),
 	      _react2.default.createElement(
 	        'div',
 	        { className: 'six columns' },
-	        _react2.default.createElement('img', { src: '', alt: 'link to calendar' })
+	        _react2.default.createElement(
+	          'a',
+	          { href: '#/calendar' },
+	          _react2.default.createElement('img', { src: '', alt: 'link to calendar' })
+	        )
 	      )
 	    ),
 	    _react2.default.createElement(
@@ -27579,12 +27592,20 @@
 	      _react2.default.createElement(
 	        'div',
 	        { className: 'six columns' },
-	        _react2.default.createElement('img', { src: '', alt: 'link to roster' })
+	        _react2.default.createElement(
+	          'a',
+	          { href: '#/roster' },
+	          _react2.default.createElement('img', { src: '', alt: 'link to roster' })
+	        )
 	      ),
 	      _react2.default.createElement(
 	        'div',
 	        { className: 'six columns' },
-	        _react2.default.createElement('img', { src: '', alt: 'link to bills' })
+	        _react2.default.createElement(
+	          'a',
+	          { href: '#/bills' },
+	          _react2.default.createElement('img', { src: '', alt: 'link to bills' })
+	        )
 	      )
 	    )
 	  );
@@ -27659,6 +27680,11 @@
 	          'Register'
 	        )
 	      )
+	    ),
+	    _react2.default.createElement(
+	      'a',
+	      { href: '/' },
+	      'Return'
 	    )
 	  );
 	};
@@ -27686,9 +27712,14 @@
 	    'div',
 	    null,
 	    _react2.default.createElement(
-	      H2,
+	      'h2',
 	      null,
 	      'Duty Calls'
+	    ),
+	    _react2.default.createElement(
+	      'a',
+	      { href: '#/home' },
+	      'Return Home'
 	    )
 	  );
 	};
@@ -27732,6 +27763,11 @@
 	        { type: 'add' },
 	        'Add'
 	      )
+	    ),
+	    _react2.default.createElement(
+	      'a',
+	      { href: '#/home' },
+	      'Return Home'
 	    )
 	  );
 	};
@@ -27770,7 +27806,12 @@
 	    _react2.default.createElement(
 	      'div',
 	      null,
-	      _react2.default.createElement(_BillItems2.default, null)
+	      _react2.default.createElement(_BillItems2.default, null),
+	      _react2.default.createElement(
+	        'a',
+	        { href: '#/home' },
+	        'Return Home'
+	      )
 	    )
 	  );
 	};
