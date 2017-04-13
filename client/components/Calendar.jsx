@@ -2,19 +2,27 @@ import React from 'react'
 
 import CalendarList from './CalendarList'
 
-const Calendar = (april) => (
-  <div className='container'>
-   <h2>Calendar</h2>
-   <div className='calendar'>
-     Todays date is { todaysDate () } <br></br>
-     There are { daysInMonth () } days in this month
-   </div>
-   <CalendarList />
-   <a href='#/home'>Return Home</a>
-  </div>
-)
+export default React.createClass ({
+  getInitialState () {
+    return {
+      month: april
+    }
+  },
 
-export default Calendar
+  render () {
+    return (
+      <div className='container'>
+       <h2>Calendar</h2>
+       <div className='calendar'>
+         Todays date is { todaysDate () } <br></br>
+         There are { daysInMonth () } days in this month
+       </div>
+       <CalendarList month={this.state.month} />
+       <a href='#/home'>Return Home</a>
+      </div>
+    )
+  }}
+)
 
 
 function todaysDate () {
