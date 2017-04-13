@@ -23780,31 +23780,31 @@
 	
 	var _Calendar2 = _interopRequireDefault(_Calendar);
 	
-	var _DefaultPage = __webpack_require__(254);
+	var _DefaultPage = __webpack_require__(255);
 	
 	var _DefaultPage2 = _interopRequireDefault(_DefaultPage);
 	
-	var _Header = __webpack_require__(255);
+	var _Header = __webpack_require__(256);
 	
 	var _Header2 = _interopRequireDefault(_Header);
 	
-	var _Main = __webpack_require__(256);
+	var _Main = __webpack_require__(257);
 	
 	var _Main2 = _interopRequireDefault(_Main);
 	
-	var _Register = __webpack_require__(258);
+	var _Register = __webpack_require__(259);
 	
 	var _Register2 = _interopRequireDefault(_Register);
 	
-	var _Roster = __webpack_require__(259);
+	var _Roster = __webpack_require__(260);
 	
 	var _Roster2 = _interopRequireDefault(_Roster);
 	
-	var _ShoppingList = __webpack_require__(260);
+	var _ShoppingList = __webpack_require__(261);
 	
 	var _ShoppingList2 = _interopRequireDefault(_ShoppingList);
 	
-	var _Bills = __webpack_require__(261);
+	var _Bills = __webpack_require__(262);
 	
 	var _Bills2 = _interopRequireDefault(_Bills);
 	
@@ -27400,6 +27400,10 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	var april = {
+	  days: [{ id: 9001, date: '01/04/2017', event: 'Wow' }, { id: 9002, date: '08/04/2017', event: 'Cool' }, { id: 9003, date: '23/04/2017', event: 'Awesome' }]
+	};
+	
 	exports.default = _react2.default.createClass({
 	  displayName: 'Calendar',
 	  getInitialState: function getInitialState() {
@@ -27419,15 +27423,10 @@
 	      _react2.default.createElement(
 	        'div',
 	        { className: 'calendar' },
-	        'Todays date is ',
-	        todaysDate(),
-	        ' ',
-	        _react2.default.createElement('br', null),
-	        'There are ',
-	        daysInMonth(),
-	        ' days in this month'
+	        'Todays date: ',
+	        todaysDate()
 	      ),
-	      _react2.default.createElement(_CalendarList2.default, { month: this.state.month }),
+	      _react2.default.createElement(_CalendarList2.default, { days: this.state.month.days }),
 	      _react2.default.createElement(
 	        'a',
 	        { href: '#/home' },
@@ -27445,107 +27444,6 @@
 	  var year = currentDate.getFullYear();
 	  return day + "/" + month + "/" + year;
 	}
-	
-	function daysInMonth(month, year) {
-	  var currentDate = new Date();
-	  var month = currentDate.getMonth() + 1;
-	  var year = currentDate.getFullYear();
-	  return new Date(year, month, 0).getDate();
-	}
-	
-	var april = {
-	  days: [{
-	    date: '01/04/2017',
-	    event: 'Event1'
-	  }, {
-	    date: '02/04/2017',
-	    event: 'Event1'
-	  }, {
-	    date: '03/04/2017',
-	    event: ''
-	  }, {
-	    date: '04/04/2017',
-	    event: ''
-	  }, {
-	    date: '05/04/2017',
-	    event: 'Event2'
-	  }, {
-	    date: '06/04/2017',
-	    event: ''
-	  }, {
-	    date: '07/04/2017',
-	    event: ''
-	  }, {
-	    date: '08/04/2017',
-	    event: ''
-	  }, {
-	    date: '09/04/2017',
-	    event: ''
-	  }, {
-	    date: '10/04/2017',
-	    event: 'Event3'
-	  }, {
-	    date: '11/04/2017',
-	    event: 'Event3'
-	  }, {
-	    date: '12/04/2017',
-	    event: 'Event3'
-	  }, {
-	    date: '13/04/2017',
-	    event: ''
-	  }, {
-	    date: '14/04/2017',
-	    event: ''
-	  }, {
-	    date: '15/04/2017',
-	    event: ''
-	  }, {
-	    date: '16/04/2017',
-	    event: ''
-	  }, {
-	    date: '17/04/2017',
-	    event: ''
-	  }, {
-	    date: '18/04/2017',
-	    event: ''
-	  }, {
-	    date: '19/04/2017',
-	    event: ''
-	  }, {
-	    date: '20/04/2017',
-	    event: 'Event4'
-	  }, {
-	    date: '21/04/2017',
-	    event: ''
-	  }, {
-	    date: '22/04/2017',
-	    event: ''
-	  }, {
-	    date: '23/04/2017',
-	    event: ''
-	  }, {
-	    date: '24/04/2017',
-	    event: ''
-	  }, {
-	    date: '25/04/2017',
-	    event: ''
-	  }, {
-	    date: '26/04/2017',
-	    event: 'Another Event'
-	  }, {
-	    date: '27/04/2017',
-	    event: ''
-	  }, {
-	    date: '28/04/2017',
-	    event: ''
-	  }, {
-	    date: '29/04/2017',
-	    event: ''
-	  }, {
-	    date: '30/04/2017',
-	    event: ''
-	  }]
-	};
 
 /***/ },
 /* 253 */
@@ -27561,7 +27459,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _CalendarListItem = __webpack_require__(263);
+	var _CalendarListItem = __webpack_require__(254);
 	
 	var _CalendarListItem2 = _interopRequireDefault(_CalendarListItem);
 	
@@ -27575,41 +27473,44 @@
 	      'table',
 	      null,
 	      _react2.default.createElement(
-	        'tr',
+	        'thead',
 	        null,
 	        _react2.default.createElement(
-	          'th',
+	          'tr',
 	          null,
-	          'Day'
-	        ),
-	        _react2.default.createElement(
-	          'th',
-	          null,
-	          'Event'
+	          _react2.default.createElement(
+	            'th',
+	            null,
+	            'Date'
+	          ),
+	          _react2.default.createElement(
+	            'th',
+	            null,
+	            'Event'
+	          )
 	        )
 	      ),
 	      _react2.default.createElement(
-	        'tr',
+	        'tbody',
 	        null,
-	        _react2.default.createElement(
-	          'td',
-	          null,
-	          'Day 1'
-	        ),
-	        _react2.default.createElement(
-	          'td',
-	          null,
-	          props.days,
-	          'Event 1'
-	        )
+	        props.days.map(function (days) {
+	          return _react2.default.createElement(_CalendarListItem2.default, { days: days, key: days.id });
+	        })
 	      )
-	    ),
-	    _react2.default.createElement(_CalendarListItem2.default, null)
+	    )
 	  );
 	};
 	
 	exports.default = CalendarList;
 	
+	
+	function todaysDate() {
+	  var currentDate = new Date();
+	  var day = currentDate.getDate();
+	  var month = currentDate.getMonth() + 1;
+	  var year = currentDate.getFullYear();
+	  return day + "/" + month + "/" + year;
+	}
 	
 	function daysInMonth(month, year) {
 	  var currentDate = new Date();
@@ -27620,6 +27521,41 @@
 
 /***/ },
 /* 254 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var CalendarListItem = function CalendarListItem(props) {
+	  return _react2.default.createElement(
+	    'tr',
+	    null,
+	    _react2.default.createElement(
+	      'td',
+	      null,
+	      props.days.date
+	    ),
+	    _react2.default.createElement(
+	      'td',
+	      null,
+	      props.days.event
+	    )
+	  );
+	};
+	
+	exports.default = CalendarListItem;
+
+/***/ },
+/* 255 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27712,7 +27648,7 @@
 	exports.default = DefaultPage;
 
 /***/ },
-/* 255 */
+/* 256 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27734,7 +27670,7 @@
 	    _react2.default.createElement(
 	      'h1',
 	      null,
-	      'Flat Mate '
+	      'Flat Mate'
 	    )
 	  );
 	};
@@ -27742,7 +27678,7 @@
 	exports.default = Header;
 
 /***/ },
-/* 256 */
+/* 257 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27755,7 +27691,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _ProfileBar = __webpack_require__(257);
+	var _ProfileBar = __webpack_require__(258);
 	
 	var _ProfileBar2 = _interopRequireDefault(_ProfileBar);
 	
@@ -27816,7 +27752,7 @@
 	exports.default = Main;
 
 /***/ },
-/* 257 */
+/* 258 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -27842,7 +27778,7 @@
 	exports.default = ProfileBar;
 
 /***/ },
-/* 258 */
+/* 259 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27894,7 +27830,7 @@
 	exports.default = Register;
 
 /***/ },
-/* 259 */
+/* 260 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27929,7 +27865,7 @@
 	exports.default = Roster;
 
 /***/ },
-/* 260 */
+/* 261 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27977,7 +27913,7 @@
 	exports.default = ShoppingList;
 
 /***/ },
-/* 261 */
+/* 262 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -27990,7 +27926,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _BillItems = __webpack_require__(262);
+	var _BillItems = __webpack_require__(263);
 	
 	var _BillItems2 = _interopRequireDefault(_BillItems);
 	
@@ -28021,7 +27957,7 @@
 	exports.default = Bills;
 
 /***/ },
-/* 262 */
+/* 263 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -28059,32 +27995,6 @@
 	};
 	
 	exports.default = BillItems;
-
-/***/ },
-/* 263 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var CalendarListItem = function CalendarListItem(props) {
-	  return _react2.default.createElement(
-	    'div',
-	    { className: 'container' },
-	    'List Item'
-	  );
-	};
-	
-	exports.default = CalendarListItem;
 
 /***/ }
 /******/ ]);

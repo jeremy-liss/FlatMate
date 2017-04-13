@@ -1,9 +1,10 @@
 import React from 'react'
 
 const CalendarListItem = (props) => (
-  <div className='container'>
-    List Item
-  </div>
+    <tr>
+      <td>{ props.days.date }</td>
+      <td>{ props.days.event }</td>
+    </tr>
 )
 
 export default CalendarListItem
