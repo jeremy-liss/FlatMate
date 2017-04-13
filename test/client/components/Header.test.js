@@ -6,6 +6,6 @@ import Header from '../../../client/components/Header.jsx'
 
 test('shallow', t => {
   const wrapper = shallow(<Header />)
-  t.equal(wrapper.contains(<h1>Flat Mate </h1>), true)
+  t.equal(wrapper.contains(<h1>Flat Mate</h1>), true)
   t.end()
 })
