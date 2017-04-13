@@ -23774,35 +23774,35 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _Calendar = __webpack_require__(216);
+	var _Calendar = __webpack_require__(252);
 	
 	var _Calendar2 = _interopRequireDefault(_Calendar);
 	
-	var _DefaultPage = __webpack_require__(217);
+	var _DefaultPage = __webpack_require__(253);
 	
 	var _DefaultPage2 = _interopRequireDefault(_DefaultPage);
 	
-	var _Header = __webpack_require__(218);
+	var _Header = __webpack_require__(254);
 	
 	var _Header2 = _interopRequireDefault(_Header);
 	
-	var _Main = __webpack_require__(219);
+	var _Main = __webpack_require__(255);
 	
 	var _Main2 = _interopRequireDefault(_Main);
 	
-	var _Register = __webpack_require__(221);
+	var _Register = __webpack_require__(257);
 	
 	var _Register2 = _interopRequireDefault(_Register);
 	
-	var _Roster = __webpack_require__(222);
+	var _Roster = __webpack_require__(258);
 	
 	var _Roster2 = _interopRequireDefault(_Roster);
 	
-	var _ShoppingList = __webpack_require__(223);
+	var _ShoppingList = __webpack_require__(259);
 	
 	var _ShoppingList2 = _interopRequireDefault(_ShoppingList);
 	
-	var _Bills = __webpack_require__(224);
+	var _Bills = __webpack_require__(260);
 	
 	var _Bills2 = _interopRequireDefault(_Bills);
 	
@@ -23814,14 +23814,50 @@
 	    'div',
 	    { className: 'app' },
 	    _react2.default.createElement(_Header2.default, null),
-	    _react2.default.createElement(_Calendar2.default, null)
+	    _react2.default.createElement(_Main2.default, null)
 	  );
 	};
 	
 	exports.default = App;
 
 /***/ },
-/* 216 */
+/* 216 */,
+/* 217 */,
+/* 218 */,
+/* 219 */,
+/* 220 */,
+/* 221 */,
+/* 222 */,
+/* 223 */,
+/* 224 */,
+/* 225 */,
+/* 226 */,
+/* 227 */,
+/* 228 */,
+/* 229 */,
+/* 230 */,
+/* 231 */,
+/* 232 */,
+/* 233 */,
+/* 234 */,
+/* 235 */,
+/* 236 */,
+/* 237 */,
+/* 238 */,
+/* 239 */,
+/* 240 */,
+/* 241 */,
+/* 242 */,
+/* 243 */,
+/* 244 */,
+/* 245 */,
+/* 246 */,
+/* 247 */,
+/* 248 */,
+/* 249 */,
+/* 250 */,
+/* 251 */,
+/* 252 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23856,7 +23892,7 @@
 	exports.default = Calendar;
 
 /***/ },
-/* 217 */
+/* 253 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23929,7 +23965,7 @@
 	exports.default = DefaultPage;
 
 /***/ },
-/* 218 */
+/* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23959,7 +23995,7 @@
 	exports.default = Header;
 
 /***/ },
-/* 219 */
+/* 255 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -23972,7 +24008,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _ProfileBar = __webpack_require__(220);
+	var _ProfileBar = __webpack_require__(256);
 	
 	var _ProfileBar2 = _interopRequireDefault(_ProfileBar);
 	
@@ -24017,7 +24053,7 @@
 	exports.default = Main;
 
 /***/ },
-/* 220 */
+/* 256 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -24043,7 +24079,7 @@
 	exports.default = ProfileBar;
 
 /***/ },
-/* 221 */
+/* 257 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24090,7 +24126,7 @@
 	exports.default = Register;
 
 /***/ },
-/* 222 */
+/* 258 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24120,7 +24156,7 @@
 	exports.default = Roster;
 
 /***/ },
-/* 223 */
+/* 259 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24163,7 +24199,7 @@
 	exports.default = ShoppingList;
 
 /***/ },
-/* 224 */
+/* 260 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -24176,7 +24212,7 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
-	var _BillItems = __webpack_require__(225);
+	var _BillItems = __webpack_require__(261);
 	
 	var _BillItems2 = _interopRequireDefault(_BillItems);
 	
@@ -24202,7 +24238,7 @@
 	exports.default = Bills;
 
 /***/ },
-/* 225 */
+/* 261 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
