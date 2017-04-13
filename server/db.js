@@ -10,7 +10,8 @@ module.exports = {
   getBills: getBills,
   getBillAllocations: getBillAllocations,
   getEvents: getEvents,
-  getShoppingListItems: getShoppingListItems
+  getShoppingListItems: getShoppingListItems,
+  addShoppingListItem: addShoppingListItem
 }
 
 function getUsers () {
@@ -23,6 +24,10 @@ function getFlat () {
 
 function getJobs () {
   return knex('jobs').select()
+}
+
+function addShoppingListItem (item) {
+  return knex('jobs').insert({flat_id:1001, item: item})
 }
 
 function getBills () {
