@@ -7,6 +7,7 @@ const Bills = () => (
    <h1>Bills</h1>
    <div>
      <BillItems />
+     <a href='#/home'>Return Home</a>
    </div>
   </div>
 )

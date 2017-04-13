@@ -24,7 +24,7 @@ const DefaultPage = () => (
       </div>
       <div className='four columns'>
         <div id='login-box'>
-          <form action='/home' method='get' id='login'>
+          <form action='#/home' method='get' id='login'>
             <input type="text" placeholder="Email" name='email'/><br />
             <input type="text" placeholder="Password" name='password'/><br />
             <button type='submit' form='login' value='Submit'>Login</button>
@@ -33,7 +33,7 @@ const DefaultPage = () => (
       </div>
       <div className='four columns'>
         <div id='register-link'>
-          <form action="https://www.facebook.com/login/">
+          <form action="#/register">
             <input type="submit" value="Register" />
           </form>
         </div>

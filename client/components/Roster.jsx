@@ -2,7 +2,8 @@ import React from 'react'
 
 const Roster = () => (
   <div>
-   <H2>Duty Calls</H2>
+   <h2>Duty Calls</h2>
+   <a href='#/home'>Return Home</a>
   </div>
 )
 
