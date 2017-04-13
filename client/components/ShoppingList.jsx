@@ -1,10 +1,14 @@
 import React from 'react'
-import {connect} from 'react-redux'
 
-const ShoppingList = () => (
+import ShoppingListItems from './ShoppingListItems'
+
+const ShoppingList = ({items}) => (
 
   <div className="Shoppinglist">
     <h1>Shopping List</h1>
+
+    <ShoppingListItems />
+
     <form action="/form" method="post">
       Shopping List:
       <input type="text" name="" value="" />
@@ -13,6 +17,7 @@ const ShoppingList = () => (
     <a href='#/home'>Return Home</a>
   </div>
 )
+
 
 
 export default ShoppingList
