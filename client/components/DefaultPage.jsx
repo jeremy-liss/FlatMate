@@ -13,29 +13,29 @@ const DefaultPage = () => (
       </div>
     </div>
     <div className='row'>
-      <div className='three columns'>
+      <div className='four columns'>
         <div className='logins'>
           <div id='fb-login'>
             <p><a href='http://www.facebook.com/login'>
-              <img src='https://www.peacerun.org/static/media/uploads/global/frontpageimages/facebook.png'></img>
+              <img src='https://cdn.fileplanet.com/gen//facebook-pro-app-100x100.png'></img>
             </a></p>
           </div>
         </div>
-        <div className='three columns'>
-          <div id='login-box'>
-            <form action='#' method='get' id='login'>
-              <input type="text" placeholder="Email" name='email'/><br />
-              <input type="text" placeholder="Password" name='password'/><br />
-              <button type='submit' form='login' value='Submit'>Login</button>
-            </form>
-          </div>
+      </div>
+      <div className='four columns'>
+        <div id='login-box'>
+          <form action='/home' method='get' id='login'>
+            <input type="text" placeholder="Email" name='email'/><br />
+            <input type="text" placeholder="Password" name='password'/><br />
+            <button type='submit' form='login' value='Submit'>Login</button>
+          </form>
         </div>
-        <div className='three columns'>
-          <div id='register-link'>
-            <form action="https://en-gb.facebook.com/login/">
-              <input type="submit" value="Register" />
-            </form>
-          </div>
+      </div>
+      <div className='four columns'>
+        <div id='register-link'>
+          <form action="https://www.facebook.com/login/">
+            <input type="submit" value="Register" />
+          </form>
         </div>
       </div>
     </div>

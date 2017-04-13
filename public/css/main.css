@@ -25,3 +25,8 @@ img {
 .row {
   padding-top: 20px;
 }
+
+#fb-login img {
+    width: 50%;
+    height: auto;
+}

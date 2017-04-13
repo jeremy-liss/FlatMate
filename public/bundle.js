@@ -27449,7 +27449,7 @@
 	      { className: 'row' },
 	      _react2.default.createElement(
 	        'div',
-	        { className: 'three columns' },
+	        { className: 'four columns' },
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'logins' },
@@ -27462,43 +27462,43 @@
 	              _react2.default.createElement(
 	                'a',
 	                { href: 'http://www.facebook.com/login' },
-	                _react2.default.createElement('img', { src: 'https://www.peacerun.org/static/media/uploads/global/frontpageimages/facebook.png' })
+	                _react2.default.createElement('img', { src: 'https://cdn.fileplanet.com/gen//facebook-pro-app-100x100.png' })
 	              )
 	            )
 	          )
-	        ),
+	        )
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'four columns' },
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'three columns' },
+	          { id: 'login-box' },
 	          _react2.default.createElement(
-	            'div',
-	            { id: 'login-box' },
+	            'form',
+	            { action: '/home', method: 'get', id: 'login' },
+	            _react2.default.createElement('input', { type: 'text', placeholder: 'Email', name: 'email' }),
+	            _react2.default.createElement('br', null),
+	            _react2.default.createElement('input', { type: 'text', placeholder: 'Password', name: 'password' }),
+	            _react2.default.createElement('br', null),
 	            _react2.default.createElement(
-	              'form',
-	              { action: '#', method: 'get', id: 'login' },
-	              _react2.default.createElement('input', { type: 'text', placeholder: 'Email', name: 'email' }),
-	              _react2.default.createElement('br', null),
-	              _react2.default.createElement('input', { type: 'text', placeholder: 'Password', name: 'password' }),
-	              _react2.default.createElement('br', null),
-	              _react2.default.createElement(
-	                'button',
-	                { type: 'submit', form: 'login', value: 'Submit' },
-	                'Login'
-	              )
+	              'button',
+	              { type: 'submit', form: 'login', value: 'Submit' },
+	              'Login'
 	            )
 	          )
-	        ),
+	        )
+	      ),
+	      _react2.default.createElement(
+	        'div',
+	        { className: 'four columns' },
 	        _react2.default.createElement(
 	          'div',
-	          { className: 'three columns' },
+	          { id: 'register-link' },
 	          _react2.default.createElement(
-	            'div',
-	            { id: 'register-link' },
-	            _react2.default.createElement(
-	              'form',
-	              { action: 'https://en-gb.facebook.com/login/' },
-	              _react2.default.createElement('input', { type: 'submit', value: 'Register' })
-	            )
+	            'form',
+	            { action: 'https://www.facebook.com/login/' },
+	            _react2.default.createElement('input', { type: 'submit', value: 'Register' })
 	          )
 	        )
 	      )
