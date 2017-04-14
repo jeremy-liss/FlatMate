@@ -169,6 +169,7 @@ a:hover {
 button,
 input[type="submit"],
 input[type="reset"],
+input[type="date"],
 input[type="button"] {
   display: inline-block;
   height: 38px;
@@ -191,11 +192,13 @@ input[type="button"] {
 button:hover,
 input[type="submit"]:hover,
 input[type="reset"]:hover,
+input[type="date"],
 input[type="button"]:hover,
 .button:focus,
 button:focus,
 input[type="submit"]:focus,
 input[type="reset"]:focus,
+input[type="date"],
 input[type="button"]:focus {
   color: #333;
   border-color: #888;
@@ -204,6 +207,7 @@ input[type="button"]:focus {
 button.button-primary,
 input[type="submit"].button-primary,
 input[type="reset"].button-primary,
+input[type="date"].button-primary,
 input[type="button"].button-primary {
   color: #FFF;
   background-color: #33C3F0;
@@ -212,11 +216,13 @@ input[type="button"].button-primary {
 button.button-primary:hover,
 input[type="submit"].button-primary:hover,
 input[type="reset"].button-primary:hover,
+input[type="date"].button-primary:hover,
 input[type="button"].button-primary:hover,
 .button.button-primary:focus,
 button.button-primary:focus,
 input[type="submit"].button-primary:focus,
 input[type="reset"].button-primary:focus,
+input[type="date"].button-primary:focus,
 input[type="button"].button-primary:focus {
   color: #FFF;
   background-color: #1EAEDB;
@@ -229,6 +235,7 @@ input[type="email"],
 input[type="number"],
 input[type="search"],
 input[type="text"],
+input[type="date"],
 input[type="tel"],
 input[type="url"],
 input[type="password"],
@@ -246,6 +253,7 @@ input[type="email"],
 input[type="number"],
 input[type="search"],
 input[type="text"],
+input[type="date"],
 input[type="tel"],
 input[type="url"],
 input[type="password"],
@@ -261,6 +269,7 @@ input[type="email"]:focus,
 input[type="number"]:focus,
 input[type="search"]:focus,
 input[type="text"]:focus,
+input[type="date"]:focus,
 input[type="tel"]:focus,
 input[type="url"]:focus,
 input[type="password"]:focus,
@@ -354,7 +363,7 @@ p,
 ul,
 ol,
 form {
-  margin-bottom: 2.5rem; }
+  margin-bottom: 1rem; }
 
 
 /* Utilities
