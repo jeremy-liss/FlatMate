@@ -11,6 +11,7 @@ var jobs = require('./routes/jobs')
 var billAllocations = require('./routes/billAllocations')
 var events = require('./routes/events')
 var shoppingListItems = require('./routes/shoppingListItems')
+var roster = require('./routes/roster')
 
 var server = express()
 
@@ -24,5 +25,6 @@ server.use('/api/jobs', jobs)
 server.use('/api/bill_allocations', billAllocations)
 server.use('/api/events', events)
 server.use('/api/shopping_list_items', shoppingListItems)
+server.use('/api/roster', roster)
 
 module.exports = server

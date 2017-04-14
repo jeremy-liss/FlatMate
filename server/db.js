@@ -11,7 +11,8 @@ module.exports = {
   getBillAllocations: getBillAllocations,
   getEvents: getEvents,
   getShoppingListItems: getShoppingListItems,
-  addShoppingListItem: addShoppingListItem
+  addShoppingListItem: addShoppingListItem,
+  getRoster:  getRoster
 }
 
 function getUsers () {
@@ -24,6 +25,11 @@ function getFlat () {
 
 function getJobs () {
   return knex('jobs').select()
+}
+
+function getRoster() {
+  return knex('jobs')
+    .join('users', 'users.id', '=', 'jobs.user_id')
 }
 
 function addShoppingListItem (item) {

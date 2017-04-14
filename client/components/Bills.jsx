@@ -7,9 +7,6 @@ import {fetchItems} from '../actions'
 var total = 0
 const Bills = (props) => {
 
-  props.dispatch(fetchItems('bills'))
-  console.log(props)
-
   props.billItems.map(function(bill){
     total += bill.amount
     return total
@@ -18,10 +15,11 @@ const Bills = (props) => {
   return  (
       <div className='bills'>
         <h1>Bills</h1>
-        {props.billItems.map(function(bill){
-          return <BillItems amount={bill.amount} details={bill.details} />
+        {props.billItems.map(function(bill, i){
+          return <BillItems amount={bill.amount} details={bill.details} key={i} />
         })}
         <div>Total: ${total}</div>
+        <a href='#/home'>Return Home</a>
       </div>
     )
 }
