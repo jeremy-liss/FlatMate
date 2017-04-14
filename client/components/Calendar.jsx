@@ -41,7 +41,7 @@ export default React.createClass ({
     return (
       <div className='container'>
         <div className='row'>
-          <h2>Calendar</h2>
+          <h3>Event Calendar</h3>
           Today is the { easyToReadDate () }
           <CalendarEntry />
         </div>
