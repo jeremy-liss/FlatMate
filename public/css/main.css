@@ -1,6 +1,7 @@
 body {
   width: 75%;
   margin: auto;
+  text-align: center;
 }
 
 h1 {
@@ -29,4 +30,7 @@ img {
 #fb-login img {
     width: 50%;
     height: auto;
+}
+#remove-button {
+  text-align: right;
 }
