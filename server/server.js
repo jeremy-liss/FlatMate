@@ -16,6 +16,9 @@ var roster = require('./routes/roster')
 var server = express()
 
 server.use(bodyParser.json())
+server.use(bodyParser.urlencoded({
+  extended: true
+}))
 server.use(cors({origin: 'http://localhost:8080'}))
 server.use(express.static(path.join(__dirname, '../public')))
 server.use('/api/flat', flat)

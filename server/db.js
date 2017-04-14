@@ -48,6 +48,6 @@ function getShoppingListItems() {
   return knex('shopping_list_items').select()
 }
 
-function addShoppingListItem (item) {
-  return knex('shopping_list_items').insert({flat_id:1001, item: item})
+function addShoppingListItem (id, item) {
+  return knex('shopping_list_items').insert({flat_id:id, item:item})
 }

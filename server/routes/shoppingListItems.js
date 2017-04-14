@@ -13,8 +13,12 @@ router.route('/')
     })
   })
   .post(function (req, res) {
-    db.addShoppingListItem(req.params.item).then((result) => {
-      res.send(result)
+    db.addShoppingListItem(1001, req.body.item).then(() => {
+      console.log(req.body.item);
+      res.send()
+    })
+    .catch((err) => {
+      res.status(500).send(err)
     })
   })
 
