@@ -4,8 +4,8 @@ import {connect} from 'react-redux'
 import BillItems from './BillItems'
 import {fetchItems} from '../actions'
 
-var total = 0
 const Bills = (props) => {
+  let total = 0
 
   props.billItems.map(function(bill){
     total += bill.amount

@@ -32,10 +32,6 @@ function getRoster() {
     .join('users', 'users.id', '=', 'jobs.user_id')
 }
 
-function addShoppingListItem (item) {
-  return knex('jobs').insert({flat_id:1001, item: item})
-}
-
 function getBills () {
   return knex('bills').select()
 }
@@ -50,4 +46,8 @@ function getEvents () {
 
 function getShoppingListItems() {
   return knex('shopping_list_items').select()
+}
+
+function addShoppingListItem (item) {
+  return knex('shopping_list_items').insert({flat_id:1001, item: item})
 }
