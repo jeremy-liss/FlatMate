@@ -1,10 +1,10 @@
 import React from 'react'
 
 const Jobs = (props) => (
-
-  <div className='jobs'>
-     Name: {props.name}, Job: {props.job}
-  </div>
+  <tr>
+        <td>{props.name}</td>
+        <td>{props.job}</td>
+      </tr>
 )
 
 export default Jobs
