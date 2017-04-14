@@ -10,10 +10,9 @@ export const receiveItems = (items) => {
 export function fetchItems () {
   return (dispatch) => {
     request
-      .get(`http://www.http://localhost:3000/api/shopping-list-items`)
+      .get(`http://localhost:3000/api/shopping-list-items`)
       .end((err, res) => {
         if (err) {
-          console.error(err.message)
           return
         }
         dispatch(receiveItems(res.body))

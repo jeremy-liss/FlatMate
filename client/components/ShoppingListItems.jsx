@@ -2,14 +2,18 @@ import React from 'react'
 import {connect} from 'react-redux'
 import {fetchItems} from '../actions'
 
+import Item from './Item'
+
 function ShoppingListItems (props) {
 
-  () => dispatch(fetchItems())
+  props.dispatch(fetchItems())
 
   return (
 
     <div className="Shoppinglist">
-      {props.shoppingListItems}
+      {props.shoppingListItems.map(function(item){
+        return <Item item={item.item} />
+      })}
     </div>
   )
 
@@ -17,7 +21,8 @@ function ShoppingListItems (props) {
 
 const mapStateToProps = (state) => {
   return {
-    shoppingListItems: state.shoppingListItems
+    shoppingListItems: state.shoppingListItems,
+    dispatch: state.dispatch
   }
 }
 
