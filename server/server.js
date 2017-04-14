@@ -21,8 +21,8 @@ server.use('/api/flat', flat)
 server.use('/api/users', users)
 server.use('/api/bills', bills)
 server.use('/api/jobs', jobs)
-server.use('/api/bill-allocations', billAllocations)
+server.use('/api/bill_allocations', billAllocations)
 server.use('/api/events', events)
-server.use('/api/shopping-list-items', shoppingListItems)
+server.use('/api/shopping_list_items', shoppingListItems)
 
 module.exports = server

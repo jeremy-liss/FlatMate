@@ -1,4 +1,4 @@
-function shoppingListItems (state = [], action) {
+function returnItems (state = [], action) {
   switch (action.type) {
     case 'RECEIVE_ITEMS':
 
@@ -11,4 +11,4 @@ function shoppingListItems (state = [], action) {
   }
 }
 
-export default shoppingListItems
+export default returnItems

@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 
-import shoppingListItems from './shoppingListItems'
+import returnItems from './returnItems'
 
 export default combineReducers({
-  shoppingListItems
+  returnItems
 })

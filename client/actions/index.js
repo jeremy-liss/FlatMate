@@ -7,10 +7,10 @@ export const receiveItems = (items) => {
   }
 }
 
-export function fetchItems () {
+export function fetchItems (database) {
   return (dispatch) => {
     request
-      .get(`http://localhost:3000/api/shopping-list-items`)
+      .get(`http://localhost:3000/api/${database}`)
       .end((err, res) => {
         if (err) {
           return
