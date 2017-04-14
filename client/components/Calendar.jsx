@@ -1,7 +1,7 @@
 import React from 'react'
 
+import CalendarEntry from './CalendarEntry'
 import CalendarList from './CalendarList'
-
 
 let events = {
   days: [
@@ -40,12 +40,15 @@ export default React.createClass ({
   render () {
     return (
       <div className='container'>
-       <h2>Calendar</h2>
-       <div className='calendar'>
-         Today is the { easyToReadDate () }
-       </div>
-       <CalendarList days={this.state.month.days} />
-       <a href='#/home'>Return Home</a>
+        <div className='row'>
+          <h2>Calendar</h2>
+          Today is the { easyToReadDate () }
+          <CalendarEntry />
+        </div>
+        <div className="row">
+          <CalendarList days={this.state.month.days} />
+          <a href='#/home'>Return Home</a>
+        </div>
       </div>
     )
   }}
