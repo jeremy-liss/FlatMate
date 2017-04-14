@@ -30,3 +30,6 @@ img {
     width: 50%;
     height: auto;
 }
+#remove-button {
+  text-align: right;
+}
