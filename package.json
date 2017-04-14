@@ -46,7 +46,13 @@
     "pg": "^6.1.5",
     "react-flip-move": "^2.9.2",
     "react-router-dom": "^4.1.1",
+<<<<<<< HEAD
     "sqlite3": "^3.1.8",
     "tape": "^4.6.3"
+=======
+    "redux-thunk": "^2.2.0",
+    "sqlite3": "^3.1.8",
+    "superagent": "^3.5.2"
+>>>>>>> 93fafdda738351bb0a9e58e734bb7bbd61ad49e6
   }
 }
