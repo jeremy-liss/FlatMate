@@ -1,6 +1,5 @@
 import React from 'react'
 import {connect} from 'react-redux'
-
 import {fetchItems} from '../actions'
 import Jobs from './Jobs'
 
