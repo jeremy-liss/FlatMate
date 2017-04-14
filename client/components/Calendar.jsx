@@ -3,7 +3,7 @@ import React from 'react'
 import CalendarList from './CalendarList'
 
 
-var events = {
+let events = {
   days: [
     {id: 9001, flat_id:1001, date: '2017-04-21', event:'Wow'},
     {id: 9002, flat_id:1001, date: '2017-05-29', event:'Cool'},
@@ -23,7 +23,12 @@ events.days.sort(function (a, b) {
   return a.date - b.date
 })
 
-
+events.days.map(function(day, i) {
+  let a = day.date.split('')
+  let rearranged = [a[6],a[7],"-",a[4],a[5],"-",a[0],a[1],a[2],a[3]]
+  let joinedArray = rearranged.join('')
+  events.days[i].date = joinedArray
+})
 
 export default React.createClass ({
   getInitialState () {
