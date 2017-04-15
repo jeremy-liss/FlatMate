@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Does the header read Flat Mate? 1`] = `
+<link
+  page="../../../client/components/Header"
+/>
+`;

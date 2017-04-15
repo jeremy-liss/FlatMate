@@ -20,12 +20,6 @@ export function fetchItems (table) {
   }
 }
 
-// export function addItem (ev) {
-//   // console.log(ev.target.elements[0].value);
-//   var newItem = {item: ev.target.elements[0].value}
-//   postItem(newItem)
-// }
-
 export function postItem (ev, callback) {
   ev.preventDefault(ev)
   request
@@ -37,4 +31,10 @@ export function postItem (ev, callback) {
       }
       callback(null, res.body)
     })
+
+export const shuffleJobs = () => {
+  return {
+    type: 'SHUFFLE_JOBS',
+    chores: ["Vacuum", "Dishes", "Trash"]
+  }
 }
