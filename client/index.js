@@ -15,6 +15,7 @@ let store = createStore(reducers, compose(
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  store.dispatch(fetchItems('events'))
   store.dispatch(fetchItems('bills'))
 
   render(
