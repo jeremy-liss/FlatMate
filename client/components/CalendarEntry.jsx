@@ -1,21 +1,22 @@
 import React from 'react'
 
+var today = new Date()
+var dd = today.getDate()
+var mm = today.getMonth()+1 //January is 0!
+var yyyy = today.getFullYear()
+if(dd < 10){dd ='0'+dd}
+if(mm < 10){mm ='0'+mm}
+today = yyyy+'-'+mm+'-'+dd
+
 const CalendarEntry = (props) => (
   <div className='row'>
     <form action='#/calendar' id='calendar'>
       <input type='text' placeholder='New Event'></input>
-      <input type='date' name='event' min='{ todaysDate () }'></input>
+      <input type='date' id='datefield' min={today}></input>
       <button type='submit' form='calendar' value='Submit'>Add Event</button>
     </form>
   </div>
 )
 
-function todaysDate () {
-  var currentDate = new Date()
-  var day = currentDate.getDate()
-  var month = currentDate.getMonth() + 1
-  var year = currentDate.getFullYear()
-  return (year + "-" + month + "-" + day)
-}
 
 export default CalendarEntry
