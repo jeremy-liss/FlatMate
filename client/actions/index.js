@@ -39,3 +39,16 @@ export function postItem (ev, callback) {
       callback(null, res.body)
     })
 }
+
+export function postEvent (ev, callback) {
+  ev.preventDefault(ev)
+  request
+    .post(`http://localhost:3000/api/addEvent`)
+    .send({date: ev.target.elements[1].value, event: ev.target.elements[0].value})
+    .end((err, res) => {
+      if (err) {
+        return
+      }
+      callback(null, res.body)
+    })
+}

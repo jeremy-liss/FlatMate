@@ -1,5 +1,7 @@
 import React from 'react'
 
+import {postEvent} from '../actions'
+
 var today = new Date()
 var dd = today.getDate()
 var mm = today.getMonth()+1 //January is 0!
@@ -10,7 +12,7 @@ today = yyyy+'-'+mm+'-'+dd
 
 const CalendarEntry = (props) => (
   <div className='row'>
-    <form action='#/calendar' id='calendar'>
+    <form onSubmit={postEvent} id='calendar'>
       <input type='text' placeholder='New Event'></input>
       <input type='date' id='datefield' min={today}></input>
       <button type='submit' form='calendar' value='Submit'>Add Event</button>

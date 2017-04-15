@@ -3,17 +3,18 @@ var config = require('../knexfile.js')[env]
 var knex = require('knex')(config)
 
 module.exports = {
-  getUsers: getUsers,
-  getFlat: getFlat,
+  addEvent: addEvent,
+  addShoppingListItem: addShoppingListItem,
+  delShoppingListItem: delShoppingListItem,
+  delEvent: delEvent,
+  getBillAllocations: getBillAllocations,
+  getBills: getBills,
+  getEvents: getEvents,
   getFlat: getFlat,
   getJobs: getJobs,
-  getBills: getBills,
-  getBillAllocations: getBillAllocations,
-  getEvents: getEvents,
-  getShoppingListItems: getShoppingListItems,
-  addShoppingListItem: addShoppingListItem,
   getRoster:  getRoster,
-  delShoppingListItem: delShoppingListItem
+  getShoppingListItems: getShoppingListItems,
+  getUsers: getUsers
 }
 
 function getUsers () {
@@ -42,9 +43,12 @@ function getBillAllocations () {
 }
 
 function getEvents () {
-  return knex('Events').select()
+  return knex('events').select()
 }
 
+function addEvent (flat_id, date, event) {
+  return knex('events').insert({flat_id:flat_id, date:date, event:event})
+}
 
 function getShoppingListItems() {
   return knex('shopping_list_items').select()
@@ -57,5 +61,11 @@ function addShoppingListItem (flat_id, item) {
 function delShoppingListItem () {
   return knex('shopping_list_items')
     .where('item', null)
+    .del()
+}
+
+function delEvent () {
+  return knex('events')
+    .where('event', null)
     .del()
 }
