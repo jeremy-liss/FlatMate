@@ -28,6 +28,7 @@ function getJobs () {
   return knex('jobs').select()
 }
 
+
 function getRoster() {
   return knex('jobs')
     .join('users', 'users.id', '=', 'jobs.user_id')
@@ -35,6 +36,10 @@ function getRoster() {
 
 function getBills () {
   return knex('bills').select()
+}
+
+function addBill (flat_id, bill) {
+  return knex('bills').insert({flat_id:flat_id, bill:bill})
 }
 
 function getBillAllocations () {

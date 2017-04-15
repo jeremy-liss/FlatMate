@@ -5,7 +5,9 @@ import BillItems from './BillItems'
 import {fetchItems} from '../actions'
 
 const Bills = (props) => {
+
   let total = 0
+  props.dispatch(fetchItems('bills'))
 
   props.billItems.map(function(bill){
     total += bill.amount
