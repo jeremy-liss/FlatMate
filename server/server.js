@@ -12,6 +12,8 @@ var billAllocations = require('./routes/billAllocations')
 var events = require('./routes/events')
 var shoppingListItems = require('./routes/shoppingListItems')
 var roster = require('./routes/roster')
+var addShoppingListItem = require('./routes/addShoppingListItem')
+
 
 var server = express()
 
@@ -29,5 +31,7 @@ server.use('/api/bill_allocations', billAllocations)
 server.use('/api/events', events)
 server.use('/api/shopping_list_items', shoppingListItems)
 server.use('/api/roster', roster)
+server.use('/api/addShoppingListItem', addShoppingListItem)
+server.use('/api/delShoppingListItem', shoppingListItems)
 
 module.exports = server

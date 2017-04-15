@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-import {fetchItems} from '../actions'
+import {fetchItems, postItem} from '../actions'
 import ShoppingListItems from './ShoppingListItems'
 
 const ShoppingList = (props) => {
@@ -18,11 +18,12 @@ const ShoppingList = (props) => {
           })}
         </div>
 
-      <form action="/form" method="post">
+      <form onSubmit={postItem}>
         Shopping List:
-        <input type="text" name="" value="" />
-        <button type="add">Add</button>
+        <input type="text" name="item" />
+        <button type="submit">Add</button>
       </form>
+
       <a href='#/home'>Return Home</a>
     </div>
   )
