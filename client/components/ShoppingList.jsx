@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-import {fetchItems} from '../actions'
+import {fetchItems, postItem} from '../actions'
 import ShoppingListItems from './ShoppingListItems'
 
 const ShoppingList = (props) => {

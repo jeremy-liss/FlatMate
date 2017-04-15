@@ -12,10 +12,14 @@ router.route('/')
       res.status(500).send(err)
     })
   })
-  .post(function (req, res) {
-    db.addShoppingListItem(req.params.item).then((result) => {
+  .delete(function (req, res) {
+    db.delShoppingListItem().then((result) => {
       res.send(result)
     })
+    .catch((err) => {
+      res.status(500).send(err)
+    })
   })
+
 
 module.exports = router

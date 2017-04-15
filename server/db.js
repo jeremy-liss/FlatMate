@@ -12,7 +12,8 @@ module.exports = {
   getEvents: getEvents,
   getShoppingListItems: getShoppingListItems,
   addShoppingListItem: addShoppingListItem,
-  getRoster:  getRoster
+  getRoster:  getRoster,
+  delShoppingListItem: delShoppingListItem
 }
 
 function getUsers () {
@@ -44,10 +45,17 @@ function getEvents () {
   return knex('Events').select()
 }
 
+
 function getShoppingListItems() {
   return knex('shopping_list_items').select()
 }
 
-function addShoppingListItem (item) {
-  return knex('shopping_list_items').insert({flat_id:1001, item: item})
+function addShoppingListItem (flat_id, item) {
+  return knex('shopping_list_items').insert({flat_id:flat_id, item:item})
+}
+
+function delShoppingListItem () {
+  return knex('shopping_list_items')
+    .where('item', null)
+    .del()
 }
