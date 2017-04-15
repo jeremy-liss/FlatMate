@@ -1,10 +1,12 @@
-function shuffleJobs (state = [], action) {
+function shuffleJobs (state = ["Vacuum", "Dishes", "Trash"], action) {
   switch (action.type) {
     case 'SHUFFLE_JOBS':
 
-      return [
-        ...action.list
-      ]
+    state = action.chores.sort(function(a,b) {
+      return 0.5 - Math.random()
+    })
+
+    return state
 
     default:
       return state
