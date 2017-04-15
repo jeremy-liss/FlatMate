@@ -54,8 +54,8 @@ function addShoppingListItem (flat_id, item) {
   return knex('shopping_list_items').insert({flat_id:flat_id, item:item})
 }
 
-function delShoppingListItem () {
+function delShoppingListItem (id) {
   return knex('shopping_list_items')
-    .where('item', null)
+    .where('id', id)
     .del()
 }

@@ -13,8 +13,8 @@ router.route('/')
     })
   })
   .delete(function (req, res) {
-    db.delShoppingListItem().then((result) => {
-      res.send(result)
+    db.delShoppingListItem(req.body.id).then(() => {
+      res.send()
     })
     .catch((err) => {
       res.status(500).send(err)

@@ -14,7 +14,7 @@ const ShoppingList = (props) => {
 
         <div>
           {props.list.map(function(item, i){
-            return <ShoppingListItems item={item.item} key={i} />
+            return <ShoppingListItems item={item.item} key={i} id={item.id} dispatch={props.dispatch} />
           })}
         </div>
 
