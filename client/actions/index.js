@@ -14,6 +14,14 @@ export const shuffleJobs = () => {
   }
 }
 
+export const getId = (id) => {
+  console.log(id);
+  return {
+    type: 'GET_ID',
+    id: id
+  }
+}
+
 export function fetchItems (table) {
   return (dispatch) => {
     request
@@ -32,6 +40,18 @@ export function postItem (ev, callback) {
   request
     .post(`http://localhost:3000/api/addShoppingListItem`)
     .send({item: ev.target.elements[0].value})
+    .end((err, res) => {
+      if (err) {
+        return
+      }
+      callback(null, res.body)
+    })
+}
+
+export function delItem (id, callback) {
+  request
+    .delete(`http://localhost:3000/api/delShoppingListItem`)
+    .send({id: id})
     .end((err, res) => {
       if (err) {
         return
