@@ -26,17 +26,15 @@ export function fetchItems (table) {
 //   postItem(newItem)
 // }
 
-export function postItem (ev) {
-  console.log(ev.target.elements[0].value)
-  return (dispatch) => {
-    request
-      .post(`http://localhost:3000/api/addShoppingListItem`)
-      .send({item: ev.target.elements[0].value})
-      .end((err, res) => {
-        if (err) {
-          return
-        }
-        dispatch(receiveItems(res.body))
-      })
-  }
+export function postItem (ev, callback) {
+  ev.preventDefault(ev)
+  request
+    .post(`http://localhost:3000/api/addShoppingListItem`)
+    .send({item: ev.target.elements[0].value})
+    .end((err, res) => {
+      if (err) {
+        return
+      }
+      callback(null, res.body)
+    })
 }
