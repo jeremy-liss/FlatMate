@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {fetchItems} from '../actions'
+import {shuffleJobs} from '../actions'
 import Jobs from './Jobs'
 
 const Roster = (props) => {
