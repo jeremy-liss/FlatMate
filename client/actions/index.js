@@ -7,6 +7,13 @@ export const receiveItems = (items) => {
   }
 }
 
+export const shuffleJobs = () => {
+  return {
+    type: 'SHUFFLE_JOBS',
+    chores: ["Vacuum", "Dishes", "Trash"]
+  }
+}
+
 export function fetchItems (table) {
   return (dispatch) => {
     request
@@ -31,10 +38,4 @@ export function postItem (ev, callback) {
       }
       callback(null, res.body)
     })
-
-export const shuffleJobs = () => {
-  return {
-    type: 'SHUFFLE_JOBS',
-    chores: ["Vacuum", "Dishes", "Trash"]
-  }
 }
