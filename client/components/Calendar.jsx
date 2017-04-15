@@ -1,58 +1,40 @@
 import React from 'react'
+import {connect} from 'react-redux'
 
+import {fetchItems} from '../actions'
 import CalendarEntry from './CalendarEntry'
 import CalendarList from './CalendarList'
 
-let events = {
-  days: [
-    {id: 9001, flat_id:1001, date: '2017-04-21', event:'Wow'},
-    {id: 9002, flat_id:1001, date: '2017-05-29', event:'Cool'},
-    {id: 9003, flat_id:1001, date: '2017-05-01', event:'Awesome'}
-  ]
+const Events = (props) => {
+
+  return (
+    <div className='container'>
+      <div className='row'>
+        <h3>Event Calendar</h3>
+        Today is the { easyToReadDate () }
+        <CalendarEntry />
+      </div>
+      <div className="row">
+        <CalendarList days={props.events} />
+        <a href='#/home'>Return Home</a>
+      </div>
+    </div>
+  )
 }
 
-events.days.map(function(day, i) {
-  events.days[i].date = day.date.split('').filter(removeDash).join('')
-})
+const mapStateToProps = (state) => {
+  return {
+    events: state.returnItems,
+    dispatch: state.dispatch
+  }
+}
+
+export default connect(mapStateToProps)(Events)
 
 function removeDash (value) {
   if (value !== "-") return value
 }
 
-events.days.sort(function (a, b) {
-  return a.date - b.date
-})
-
-events.days.map(function(day, i) {
-  let a = day.date.split('')
-  let rearranged = [a[6],a[7],"-",a[4],a[5],"-",a[0],a[1],a[2],a[3]]
-  let joinedArray = rearranged.join('')
-  events.days[i].date = joinedArray
-})
-
-export default React.createClass ({
-  getInitialState () {
-    return {
-      month: events
-    }
-  },
-
-  render () {
-    return (
-      <div className='container'>
-        <div className='row'>
-          <h3>Event Calendar</h3>
-          Today is the { easyToReadDate () }
-          <CalendarEntry />
-        </div>
-        <div className="row">
-          <CalendarList days={this.state.month.days} />
-          <a href='#/home'>Return Home</a>
-        </div>
-      </div>
-    )
-  }}
-)
 
 function todaysDate () {
   var currentDate = new Date()
