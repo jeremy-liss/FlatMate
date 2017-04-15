@@ -45,14 +45,13 @@ function getEvents () {
   return knex('Events').select()
 }
 
+
 function getShoppingListItems() {
   return knex('shopping_list_items').select()
 }
 
 function addShoppingListItem (flat_id, item) {
-  console.log(item);
   return knex('shopping_list_items').insert({flat_id:flat_id, item:item})
-
 }
 
 function delShoppingListItem () {
