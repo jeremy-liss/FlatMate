@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   store.dispatch(fetchItems('events'))
   store.dispatch(fetchItems('bills'))
+  store.dispatch(fetchItems('roster'))
 
   render(
     <Provider store={store}>

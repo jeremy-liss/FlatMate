@@ -19,3 +19,10 @@ export function fetchItems (database) {
       })
   }
 }
+
+export const shuffleJobs = () => {
+  return {
+    type: 'SHUFFLE_JOBS',
+    chores: ["Vacuum", "Dishes", "Trash"]
+  }
+}

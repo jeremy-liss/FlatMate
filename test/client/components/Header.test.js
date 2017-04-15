@@ -1,11 +1,11 @@
-import test from 'tape'
 import React from 'react'
-import { shallow, mount } from 'enzyme';
+import render from 'react-test-renderer'
 
 import Header from '../../../client/components/Header.jsx'
 
-test('shallow', t => {
-  const wrapper = shallow(<Header />)
-  t.equal(wrapper.contains(<h1>Flat Mate</h1>), true)
-  t.end()
-})
+it('Does the header read Flat Mate?', ()=> {
+  const tree = render.create(
+    <link page="../../../client/components/Header"></link>
+  ).toJSON()
+  expect(tree).toMatchSnapshot()
+  })
