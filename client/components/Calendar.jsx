@@ -7,10 +7,35 @@ import CalendarList from './CalendarList'
 
 const Events = (props) => {
 
+  if (props.events[0] != undefined) {
+    props.events.map((day, i) => {
+      props.events[i].event = day.event.charAt(0).toUpperCase() + day.event.slice(1)
+      props.events[i].date = day.date.split('').filter(removeDash).join('')
+    })
+
+    props.events.map((day, i) => {
+      while (props.events.length > i) {
+        if (props.events[i].date < todaysDate()) {
+        props.events.splice(i, 1)
+        } else i++
+      }})
+
+    props.events.sort((a, b) => {
+      return a.date - b.date
+    })
+
+    props.events.map((day, i) => {
+      let a = day.date.split('')
+      let rearranged = [a[6],a[7],"-",a[4],a[5],"-",a[0],a[1],a[2],a[3]]
+      let joinedArray = rearranged.join('')
+      props.events[i].date = joinedArray
+    })
+  }
+
   return (
     <div className='container'>
       <div className='row'>
-        <h3>Event Calendar</h3>
+        <h3>Upcoming Events</h3>
         Today is the { easyToReadDate () }
         <CalendarEntry />
       </div>
@@ -35,13 +60,22 @@ function removeDash (value) {
   if (value !== "-") return value
 }
 
+function futureDates (date) {
+  return date > todaysDate()
+}
 
 function todaysDate () {
   var currentDate = new Date()
   var day = currentDate.getDate()
   var month = currentDate.getMonth() + 1
   var year = currentDate.getFullYear()
-  return (year + "-" + month + "-" + day)
+  if (day < 10) {
+    day = "0" + day
+  }
+  if (month < 10) {
+    month = "0" + month
+  }
+  return [year, month, day].join('')
 }
 
 function easyToReadDate () {

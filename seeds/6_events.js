@@ -5,9 +5,11 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       // Inserts seed entries
       return knex('events').insert([
-        {id: 6001, flat_id:1001, date:'2017-04-21', event:'graduation'},
-        {id: 6002, flat_id:1001, date:'2017-04-29', event:'flat inspection'},
-        {id: 6003, flat_id:1001, date:'2017-05-01', event:'flat warming'}
+        {id: 6001, flat_id:1001, date:'2017-01-21', event:'graduation'},
+        {id: 6002, flat_id:1001, date:'2017-04-15', event:'flat inspection'},
+        {id: 6003, flat_id:1001, date:'2017-11-01', event:'flat warming'},
+        {id: 6004, flat_id:1001, date:'2017-03-08', event:'birthday party!'},
+        {id: 6005, flat_id:1001, date:'2018-12-25', event:'christmas'}
       ]);
     });
 };
