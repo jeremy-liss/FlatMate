@@ -7,10 +7,17 @@ export const receiveItems = (items) => {
   }
 }
 
-export function fetchItems (database) {
+export const shuffleJobs = () => {
+  return {
+    type: 'SHUFFLE_JOBS',
+    chores: ["Vacuum", "Dishes", "Trash"]
+  }
+}
+
+export function fetchItems (table) {
   return (dispatch) => {
     request
-      .get(`http://localhost:3000/api/${database}`)
+      .get(`http://localhost:3000/api/${table}`)
       .end((err, res) => {
         if (err) {
           return
@@ -20,9 +27,15 @@ export function fetchItems (database) {
   }
 }
 
-export const shuffleJobs = () => {
-  return {
-    type: 'SHUFFLE_JOBS',
-    chores: ["Vacuum", "Dishes", "Trash"]
-  }
+export function postItem (ev, callback) {
+  ev.preventDefault(ev)
+  request
+    .post(`http://localhost:3000/api/addShoppingListItem`)
+    .send({item: ev.target.elements[0].value})
+    .end((err, res) => {
+      if (err) {
+        return
+      }
+      callback(null, res.body)
+    })
 }
