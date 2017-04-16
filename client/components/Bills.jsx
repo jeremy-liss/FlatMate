@@ -16,21 +16,21 @@ const Bills = (props) => {
 
   return  (
 
-    <div className='bills'>
-      <table>
-        <thead>
-          <tr>
-            <th>Bill</th>
-            <th>Amount</th>
-            <th>Paid</th>
-          </tr>
-        </thead>
-        <tbody>
-          {props.billItems.map(function(bill, i){
-            return <BillItems amount={bill.amount} details={bill.details} key={i} id={bill.id} />
-          })}
-        </tbody>
-      </table>
+    <div className='container'>
+          <table>
+            <thead>
+              <tr>
+                <th>Bill</th>
+                <th>Amount</th>
+                <th>Paid</th>
+              </tr>
+            </thead>
+            <tbody>
+              {props.billItems.map(function(bill, i){
+                return <BillItems amount={bill.amount} details={bill.details} key={i} id={bill.id} />
+              })}
+            </tbody>
+          </table>
 
       <h5>Total: ${total}</h5>
 
