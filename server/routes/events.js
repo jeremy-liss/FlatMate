@@ -13,7 +13,7 @@ router.route('/')
     })
   })
   .delete(function (req, res) {
-    db.delEvent().then((result) => {
+    db.delEvent(req.body.id).then((result) => {
       res.send(result)
     })
     .catch((err) => {
