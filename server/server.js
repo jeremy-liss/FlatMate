@@ -42,5 +42,6 @@ server.use('/api/delBill', bills)
 server.use('/api/delEvent', events)
 server.use('/api/addUser', users)
 server.use('/api/delUser', users)
+server.use('/api/updateEmail', users)
 
 module.exports = server

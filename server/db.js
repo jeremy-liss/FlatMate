@@ -18,7 +18,8 @@ module.exports = {
   getShoppingListItems: getShoppingListItems,
   getUsers: getUsers,
   addUser: addUser,
-  delUser: delUser
+  delUser: delUser,
+  updateEmail: updateEmail
 }
 
 function getUsers () {
@@ -92,4 +93,10 @@ function delEvent (id) {
   return knex('events')
     .where('id', id)
     .del()
+}
+
+function updateEmail (email, newEmail) {
+  return knex('users')
+    .where('email', email)
+    .update({'email': newEmail})
 }

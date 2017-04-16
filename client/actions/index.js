@@ -110,4 +110,15 @@ export function postUser (object, callback) {
     })
 }
 
-
+export function updateEmail (ev, callback) {
+  ev.preventDefault(ev)
+  request
+    .put(`http://localhost:3000/api/updateemail`)
+    .send({email: ev.target.elements[1].value, newEmail: ev.target.elements[2].value})
+    .end((err, res) => {
+      if (err) {
+        return
+      }
+      callback(null, res.body)
+    })
+}
