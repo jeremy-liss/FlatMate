@@ -91,7 +91,8 @@ export function postUser (ev, callback) {
     .post(`http://localhost:3000/api/adduser`)
     .send({name: ev.target.elements[0].value,
            email: ev.target.elements[1].value,
-           hash: ev.target.elements[2].value})
+           hash: ev.target.elements[2].value,
+           flat_id: null})
     .end((err, res) => {
       if (err) {
         return

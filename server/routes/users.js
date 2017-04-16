@@ -13,7 +13,7 @@ router.route('/')
     })
   })
   .post(function (req, res) {
-    db.addUser(req.body.name, req.body.email, req.body.hash).then((result) => {
+    db.addUser(req.body.name, req.body.email, req.body.hash, req.body.flat_id).then((result) => {
       res.send(result)
     })
     .catch((err) => {
