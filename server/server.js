@@ -36,5 +36,6 @@ server.use('/api/roster', roster)
 server.use('/api/addShoppingListItem', addShoppingListItem)
 server.use('/api/delShoppingListItem', shoppingListItems)
 server.use('/api/addBill', addBill)
+server.use('/api/delBill', bills)
 
 module.exports = server
