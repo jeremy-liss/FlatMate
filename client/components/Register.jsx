@@ -20,6 +20,11 @@ const Register = () => (
 
 function confirmPassword (ev) {
   ev.preventDefault(ev)
+    if (ev.target.elements[0].value === '' ||
+        ev.target.elements[1].value === '' ||
+        ev.target.elements[2].value === '') {
+          return alert('Please enter all fields')
+        }
     if (ev.target.elements[2].value === ev.target.elements[3].value) {
     var userObject = {name: ev.target.elements[0].value,
            email: ev.target.elements[1].value,
