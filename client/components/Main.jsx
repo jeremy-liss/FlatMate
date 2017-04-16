@@ -7,18 +7,22 @@ const Main = () => (
     <ProfileBar />
     <div className="row">
       <div className='six columns'>
-        <a href='#/shoppinglist'><img src='' alt='link to shopping list' /></a>
+        <div className='shoppingList'>
+          <a href='#/shoppinglist'><img src="./../css/images/shoppingList.png" alt='link to shopping list' /></a>
+        </div>
       </div>
       <div className='six columns'>
-        <a href='#/calendar'><img src='' alt='link to calendar' /></a>
+        <a href='#/calendar'><img src='./../css/images/calendar.png' alt='link to calendar' /></a>
       </div>
     </div>
     <div className="row">
       <div className='six columns'>
-        <a href='#/roster'><img src='' alt='link to roster' /></a>
+        <div className='roster'>
+          <a href='#/roster'><img src='./../css/images/roster.png' alt='link to roster' /></a>
+        </div>
       </div>
       <div className='six columns'>
-        <a href='#/bills'><img src='' alt='link to bills' /></a>
+        <a href='#/bills'><img src='./../css/images/bills.png' alt='link to bills' /></a>
       </div>
     </div>
   </div>

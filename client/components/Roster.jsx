@@ -5,7 +5,7 @@ import Jobs from './Jobs'
 
 const Roster = (props) => {
   return (
-    <div className='job'>
+    <div className='roster'>
       <h2>Duty Calls</h2>
         <table>
          <thead>
