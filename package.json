@@ -40,6 +40,7 @@
   },
   "dependencies": {
     "body-parser": "^1.17.1",
+    "bourbon": "^4.3.4",
     "cors": "^2.8.3",
     "express": "^4.15.2",
     "knex": "^0.12.9",
@@ -50,6 +51,5 @@
     "sqlite3": "^3.1.8",
     "superagent": "^3.5.2",
     "tape": "^4.6.3",
-    "vanilla-tilt": "^1.3.1"
   }
 }
