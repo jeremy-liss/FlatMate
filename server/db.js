@@ -13,7 +13,8 @@ module.exports = {
   getShoppingListItems: getShoppingListItems,
   addShoppingListItem: addShoppingListItem,
   getRoster:  getRoster,
-  delShoppingListItem: delShoppingListItem
+  delShoppingListItem: delShoppingListItem,
+  addBill: addBill
 }
 
 function getUsers () {
@@ -37,6 +38,10 @@ function getBills () {
   return knex('bills').select()
 }
 
+function addBill (flat_id, amount, bill) {
+  return knex('bills').insert({flat_id:flat_id, amount:amount, details:bill})
+}
+
 function getBillAllocations () {
   return knex('bill_allocations').select()
 }
@@ -44,7 +49,6 @@ function getBillAllocations () {
 function getEvents () {
   return knex('Events').select()
 }
-
 
 function getShoppingListItems() {
   return knex('shopping_list_items').select()

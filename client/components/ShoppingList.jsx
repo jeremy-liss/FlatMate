@@ -19,7 +19,6 @@ const ShoppingList = (props) => {
         </div>
 
       <form onSubmit={postItem}>
-        Shopping List:
         <input type="text" name="item" />
         <button type="submit">Add</button>
       </form>
