@@ -70,9 +70,9 @@ function delUser (id) {
     .del()
 }
 
-function delShoppingListItem () {
+function delShoppingListItem (id) {
   return knex('shopping_list_items')
-    .where('item', null)
+    .where('id', id)
     .del()
 }
 
