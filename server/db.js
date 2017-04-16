@@ -72,8 +72,8 @@ function addShoppingListItem (flat_id, item) {
   return knex('shopping_list_items').insert({flat_id:flat_id, item:item})
 }
 
-function addUser (name, email, hash) {
-  return knex ('users').insert({name:name, email:email, hash:hash})
+function addUser (name, email, hash, flat_id) {
+  return knex ('users').insert({name:name, email:email, hash:hash, flat_id:flat_id})
 }
 
 function delUser (id) {
