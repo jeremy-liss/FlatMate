@@ -3,17 +3,20 @@ var config = require('../knexfile.js')[env]
 var knex = require('knex')(config)
 
 module.exports = {
-  getUsers: getUsers,
-  getFlat: getFlat,
+  addEvent: addEvent,
+  addShoppingListItem: addShoppingListItem,
+  delShoppingListItem: delShoppingListItem,
+  delEvent: delEvent,
+  getBillAllocations: getBillAllocations,
+  getBills: getBills,
+  getEvents: getEvents,
   getFlat: getFlat,
   getJobs: getJobs,
-  getBills: getBills,
-  getBillAllocations: getBillAllocations,
-  getEvents: getEvents,
-  getShoppingListItems: getShoppingListItems,
-  addShoppingListItem: addShoppingListItem,
   getRoster:  getRoster,
-  delShoppingListItem: delShoppingListItem
+  getShoppingListItems: getShoppingListItems,
+  getUsers: getUsers,
+  addUser: addUser,
+  delUser: delUser
 }
 
 function getUsers () {
@@ -42,9 +45,12 @@ function getBillAllocations () {
 }
 
 function getEvents () {
-  return knex('Events').select()
+  return knex('events').select()
 }
 
+function addEvent (flat_id, date, event) {
+  return knex('events').insert({flat_id:flat_id, date:date, event:event})
+}
 
 function getShoppingListItems() {
   return knex('shopping_list_items').select()
@@ -54,8 +60,24 @@ function addShoppingListItem (flat_id, item) {
   return knex('shopping_list_items').insert({flat_id:flat_id, item:item})
 }
 
+function addUser (name, email, hash) {
+  return knex ('users').insert({name:name, email:email, hash:hash})
+}
+
+function delUser (id) {
+  return knex('users')
+    .where('id', id)
+    .del()
+}
+
 function delShoppingListItem (id) {
   return knex('shopping_list_items')
+    .where('id', id)
+    .del()
+}
+
+function delEvent (id) {
+  return knex('events')
     .where('id', id)
     .del()
 }

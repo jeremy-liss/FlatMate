@@ -15,7 +15,7 @@ const CalendarList = (props) => (
       </thead>
       <tbody>
         {props.days.map(days => {
-          return <CalendarListItem days={days} key={days.id} />
+          return <CalendarListItem days={days} id={days.id} key={days.id} />
         })}
       </tbody>
     </table>

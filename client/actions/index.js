@@ -38,7 +38,7 @@ export function fetchItems (table) {
 export function postItem (ev, callback) {
   ev.preventDefault(ev)
   request
-    .post(`http://localhost:3000/api/addShoppingListItem`)
+    .post(`http://localhost:3000/api/addshoppinglistitem`)
     .send({item: ev.target.elements[0].value})
     .end((err, res) => {
       if (err) {
@@ -50,7 +50,59 @@ export function postItem (ev, callback) {
 
 export function delItem (id, callback) {
   request
-    .delete(`http://localhost:3000/api/delShoppingListItem`)
+  .delete(`http://localhost:3000/api/delShoppingListItem`)
+  .send({id: id})
+  .end((err, res) => {
+    if (err) {
+      return
+    }
+    callback(null, res.body)
+  })
+}
+
+export function postEvent (ev, callback) {
+  ev.preventDefault(ev)
+  request
+    .post(`http://localhost:3000/api/addevent`)
+    .send({date: ev.target.elements[1].value, event: ev.target.elements[0].value})
+    .end((err, res) => {
+      if (err) {
+        return
+      }
+      callback(null, res.body)
+    })
+}
+
+export function deleteEvent (id, callback) {
+  request
+    .delete(`http://localhost:3000/api/delevent`)
+    .send({id: id})
+    .end((err, res) => {
+      if (err) {
+        return
+      }
+      callback(null, res.body)
+    })
+}
+
+export function postUser (ev, callback) {
+  ev.preventDefault(ev)
+  request
+    .post(`http://localhost:3000/api/adduser`)
+    .send({name: ev.target.elements[0].value,
+           email: ev.target.elements[1].value,
+           hash: ev.target.elements[2].value})
+    .end((err, res) => {
+      if (err) {
+        return
+      }
+      callback(null, res.body)
+    })
+}
+
+export function deleteUser (id, callback) {
+  request
+    .delete(`http://localhost:3000/api/deluser`)
     .send({id: id})
     .end((err, res) => {
       if (err) {

@@ -7,6 +7,8 @@ import CalendarList from './CalendarList'
 
 const Events = (props) => {
 
+  props.dispatch(fetchItems('events'))
+
   if (props.events[0] != undefined) {
     props.events.map((day, i) => {
       props.events[i].event = day.event.charAt(0).toUpperCase() + day.event.slice(1)
