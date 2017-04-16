@@ -5,7 +5,7 @@ var db = require('../db')
 
 router.route('/')
   .post(function (req, res) {
-    db.addShoppingListItem(1001, req.body.item).then(() => {
+    db.addBill(1001, req.body.amount, req.body.bill).then(() => {
       res.send()
     })
     .catch((err) => {
