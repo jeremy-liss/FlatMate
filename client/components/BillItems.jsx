@@ -1,17 +1,19 @@
 import React from 'react'
+import { delItem } from '../actions'
 
-const BillItems = () => (
-  <div>
-   <div className='bill-items'>
-     Each Bill $
-   </div>
-   <div className='bill-total'>
-     Bills total $
-   </div>
-   <div className='your-total'>
-     You owe $
-   </div>
-  </div>
-)
+const BillItems = (props) => {
+  return (
+    <tr>
+      <td>{props.details}</td>
+      <td>${props.amount}</td>
+      <td>
+        <button onClick={() => (delItem(props.id, 'delBill')) }>
+          Paid
+        </button>
+      </td>
+    </tr>
+  )
+}
+
 
 export default BillItems

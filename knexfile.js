@@ -6,7 +6,8 @@ module.exports = {
     client: 'sqlite3',
     connection: {
       filename: './dev.sqlite3'
-    }
+    },
+    useNullAsDefault: true
   },
 
   staging: {
@@ -16,6 +17,7 @@ module.exports = {
       user:     'username',
       password: 'password'
     },
+
     pool: {
       min: 2,
       max: 10
@@ -40,5 +42,4 @@ module.exports = {
       tableName: 'knex_migrations'
     }
   }
-
 };

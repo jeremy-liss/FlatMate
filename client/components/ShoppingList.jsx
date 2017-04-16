@@ -1,18 +1,39 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-const ShoppingList = () => (
+import {fetchItems, postItem} from '../actions'
+import ShoppingListItems from './ShoppingListItems'
 
-  <div className="Shoppinglist">
-    <h1>Shopping List</h1>
-    <form action="/form" method="post">
-      Shopping List:
-      <input type="text" name="" value="" />
-      <button type="add">Add</button>
-    </form>
-    <a href='#/home'>Return Home</a>
-  </div>
-)
+const ShoppingList = (props) => {
+
+  props.dispatch(fetchItems('shopping_list_items'))
+
+  return (
+    <div className="Shoppinglist">
+      <h1>Shopping List</h1>
+
+        <div>
+          {props.list.map(function(item, i){
+            return <ShoppingListItems item={item.item} key={i} id={item.id} dispatch={props.dispatch} />
+          })}
+        </div>
+
+      <form onSubmit={postItem}>
+        <input type="text" name="item" />
+        <button type="submit">Add</button>
+      </form>
+
+      <a href='#/home'>Return Home</a>
+    </div>
+  )
+}
 
 
-export default ShoppingList
+const mapStateToProps = (state) => {
+  return {
+    list: state.returnItems,
+    dispatch: state.dispatch
+  }
+}
+
+export default connect(mapStateToProps)(ShoppingList)

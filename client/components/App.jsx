@@ -9,6 +9,7 @@ import Register from './Register'
 import Roster from './Roster'
 import ShoppingList from './ShoppingList'
 import Bills from './Bills'
+import Settings from './Settings'
 
 const App = () => (
 
@@ -23,6 +24,7 @@ const App = () => (
         <Route path='/shoppinglist' component={ShoppingList} />
         <Route path='/bills' component={Bills} />
         <Route path='/calendar' component={Calendar} />
+        <Route path='/settings' component={Settings} />
       </div>
     </Router>
   </div>

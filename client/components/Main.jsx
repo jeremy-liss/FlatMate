@@ -21,6 +21,7 @@ const Main = () => (
         <a href='#/bills'><img src='' alt='link to bills' /></a>
       </div>
     </div>
+    <a href='#/settings'>Settings</a>
   </div>
 )
 
