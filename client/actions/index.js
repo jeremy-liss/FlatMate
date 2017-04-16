@@ -47,10 +47,22 @@ export function postItem (ev, callback) {
       callback(null, res.body)
     })
 }
-
-export function delItem (id, callback) {
+export function postBill (ev, callback) {
+  ev.preventDefault(ev)
   request
-  .delete(`http://localhost:3000/api/delShoppingListItem`)
+    .post(`http://localhost:3000/api/addBill`)
+    .send({bill: ev.target.elements[0].value, amount: ev.target.elements[1].value})
+    .end((err, res) => {
+      if (err) {
+        return
+      }
+      callback(null, res.body)
+    })
+}
+
+export function delItem (id, table) {
+  request
+  .delete(`http://localhost:3000/api/${table}`)
   .send({id: id})
   .end((err, res) => {
     if (err) {
@@ -100,14 +112,4 @@ export function postUser (ev, callback) {
     })
 }
 
-export function deleteUser (id, callback) {
-  request
-    .delete(`http://localhost:3000/api/deluser`)
-    .send({id: id})
-    .end((err, res) => {
-      if (err) {
-        return
-      }
-      callback(null, res.body)
-    })
-}
+

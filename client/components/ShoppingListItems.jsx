@@ -6,7 +6,10 @@ const ShoppingListItems = (props) =>
 
   <div className="Item">
     <div>{props.item} |
-      <a href='#/shoppinglist' onClick={() => (delItem(props.id))}>Delete</a>
+      <a href='#/shoppinglist'
+        onClick={() => (delItem(props.id, 'delShoppingListItem'))}>
+        Delete
+      </a>
     </div>
   </div>
 )
