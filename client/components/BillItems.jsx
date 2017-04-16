@@ -10,12 +10,12 @@ const BillItems = (props) => {
     <tr>
       <td>{props.details}</td>
       <td>${props.amount}</td>
+      {boxes}
       <td>
         <button onClick={() => (delItem(props.id, 'delBill')) }>
           Paid
         </button>
       </td>
-      {boxes}
     </tr>
   )
 }

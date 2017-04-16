@@ -31,10 +31,10 @@ const Bills = (props) => {
           <tr>
             <th>Bill</th>
             <th>Amount</th>
-            <th>Paid</th>
             {props.users.map(function(user, i){
               return <BillUsers name={user.name} key={i} id={user.id} />
             })}
+            <th>Paid</th>
           </tr>
         </thead>
         <tbody>
