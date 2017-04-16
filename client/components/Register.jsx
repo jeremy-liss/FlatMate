@@ -7,7 +7,7 @@ const Register = () => (
   <div className='container'>
     <div className='row'>
       Sign Up!
-      <form onSubmit={confirmPassword} action='/' method='post' id='register'>
+      <form onSubmit={confirmPassword} id='register'>
         <input type="text" placeholder="User Name" /><br />
         <input type="text" placeholder="Email" /><br />
         <input type="password" placeholder="Password" /><br />

@@ -2,10 +2,11 @@ import React from 'react'
 import {connect} from 'react-redux'
 
 import {fetchItems, postUser} from '../actions'
-
 import SettingItems from './SettingItems'
 
 const Settings = (props) => {
+
+  props.dispatch(fetchItems('users'))
 
   return (
     <div className='container'>
