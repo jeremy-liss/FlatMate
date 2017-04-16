@@ -2,7 +2,10 @@ import React from 'react'
 import { delItem } from '../actions'
 
 const BillItems = (props) => {
-  console.log(props.userNum)
+  let boxes = []
+  for (var i=0; i < props.userNum; i++){
+    boxes.push(<td><input type="checkbox" /></td>)
+  }
   return (
     <tr>
       <td>{props.details}</td>
@@ -12,7 +15,7 @@ const BillItems = (props) => {
           Paid
         </button>
       </td>
-      <td><input type="checkbox" /></td>
+      {boxes}
     </tr>
   )
 }
