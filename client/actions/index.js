@@ -85,14 +85,11 @@ export function deleteEvent (id, callback) {
     })
 }
 
-export function postUser (ev, callback) {
-  ev.preventDefault(ev)
+export function postUser (object, callback) {
+
   request
     .post(`http://localhost:3000/api/adduser`)
-    .send({name: ev.target.elements[0].value,
-           email: ev.target.elements[1].value,
-           hash: ev.target.elements[2].value,
-           flat_id: null})
+    .send(object)
     .end((err, res) => {
       if (err) {
         return
