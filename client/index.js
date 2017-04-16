@@ -4,7 +4,7 @@ import {Provider} from 'react-redux'
 import {createStore, applyMiddleware, compose} from 'redux'
 import thunkMiddleware from 'redux-thunk'
 
-import {fetchItems} from './actions'
+import {fetchItems, fetchUsers} from './actions'
 import reducers from './reducers'
 import App from './components/App'
 
@@ -16,7 +16,7 @@ let store = createStore(reducers, compose(
 document.addEventListener('DOMContentLoaded', () => {
 
   store.dispatch(fetchItems('events'))
-  store.dispatch(fetchItems('roster'))
+  store.dispatch(fetchUsers())
 
   render(
     <Provider store={store}>
