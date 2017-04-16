@@ -60,9 +60,9 @@ export function postBill (ev, callback) {
     })
 }
 
-export function delItem (id, callback) {
+export function delItem (id, table) {
   request
-    .delete(`http://localhost:3000/api/delShoppingListItem`)
+    .delete(`http://localhost:3000/api/${table}`)
     .send({id: id})
     .end((err, res) => {
       if (err) {

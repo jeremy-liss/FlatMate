@@ -15,23 +15,35 @@ const Bills = (props) => {
     })
 
   return  (
-      <div className='bills'>
-        <h1>Bills</h1>
 
-        {props.billItems.map(function(bill, i){
-          return <BillItems amount={bill.amount} details={bill.details} key={i} />
-        })}
-        <div>Total: ${total}</div>
+    <div className='bills'>
+      <table>
+        <thead>
+          <tr>
+            <th>Bill</th>
+            <th>Amount</th>
+            <th>Paid</th>
+          </tr>
+        </thead>
+        <tbody>
+          {props.billItems.map(function(bill, i){
+            return <BillItems amount={bill.amount} details={bill.details} key={i} id={bill.id} />
+          })}
+        </tbody>
+      </table>
 
-        <form onSubmit={postBill}>
-          <input type="text" name="bill" placeholder="bill" />
-          <input type="text" name="amount" placeholder="amount" />
-          <button type="submit">Add</button>
-        </form>
+      <h5>Total: ${total}</h5>
 
-        <a href='#/home'>Return Home</a>
-      </div>
-    )
+      <form onSubmit={postBill}>
+        <input type="text" name="bill" placeholder="bill" />
+        <input type="text" name="amount" placeholder="amount" />
+        <button type="submit">Add</button>
+      </form>
+
+      <a href='#/home'>Return Home</a>
+
+    </div>
+  )
 }
 
 const mapStateToProps = (state) => {
