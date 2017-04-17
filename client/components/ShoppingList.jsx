@@ -1,32 +1,43 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import getFormData from 'get-form-data'
 
 import {fetchItems, postItem} from '../actions'
 import ShoppingListItems from './ShoppingListItems'
 
-const ShoppingList = (props) => {
+const ShoppingList = React.createClass ({
 
-  props.dispatch(fetchItems('shopping_list_items'))
+  componentDidMount () {
+    this.props.dispatch(fetchItems('shopping_list_items'))
+  },
 
-  return (
-    <div className="Shoppinglist">
-      <h1>Shopping List</h1>
+  handleItemAdd(ev) {
+    ev.preventDefault(ev)
+    this.props.dispatch(postItem(ev.target.elements[0].value))
+  },
 
-        <div>
-          {props.list.map(function(item, i){
-            return <ShoppingListItems item={item.item} key={i} id={item.id} dispatch={props.dispatch} />
-          })}
-        </div>
+  render () {
 
-      <form onSubmit={postItem}>
-        <input type="text" name="item" />
-        <button type="submit">Add</button>
-      </form>
+    return (
+      <div className="Shoppinglist">
+        <h1>Shopping List</h1>
 
-      <a href='#/home'>Return Home</a>
-    </div>
-  )
-}
+          <div>
+            {this.props.list.map(function(item, i){
+              return <ShoppingListItems item={item.item} key={i} id={item.id} />
+            })}
+          </div>
+
+        <form onSubmit={(ev)=> this.handleItemAdd(ev)}>
+          <input type="text" name="item" placeholder="add item" />
+          <button type="submit">Add</button>
+        </form>
+
+        <a href='#/home'>Return Home</a>
+      </div>
+    )
+  }
+})
 
 
 const mapStateToProps = (state) => {
