@@ -93,7 +93,6 @@ export function postBill (ev, callback) {
 }
 
 export function delItem (id, table) {
-  console.log(id);
   request
   .delete(`http://localhost:3000/api/${table}`)
   .send({id: id})
@@ -166,4 +165,3 @@ export function addUserToFlat (ev, callback) {
       callback(null, res.body)
     })
 }
-

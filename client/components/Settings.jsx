@@ -6,6 +6,7 @@ import SettingItems from './SettingItems'
 
 const Settings = (props) => {
 
+props.dispatch(fetchItems('flatUsers'))
   return (
     <div className='container'>
       <h2>Settings Page</h2>
@@ -23,7 +24,7 @@ const Settings = (props) => {
             </tr>
           </thead>
           <tbody>
-            {props.users.map(users => {
+            {props.flatUsers.map(users => {
               return <SettingItems users={users} id={users.id} key={users.id} />
             })}
           </tbody>
@@ -35,7 +36,7 @@ const Settings = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    users: state.returnItems,
+    flatUsers: state.returnItems,
     dispatch: state.dispatch
   }
 }

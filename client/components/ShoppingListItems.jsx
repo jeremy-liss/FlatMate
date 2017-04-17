@@ -1,8 +1,7 @@
 import React from 'react'
 import { delItem } from '../actions'
 
-const ShoppingListItems = (props) =>
- (
+const ShoppingListItems = (props) => (
 
   <div className="Item">
     <div>{props.item} |
