@@ -18,7 +18,9 @@ module.exports = {
   getShoppingListItems: getShoppingListItems,
   getUsers: getUsers,
   addUser: addUser,
-  delUser: delUser
+  delUser: delUser,
+  addBillAllocation: addBillAllocation,
+  delBillAllocation: delBillAllocation
 }
 
 function getUsers () {
@@ -56,6 +58,10 @@ function getBillAllocations () {
   return knex('bill_allocations').select()
 }
 
+function addBillAllocation (bill_id, user_id, amount) {
+  return knex('bill_allocations').insert({bill_id:bill_id, user_id:user_id, amount:amount})
+}
+
 function getEvents () {
   return knex('events').select()
 }
@@ -90,6 +96,12 @@ function delShoppingListItem (id) {
 
 function delEvent (id) {
   return knex('events')
+    .where('id', id)
+    .del()
+}
+
+function delBillAllocation (id) {
+  return knex('bill_allocations')
     .where('id', id)
     .del()
 }
