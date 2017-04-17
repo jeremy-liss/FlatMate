@@ -49,8 +49,7 @@ function addBill (flat_id, amount, bill) {
   .insert({flat_id:flat_id, amount:amount, details:bill})
   .then(function(ids){
     return knex('bills')
-    .where('id', ids[0])
-    .first()
+    .select()
   })
 }
 
@@ -92,10 +91,9 @@ function getShoppingListItems() {
 function addShoppingListItem (flat_id, item) {
   return knex('shopping_list_items')
     .insert({flat_id:flat_id, item:item})
-    .then(function(ids){
+    .then(function(){
       return knex('shopping_list_items')
-      .where('id', ids[0])
-      .first()
+      .select()
     })
 }
 

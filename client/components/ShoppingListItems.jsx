@@ -8,7 +8,7 @@ const ShoppingListItems = (props) =>
   <div className="Item">
     <div>{props.item} |
       <a href='#/shoppinglist'
-        onClick={() => props.dispatch(delItem(props.id, 'shopping_list_items'))}>
+        onClick={() => props.dispatch(delItem(props.id, props.table))}>
         Delete
       </a>
     </div>

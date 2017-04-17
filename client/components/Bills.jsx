@@ -4,18 +4,20 @@ import getFormData from 'get-form-data'
 
 import BillUsers from './BillUsers'
 import BillItems from './BillItems'
-import {fetchItems, postBill, fetchUsers} from '../actions'
+import {fetchItems, postItem, fetchUsers} from '../actions'
+
+let table = 'bills'
 
 const Bills = React.createClass ({
 
   componentDidMount () {
-    this.props.dispatch(fetchItems('bills'))
+    this.props.dispatch(fetchItems(table))
     this.props.dispatch(fetchUsers())
   },
 
   handleBillAdd(ev) {
     ev.preventDefault(ev)
-    this.props.dispatch(postBill(getFormData(ev.target)))
+    this.props.dispatch(postItem(getFormData(ev.target), table))
   },
 
   render () {
@@ -52,7 +54,7 @@ const Bills = React.createClass ({
           </thead>
           <tbody>
             {this.props.billItems.map(function(bill, i){
-              return <BillItems amount={bill.amount} details={bill.details} key={i} id={bill.id} userNum={userNum} />
+              return <BillItems amount={bill.amount} details={bill.details} key={i} id={bill.id} userNum={userNum} table={table}/>
             })}
           </tbody>
         </table>
