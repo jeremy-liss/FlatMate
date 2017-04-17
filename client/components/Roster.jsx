@@ -7,6 +7,7 @@ const Roster = (props) => {
   return (
     <div className='roster'>
       <h2>Duty Calls</h2>
+
         <table>
          <thead>
           <tr>
