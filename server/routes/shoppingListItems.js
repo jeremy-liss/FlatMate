@@ -12,6 +12,14 @@ router.route('/')
       res.status(500).send(err)
     })
   })
+  .post(function (req, res) {
+    db.addShoppingListItem(1001, req.body.item).then((item) => {
+      res.send(item)
+    })
+    .catch((err) => {
+      res.status(500).send(err)
+    })
+  })
   .delete(function (req, res) {
     db.delShoppingListItem(req.body.id).then((result) => {
       res.send(result)

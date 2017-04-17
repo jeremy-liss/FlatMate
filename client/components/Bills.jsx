@@ -17,11 +17,12 @@ const Bills = React.createClass ({
     this.props.dispatch(postBill(getFormData(ev.target)))
   },
 
+   delBill(id){
+    this.props.dispatch(delBill(id))
+  },
+
   render () {
 
-    function delBill(id){
-      this.props.dispatch(delBill(id))
-    }
 
     let total = 0
     let userNum = 0
@@ -54,7 +55,7 @@ const Bills = React.createClass ({
           </thead>
           <tbody>
             {this.props.billItems.map(function(bill, i){
-              return <BillItems amount={bill.amount} details={bill.details} key={i} id={bill.id} userNum={userNum} delBill={delBill} />
+              return <BillItems amount={bill.amount} details={bill.details} key={i} id={bill.id} userNum={userNum} />
             })}
           </tbody>
         </table>

@@ -10,6 +10,10 @@ function returnItems (state = [], action) {
 
       return [ ...state, action.payload]
 
+    case 'ADD_ITEM':
+
+      return [ ...state, action.payload]
+
     default:
       return state
   }

@@ -61,7 +61,6 @@ function delBill (id) {
     .then(function(){
       return knex('bills')
       .select()
-      
     })
 }
 
@@ -86,7 +85,13 @@ function getShoppingListItems() {
 }
 
 function addShoppingListItem (flat_id, item) {
-  return knex('shopping_list_items').insert({flat_id:flat_id, item:item})
+  return knex('shopping_list_items')
+    .insert({flat_id:flat_id, item:item})
+    .then(function(ids){
+      return knex('shopping_list_items')
+      .where('id', ids[0])
+      .first()
+    })
 }
 
 function addUser (name, email, hash, flat_id) {
