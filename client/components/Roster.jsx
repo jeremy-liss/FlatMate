@@ -8,28 +8,32 @@ const Roster = (props) => {
   props.dispatch(fetchItems('roster'))
 
   return (
-    <div className='job'>
+    <div className="roster">
+
       <h2>Duty Calls</h2>
-        <table>
-         <thead>
-          <tr>
-            <th>Name</th>
-            <th>Job this Week</th>
-            </tr>
-         </thead>
-        <tbody>
-          {props.roster.map(function(job,i){
 
-          return <Jobs name={job.name} key={job.id} chores={props.chores[i]} />
-          })}
+        <table className="center">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Job this Week</th>
+              </tr>
+           </thead>
+           <tbody>
+            {props.roster.map(function(job,i){
 
-        </tbody>
+            return <Jobs name={job.name} key={job.id} chores={props.chores[i]} />
+            })}
 
-        <button onClick={()=> props.dispatch(shuffleJobs())}>Shuffle</button>
-
+           </tbody>
         </table>
-      <a href='#/home'>Return Home</a>
-    </div>
+          <div className="shuffle">
+            <button onClick={()=> props.dispatch(shuffleJobs())}> Shuffle </button>
+          </div>
+
+        <a href='#/home'>Return Home</a>
+        </div>
+
   )
 }
 

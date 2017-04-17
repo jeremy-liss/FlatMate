@@ -3,14 +3,25 @@ import {connect} from 'react-redux'
 
 import {delItem} from '../actions'
 
-const CalendarListItem = (props) => (
+const CalendarListItem = (props) => {
+
+  return (
     <tr>
       <td>{ props.days.date }</td>
       <td>{ props.days.event }</td>
       <td><input type="text" placeholder="Update Event" name="update-event"></input></td>
-      <td><button onClick={() => props.dispatch(delItem(props.id, 'events'))}>Remove</button></td>
+      <td><button onClick={() => (confirmDelete(props.id))}>Remove</button></td>
     </tr>
-)
+  )
+
+  function confirmDelete (id) {
+    var r = confirm('Are you sure you wish to delete this event ?')
+    if (r == true) {
+      props.dispatch(delItem(props.id, 'events'))
+    } else return
+  }
+
+}
 
 const mapStateToProps = (state) => {
   return {
