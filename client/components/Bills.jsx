@@ -36,15 +36,14 @@ const Bills = React.createClass ({
     return  (
 
       <div className='container'>
-
-        <table>
+        <table className='bills'>
           <thead>
             <tr>
               <th>Bill</th>
               <th>Amount</th>
-              {this.props.users.map(function(user, i){
-                return <BillUsers name={user.name} key={i} id={user.id} />
-              })}
+                {this.props.users.map(function(user, i){
+                 return <BillUsers name={user.name} key={i} id={user.id} />
+               })}
               <th>Paid</th>
             </tr>
           </thead>

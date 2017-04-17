@@ -7,7 +7,7 @@ const Main = () => (
 
   <div className="container">
     <ProfileBar />
-    <div className="row">
+     <div className="row">
       <div className='six columns'>
         <Link to='/shoppinglist'><img src='../../css/images/shoppingList.png' alt='link to shopping list' /></Link>
       </div>

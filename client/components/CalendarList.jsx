@@ -4,7 +4,7 @@ import CalendarListItem from './CalendarListItem'
 
 const CalendarList = (props) => (
   <div className='container'>
-    <table>
+    <table className= 'calendar'>
       <thead>
         <tr>
           <th>Date</th>
