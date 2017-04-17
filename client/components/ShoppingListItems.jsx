@@ -2,8 +2,7 @@ import React from 'react'
 import { delItem } from '../actions'
 import {connect} from 'react-redux'
 
-const ShoppingListItems = (props) =>
- (
+const ShoppingListItems = (props) => (
 
   <div className="Item">
     <div>{props.item} |

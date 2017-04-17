@@ -172,3 +172,40 @@ export function postUser (object, callback) {
       callback(null, res.body)
     })
 }
+
+export function updateEmail (id, newestEmail, callback) {
+  request
+    .put(`http://localhost:3000/api/updateemail`)
+    .send({id: id, newEmail: newestEmail})
+    .end((err, res) => {
+      if (err) {
+        return
+      }
+      callback(null, res.body)
+    })
+}
+
+export function addUserToFlat (ev, callback) {
+  ev.preventDefault(ev)
+  request
+    .put(`http://localhost:3000/api/updateflatid`)
+    .send({email: ev.target.elements[0].value, flat_id: 1001})
+    .end((err, res) => {
+      if (err) {
+        return
+      }
+      callback(null, res.body)
+    })
+}
+
+export function removeFlattie (userEmail, callback) {
+  request
+    .put(`http://localhost:3000/api/updateflatid`)
+    .send({email: userEmail, flat_id: null})
+    .end((err, res) => {
+      if (err) {
+        return
+      }
+      callback(null, res.body)
+    })
+}
