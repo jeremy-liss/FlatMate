@@ -4,6 +4,9 @@ import {fetchItems, shuffleJobs} from '../actions'
 import Jobs from './Jobs'
 
 const Roster = (props) => {
+
+  props.dispatch(fetchItems('roster'))
+
   return (
     <div className="roster">
 

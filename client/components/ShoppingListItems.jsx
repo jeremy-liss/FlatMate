@@ -1,10 +1,15 @@
 import React from 'react'
+import { delItem } from '../actions'
 
-const ShoppingListItems = (props) =>
- (
+const ShoppingListItems = (props) => (
 
   <div className="Item">
-    <div>{props.item}</div>
+    <div>{props.item} |
+      <a href='#/shoppinglist'
+        onClick={() => (delItem(props.id, 'delShoppingListItem'))}>
+        Delete
+      </a>
+    </div>
   </div>
 )
 
