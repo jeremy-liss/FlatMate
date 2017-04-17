@@ -48,13 +48,23 @@ function getBills () {
 }
 
 function addBill (flat_id, amount, bill) {
-  return knex('bills').insert({flat_id:flat_id, amount:amount, details:bill})
+  return knex('bills')
+  .insert({flat_id:flat_id, amount:amount, details:bill})
+  .then(function(ids){
+    return knex('bills')
+    .where('id', ids[0])
+    .first()
+  })
 }
 
 function delBill (id) {
   return knex('bills')
     .where('id', id)
     .del()
+    .then(function(){
+      return knex('bills')
+      .select()
+    })
 }
 
 function getBillAllocations () {
@@ -78,7 +88,13 @@ function getShoppingListItems() {
 }
 
 function addShoppingListItem (flat_id, item) {
-  return knex('shopping_list_items').insert({flat_id:flat_id, item:item})
+  return knex('shopping_list_items')
+    .insert({flat_id:flat_id, item:item})
+    .then(function(ids){
+      return knex('shopping_list_items')
+      .where('id', ids[0])
+      .first()
+    })
 }
 
 function addUser (name, email, hash, flat_id) {
@@ -95,6 +111,10 @@ function delShoppingListItem (id) {
   return knex('shopping_list_items')
     .where('id', id)
     .del()
+    .then(function(){
+      return knex('shopping_list_items')
+      .select()
+    })
 }
 
 function delEvent (id) {

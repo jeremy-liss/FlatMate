@@ -1,16 +1,23 @@
 import React from 'react'
 import { delItem } from '../actions'
+import {connect} from 'react-redux'
 
 const ShoppingListItems = (props) => (
 
   <div className="Item">
     <div>{props.item} |
       <a href='#/shoppinglist'
-        onClick={() => (delItem(props.id, 'delShoppingListItem'))}>
+        onClick={() => props.dispatch(delItem(props.id, 'shopping_list_items'))}>
         Delete
       </a>
     </div>
   </div>
 )
 
-export default ShoppingListItems
+const mapStateToProps = (state) => {
+  return {
+    dispatch: state.dispatch
+  }
+}
+
+export default connect(mapStateToProps)(ShoppingListItems)
