@@ -13,8 +13,6 @@ var events = require('./routes/events')
 var addEvent = require('./routes/addEvent')
 var shoppingListItems = require('./routes/shoppingListItems')
 var roster = require('./routes/roster')
-var addBillAllocation = require('./routes/addBillAllocation')
-
 
 var server = express()
 
@@ -37,7 +35,5 @@ server.use('/api/delShoppingListItem', shoppingListItems)
 server.use('/api/delEvent', events)
 server.use('/api/addUser', users)
 server.use('/api/delUser', users)
-server.use('/api/addBillAllocation', addBillAllocation)
-server.use('/api/delBillAllocation', billAllocations)
 
 module.exports = server

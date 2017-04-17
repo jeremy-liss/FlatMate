@@ -77,7 +77,12 @@ function getEvents () {
 }
 
 function addEvent (flat_id, date, event) {
-  return knex('events').insert({flat_id:flat_id, date:date, event:event})
+  return knex('events')
+    .insert({flat_id:flat_id, date:date, event:event})
+    .then(function(){
+      return knex('events')
+      .select()
+    })
 }
 
 function getShoppingListItems() {
@@ -118,6 +123,10 @@ function delEvent (id) {
   return knex('events')
     .where('id', id)
     .del()
+    .then(function(){
+      return knex('events')
+      .select()
+    })
 }
 
 function delBillAllocation (id) {

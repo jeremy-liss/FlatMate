@@ -4,12 +4,13 @@ import getFormData from 'get-form-data'
 
 import BillUsers from './BillUsers'
 import BillItems from './BillItems'
-import {fetchItems, postBill, fetchUsers, fetchBillAllocations, delBill} from '../actions'
+import {fetchItems, postBill, fetchUsers} from '../actions'
 
 const Bills = React.createClass ({
 
   componentDidMount () {
     this.props.dispatch(fetchItems('bills'))
+    this.props.dispatch(fetchUsers())
   },
 
   handleBillAdd(ev) {
@@ -21,6 +22,7 @@ const Bills = React.createClass ({
 
     let total = 0
     let userNum = 0
+
     this.props.billItems.map(function(bill){
       total += bill.amount
       return total
@@ -74,7 +76,6 @@ const mapStateToProps = (state) => {
   return {
     billItems: state.returnItems,
     users: state.returnUsers,
-    allocations: state.returnAllocations,
     dispatch: state.dispatch
   }
 }

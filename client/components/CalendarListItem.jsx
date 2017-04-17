@@ -1,14 +1,21 @@
 import React from 'react'
+import {connect} from 'react-redux'
 
-import {deleteEvent} from '../actions'
+import {delItem} from '../actions'
 
 const CalendarListItem = (props) => (
     <tr>
       <td>{ props.days.date }</td>
       <td>{ props.days.event }</td>
       <td><input type="text" placeholder="Update Event" name="update-event"></input></td>
-      <td><button onClick={() => (deleteEvent(props.id))}>Remove</button></td>
+      <td><button onClick={() => props.dispatch(delItem(props.id, 'events'))}>Remove</button></td>
     </tr>
 )
 
-export default CalendarListItem
+const mapStateToProps = (state) => {
+  return {
+    dispatch: state.dispatch
+  }
+}
+
+export default connect(mapStateToProps)(CalendarListItem)

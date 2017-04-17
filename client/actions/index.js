@@ -123,30 +123,18 @@ export function delItem (id, table) {
   }
 }
 
-export function delBill (id) {
+export function postEvent (formData) {
   return (dispatch) => {
     request
-    .delete(`http://localhost:3000/api/bills`)
-    .send({id: id})
-    .end((err, res) => {
-      if (err) {
-        return
-      }
-    })
+      .post(`http://localhost:3000/api/events`)
+      .send(formData)
+      .end((err, res) => {
+        if (err) {
+          return
+        }
+        dispatch(receiveItems(res.body))
+      })
   }
-}
-
-export function postEvent (ev, callback) {
-  ev.preventDefault(ev)
-  request
-    .post(`http://localhost:3000/api/addevent`)
-    .send({date: ev.target.elements[1].value, event: ev.target.elements[0].value})
-    .end((err, res) => {
-      if (err) {
-        return
-      }
-      callback(null, res.body)
-    })
 }
 
 export function deleteEvent (id, callback) {
