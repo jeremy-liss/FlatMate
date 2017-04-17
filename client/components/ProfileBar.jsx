@@ -1,9 +1,31 @@
 import React from 'react'
+import {connect} from 'react-redux'
 
-const ProfileBar = () => (
+import {fetchItems} from '../actions'
+
+const ProfileBar = (props) => {
+  props.dispatch(fetchItems('users'))
+  props.dispatch(fetchItems('jobs'))
+
+
+  return (
   <div className="ProfileBar">
-   Hello User! | Your job this week is: ... | You owe $0
-  </div>
-)
+   Hello {props.users[1]}! |
 
-export default ProfileBar
+   Your job this week is: ... |
+
+   You owe $0
+  </div>
+  )
+}
+
+const mapStateToProps = (state) => {
+  return {
+    users: state.returnUsers,
+    allocations: state.returnAllocations,
+    jobs: state.returnItems,
+    dispatch: state.dispatch
+  }
+}
+
+export default connect(mapStateToProps)(ProfileBar)
