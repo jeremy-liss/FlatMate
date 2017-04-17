@@ -14,6 +14,13 @@ export const receiveUsers = (users) => {
   }
 }
 
+export const receiveBillAllocations = (allocations) => {
+  return {
+    type: 'RECEIVE_ALLOCATIONS',
+    list: allocations.map(allocation => allocation)
+  }
+}
+
 export const shuffleJobs = () => {
   return {
     type: 'SHUFFLE_JOBS',
@@ -43,6 +50,19 @@ export function fetchUsers () {
           return
         }
         dispatch(receiveUsers(res.body))
+      })
+  }
+}
+
+export function fetchBillAllocations () {
+  return (dispatch) => {
+    request
+      .get(`http://localhost:3000/api/bill_allocations`)
+      .end((err, res) => {
+        if (err) {
+          return
+        }
+        dispatch(receiveBillAllocations(res.body))
       })
   }
 }

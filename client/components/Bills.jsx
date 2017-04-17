@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 
 import BillUsers from './BillUsers'
 import BillItems from './BillItems'
-import {fetchItems, postBill, fetchUsers} from '../actions'
+import {fetchItems, postBill, fetchUsers, fetchBillAllocations} from '../actions'
 
 const Bills = (props) => {
 
@@ -22,6 +22,8 @@ const Bills = (props) => {
       return userNum
     })
 
+    let userTotal= Math.round((total/ userNum) * 100) / 100
+    
   return  (
 
     <div className='container'>
@@ -44,7 +46,7 @@ const Bills = (props) => {
         </tbody>
       </table>
 
-      <h5>Total: ${total}</h5>
+      <h5>Total: ${total} | You owe: ${userTotal}</h5>
 
       <form onSubmit={postBill}>
         <input type="text" name="bill" placeholder="bill" />
@@ -62,6 +64,7 @@ const mapStateToProps = (state) => {
   return {
     billItems: state.returnItems,
     users: state.returnUsers,
+    allocations: state.returnAllocations,
     dispatch: state.dispatch
   }
 }
