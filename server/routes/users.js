@@ -23,7 +23,7 @@ router.route('/')
     })
   })
   .put(function (req, res) {
-    db.updateEmail(req.body.email, req.body.newEmail)
+    db.updateEmail(req.body.id, req.body.newEmail)
     .then((result) => {
       res.send(result)
     })

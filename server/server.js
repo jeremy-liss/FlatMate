@@ -15,7 +15,7 @@ var addEvent = require('./routes/addEvent')
 var shoppingListItems = require('./routes/shoppingListItems')
 var roster = require('./routes/roster')
 var addShoppingListItem = require('./routes/addShoppingListItem')
-
+var addFlatUser = require('./routes/addFlatUser')
 
 var server = express()
 
@@ -43,5 +43,6 @@ server.use('/api/delEvent', events)
 server.use('/api/addUser', users)
 server.use('/api/delUser', users)
 server.use('/api/updateEmail', users)
+server.use('/api/updateflatid', addFlatUser)
 
 module.exports = server
