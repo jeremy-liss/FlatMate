@@ -23,12 +23,12 @@ const Bills = (props) => {
     })
 
     let userTotal= Math.round((total/ userNum) * 100) / 100
-    
+
   return  (
 
     <div className='container'>
-
-      <table>
+      <h2>Flat Calendar</h2>
+      <table className='bills'>
         <thead>
           <tr>
             <th>Bill</th>

@@ -3,11 +3,13 @@ import React from 'react'
 import {deleteEvent} from '../actions'
 
 const CalendarListItem = (props) => (
+  <div className='items'>
     <tr>
       <td>{ props.days.date }</td>
       <td>{ props.days.event }</td>
       <td><button onClick={() => (confirmDelete(props.id))}>Remove</button></td>
     </tr>
+  </div>
 )
 
 function confirmDelete (id) {
