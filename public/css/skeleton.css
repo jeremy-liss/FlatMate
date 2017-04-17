@@ -6,9 +6,11 @@
   margin: 0 auto;
   padding: 0 20px;
   box-sizing: border-box;
+  margin-top: auto;
 }
 
 .columns {
+  top: -200px;
   width: 100%;
   float:right;
   box-sizing: border-box; }

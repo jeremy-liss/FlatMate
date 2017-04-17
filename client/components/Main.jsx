@@ -19,10 +19,10 @@ const Main = () => (
       </div>
     </div>
 
-    <div className="row">
+    <div className= "row">
        <div className='six columns'>
         <div id='roster'>
-        <a href='#/roster'><img id='rosterImage' src='../../css/images/Roster123.png' alt='link to roster' width='200px' height='200px' /></a>
+        <a href='#/roster'><img id='rosterImage' src='../../css/images/Roster123.png' alt='link to roster' width='250px' height='250px' /></a>
         </div>
       </div>
       <div className='six columns'>

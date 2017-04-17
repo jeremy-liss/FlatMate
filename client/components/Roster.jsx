@@ -5,29 +5,32 @@ import Jobs from './Jobs'
 
 const Roster = (props) => {
   return (
-    <div className='roster'>
+    <div className="roster">
+
       <h2>Duty Calls</h2>
 
-        <table>
-         <thead>
-          <tr>
-            <th>Name</th>
-            <th>Job this Week</th>
-            </tr>
-         </thead>
-        <tbody>
-          {props.roster.map(function(job,i){
+        <table className="center">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Job this Week</th>
+              </tr>
+           </thead>
+           <tbody>
+            {props.roster.map(function(job,i){
 
-          return <Jobs name={job.name} key={job.id} chores={props.chores[i]} />
-          })}
+            return <Jobs name={job.name} key={job.id} chores={props.chores[i]} />
+            })}
 
-        </tbody>
-
-        <button onClick={()=> props.dispatch(shuffleJobs())}>Shuffle</button>
-
+           </tbody>
         </table>
-      <a href='#/home'>Return Home</a>
-    </div>
+          <div className="shuffle">
+            <button onClick={()=> props.dispatch(shuffleJobs())}> Shuffle </button>
+          </div>
+
+        <a href='#/home'>Return Home</a>
+        </div>
+
   )
 }
 
