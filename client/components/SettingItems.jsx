@@ -1,6 +1,6 @@
 import React from 'react'
 
-import {delItem, updateEmail} from '../actions'
+import {removeFlattie, updateEmail} from '../actions'
 
 const SettingItems = (props) => {
   return (
@@ -11,7 +11,7 @@ const SettingItems = (props) => {
         <input type="text" id={props.id} placeholder="New Email"></input>
         <button onClick={() => (updateEmail(props.id, document.getElementById(props.id).value))}>Update</button>
       </td>
-      <td><button onClick={() => (delItem(props.id, 'deluser'))}>Remove Flattie</button></td>
+      <td><button onClick={() => (removeFlattie(props.users.email))}>Remove Flattie</button></td>
     </tr>
   )
 }

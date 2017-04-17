@@ -165,3 +165,15 @@ export function addUserToFlat (ev, callback) {
       callback(null, res.body)
     })
 }
+
+export function removeFlattie (userEmail, callback) {
+  request
+    .put(`http://localhost:3000/api/updateflatid`)
+    .send({email: userEmail, flat_id: null})
+    .end((err, res) => {
+      if (err) {
+        return
+      }
+      callback(null, res.body)
+    })
+}
