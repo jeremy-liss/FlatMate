@@ -108,6 +108,10 @@ function delShoppingListItem (id) {
   return knex('shopping_list_items')
     .where('id', id)
     .del()
+    .then(function(){
+      return knex('shopping_list_items')
+      .select()
+    })
 }
 
 function delEvent (id) {

@@ -96,7 +96,7 @@ export function postItem (formData) {
 }
 
 export function postBill (formData) {
-    return (dispatch) => {
+  return (dispatch) => {
     request
       .post(`http://localhost:3000/api/bills`)
       .send(formData)
@@ -110,15 +110,17 @@ export function postBill (formData) {
 }
 
 export function delItem (id, table) {
-  request
-  .delete(`http://localhost:3000/api/${table}`)
-  .send({id: id})
-  .end((err, res) => {
-    if (err) {
-      return
-    }
-    callback(null, res.body)
-  })
+  return (dispatch) => {
+    request
+    .delete(`http://localhost:3000/api/${table}`)
+    .send({id: id})
+    .end((err, res) => {
+      if (err) {
+        return
+      }
+      dispatch(receiveItems(res.body))
+    })
+  }
 }
 
 export function delBill (id) {

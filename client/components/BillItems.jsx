@@ -1,27 +1,23 @@
 import React from 'react'
+import { delItem } from '../actions'
+import {connect} from 'react-redux'
 
 const BillItems = (props) => {
-  let boxes = []
+
+  let amounts = []
   let userAmount = Math.round((props.amount / props.userNum) * 100) / 100
 
   for (var i=0; i < props.userNum; i++){
-    boxes.push(<td key={i}>{userAmount} |
-                <input id="box" type="checkbox" value='true'
-                  onClick={function() {
-                            if (box.value == 'true')
-                            console.log('hi')
-                          }
-                        }/>
-              </td>)
+    amounts.push(<td key={i}>{userAmount}</td>)
   }
 
   return (
     <tr>
       <td>{props.details}</td>
       <td>${props.amount}</td>
-      {boxes}
+      {amounts}
       <td>
-        <button onClick={()=> props.delBill(props.id)}>
+        <button onClick={()=> props.dispatch(delItem(props.id, 'bills'))}>
           Paid
         </button>
       </td>
@@ -29,5 +25,10 @@ const BillItems = (props) => {
   )
 }
 
+const mapStateToProps = (state) => {
+  return {
+    dispatch: state.dispatch
+  }
+}
 
-export default BillItems
+export default connect(mapStateToProps)(BillItems)

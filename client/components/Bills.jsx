@@ -17,12 +17,7 @@ const Bills = React.createClass ({
     this.props.dispatch(postBill(getFormData(ev.target)))
   },
 
-   delBill(id){
-    this.props.dispatch(delBill(id))
-  },
-
   render () {
-
 
     let total = 0
     let userNum = 0

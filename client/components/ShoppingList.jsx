@@ -16,10 +16,6 @@ const ShoppingList = React.createClass ({
     this.props.dispatch(postItem(ev.target.elements[0].value))
   },
 
-  delItem(id){
-   this.props.dispatch(delItem(id))
- },
-
   render () {
 
     return (
