@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
 import ProfileBar from './ProfileBar'
 
 const Main = () => (
@@ -7,18 +7,18 @@ const Main = () => (
     <ProfileBar />
     <div className="row">
       <div className='six columns'>
-        <a href='#/shoppinglist'><img src='' alt='link to shopping list' /></a>
+        <Link to='/shoppinglist'><img src='' alt='link to shopping list' /></Link>
       </div>
       <div className='six columns'>
-        <a href='#/calendar'><img src='' alt='link to calendar' /></a>
+        <Link to='/calendar'><img src='' alt='link to calendar' /></Link>
       </div>
     </div>
     <div className="row">
       <div className='six columns'>
-        <a href='#/roster'><img src='' alt='link to roster' /></a>
+        <Link to='/roster'><img src='' alt='link to roster' /></Link>
       </div>
       <div className='six columns'>
-        <a href='#/bills'><img src='' alt='link to bills' /></a>
+        <Link to='/bills'><img src='' alt='link to bills' /></Link>
       </div>
     </div>
     <a href='#/settings'>Settings</a>

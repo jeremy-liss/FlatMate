@@ -20,7 +20,9 @@ module.exports = {
   addUser: addUser,
   delUser: delUser,
   updateEmail: updateEmail,
-  updateFlatId: updateFlatId
+  updateFlatId: updateFlatId,
+  addBillAllocation: addBillAllocation,
+  delBillAllocation: delBillAllocation
 }
 
 function getUsers () {
@@ -56,6 +58,10 @@ function delBill (id) {
 
 function getBillAllocations () {
   return knex('bill_allocations').select()
+}
+
+function addBillAllocation (bill_id, user_id, amount) {
+  return knex('bill_allocations').insert({bill_id:bill_id, user_id:user_id, amount:amount})
 }
 
 function getEvents () {
@@ -106,4 +112,10 @@ function updateFlatId (email, flatId) {
   return knex('users')
     .where('email', email)
     .update({'flat_id': flatId})
+}
+
+function delBillAllocation (id) {
+  return knex('bill_allocations')
+    .where('id', id)
+    .del()
 }
