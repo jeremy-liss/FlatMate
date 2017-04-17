@@ -19,6 +19,8 @@ module.exports = {
   getUsers: getUsers,
   addUser: addUser,
   delUser: delUser,
+  updateEmail: updateEmail,
+  updateFlatId: updateFlatId,
   addBillAllocation: addBillAllocation,
   delBillAllocation: delBillAllocation
 }
@@ -98,6 +100,18 @@ function delEvent (id) {
   return knex('events')
     .where('id', id)
     .del()
+}
+
+function updateEmail (id, newEmail) {
+  return knex('users')
+    .where('id', id)
+    .update({'email': newEmail})
+}
+
+function updateFlatId (email, flatId) {
+  return knex('users')
+    .where('email', email)
+    .update({'flat_id': flatId})
 }
 
 function delBillAllocation (id) {

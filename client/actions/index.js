@@ -93,6 +93,7 @@ export function postBill (ev, callback) {
 }
 
 export function delItem (id, table) {
+  console.log(id);
   request
   .delete(`http://localhost:3000/api/${table}`)
   .send({id: id})
@@ -130,7 +131,6 @@ export function deleteEvent (id, callback) {
 }
 
 export function postUser (object, callback) {
-
   request
     .post(`http://localhost:3000/api/adduser`)
     .send(object)
@@ -141,3 +141,29 @@ export function postUser (object, callback) {
       callback(null, res.body)
     })
 }
+
+export function updateEmail (id, newestEmail, callback) {
+  request
+    .put(`http://localhost:3000/api/updateemail`)
+    .send({id: id, newEmail: newestEmail})
+    .end((err, res) => {
+      if (err) {
+        return
+      }
+      callback(null, res.body)
+    })
+}
+
+export function addUserToFlat (ev, callback) {
+  ev.preventDefault(ev)
+  request
+    .put(`http://localhost:3000/api/updateflatid`)
+    .send({email: ev.target.elements[0].value, flat_id: 1001})
+    .end((err, res) => {
+      if (err) {
+        return
+      }
+      callback(null, res.body)
+    })
+}
+
