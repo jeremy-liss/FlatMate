@@ -1,5 +1,4 @@
 import React from 'react'
-import { delItem } from '../actions'
 
 const BillItems = (props) => {
   let boxes = []
@@ -22,7 +21,7 @@ const BillItems = (props) => {
       <td>${props.amount}</td>
       {boxes}
       <td>
-        <button onClick={() => (delItem(props.id, 'delBill')) }>
+        <button onClick={()=> props.delBill(props.id)}>
           Paid
         </button>
       </td>

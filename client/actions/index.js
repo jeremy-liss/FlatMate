@@ -29,7 +29,6 @@ export const shuffleJobs = () => {
 }
 
 export const addBill = (bill) => {
-  console.log(bill)
   return {
     type: 'ADD_BILL',
     payload: bill
@@ -111,6 +110,20 @@ export function delItem (id, table) {
     }
     callback(null, res.body)
   })
+}
+
+export function delBill (id) {
+  return (dispatch) => {
+    request
+    .delete(`http://localhost:3000/api/bills`)
+    .send({id: id})
+    .end((err, res) => {
+      if (err) {
+        return
+      }
+      console.log(res.body)
+    })
+  }
 }
 
 export function postEvent (ev, callback) {

@@ -14,7 +14,6 @@ router.route('/')
   })
   .post(function (req, res) {
     db.addBill(1001, req.body.amount, req.body.bill).then((bill) => {
-      console.log(bill)
       res.send(bill)
     })
     .catch((err) => {
@@ -23,6 +22,7 @@ router.route('/')
   })
   .delete(function (req, res) {
     db.delBill(req.body.id).then((result) => {
+      console.log(result)
       res.send(result)
     })
     .catch((err) => {

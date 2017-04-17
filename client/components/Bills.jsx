@@ -4,7 +4,7 @@ import getFormData from 'get-form-data'
 
 import BillUsers from './BillUsers'
 import BillItems from './BillItems'
-import {fetchItems, postBill, fetchUsers, fetchBillAllocations} from '../actions'
+import {fetchItems, postBill, fetchUsers, fetchBillAllocations, delBill} from '../actions'
 
 const Bills = React.createClass ({
 
@@ -18,6 +18,10 @@ const Bills = React.createClass ({
   },
 
   render () {
+
+    function delBill(id){
+      this.props.dispatch(delBill(id))
+    }
 
     let total = 0
     let userNum = 0
@@ -50,12 +54,12 @@ const Bills = React.createClass ({
           </thead>
           <tbody>
             {this.props.billItems.map(function(bill, i){
-              return <BillItems amount={bill.amount} details={bill.details} key={i} id={bill.id} userNum={userNum} />
+              return <BillItems amount={bill.amount} details={bill.details} key={i} id={bill.id} userNum={userNum} delBill={delBill} />
             })}
           </tbody>
         </table>
 
-        <h5>Total: ${total} | You owe: ${userTotal}</h5>
+        <h5>Total: ${total} | You Owe: ${userTotal}</h5>
 
         <form onSubmit={(ev)=> this.handleBillAdd(ev)}>
           <input type="text" name="bill" placeholder="bill" />
