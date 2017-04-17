@@ -22,18 +22,3 @@ const CalendarList = (props) => (
 )
 
 export default CalendarList
-
-function todaysDate () {
-  var currentDate = new Date()
-  var day = currentDate.getDate()
-  var month = currentDate.getMonth() + 1
-  var year = currentDate.getFullYear()
-  return (day + "/" + month + "/" + year)
-}
-
-function daysInMonth (month, year) {
-  var currentDate = new Date()
-  var month = currentDate.getMonth() + 1
-  var year = currentDate.getFullYear()
-  return new Date(year, month, 0).getDate();
-}
