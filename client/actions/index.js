@@ -28,6 +28,14 @@ export const shuffleJobs = () => {
   }
 }
 
+export const addBill = (bill) => {
+  console.log(bill)
+  return {
+    type: 'ADD_BILL',
+    payload: bill
+  }
+}
+
 export function fetchItems (table) {
   return (dispatch) => {
     request
@@ -76,20 +84,21 @@ export function postItem (ev, callback) {
       if (err) {
         return
       }
-      callback(null, res.body)
     })
 }
-export function postBill (ev, callback) {
-  ev.preventDefault(ev)
-  request
-    .post(`http://localhost:3000/api/addBill`)
-    .send({bill: ev.target.elements[0].value, amount: ev.target.elements[1].value})
-    .end((err, res) => {
-      if (err) {
-        return
-      }
-      callback(null, res.body)
-    })
+
+export function postBill (formData) {
+    return (dispatch) => {
+    request
+      .post(`http://localhost:3000/api/bills`)
+      .send(formData)
+      .end((err, res) => {
+        if (err) {
+          return
+        }
+        dispatch(addBill(res.body))
+      })
+    }
 }
 
 export function delItem (id, table) {
@@ -130,7 +139,6 @@ export function deleteEvent (id, callback) {
 }
 
 export function postUser (object, callback) {
-
   request
     .post(`http://localhost:3000/api/adduser`)
     .send(object)

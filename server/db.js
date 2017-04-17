@@ -45,7 +45,14 @@ function getBills () {
 }
 
 function addBill (flat_id, amount, bill) {
-  return knex('bills').insert({flat_id:flat_id, amount:amount, details:bill})
+  return knex('bills')
+  .insert({flat_id:flat_id, amount:amount, details:bill})
+  .then(function(ids){
+    console.log('db', ids)
+    return knex('bills')
+    .where('id', ids[0])
+    .first()
+  })
 }
 
 function delBill (id) {

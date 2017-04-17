@@ -12,6 +12,15 @@ router.route('/')
       res.status(500).send(err)
     })
   })
+  .post(function (req, res) {
+    db.addBill(1001, req.body.amount, req.body.bill).then((bill) => {
+      console.log(bill)
+      res.send(bill)
+    })
+    .catch((err) => {
+      res.status(500).send(err)
+    })
+  })
   .delete(function (req, res) {
     db.delBill(req.body.id).then((result) => {
       res.send(result)
