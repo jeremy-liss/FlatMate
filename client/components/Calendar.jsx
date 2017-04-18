@@ -1,9 +1,12 @@
 import React from 'react'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
-import {fetchItems} from '../actions'
+import { fetchItems } from '../actions'
+
 import CalendarEntry from './CalendarEntry'
 import CalendarList from './CalendarList'
+import ProfileBar from './ProfileBar'
 
 const Events = React.createClass ({
 
@@ -24,33 +27,36 @@ const Events = React.createClass ({
           if (this.props.events[i].date < todaysDate()) {
             this.props.events.splice(i, 1)
           } else i++
-        }})
+      }})
 
-        this.props.events.sort((a, b) => {
-          return a.date - b.date
-        })
+      this.props.events.sort((a, b) => {
+        return a.date - b.date
+      })
 
-        this.props.events.map((day, i) => {
-          let a = day.date.split('')
-          let rearranged = [a[6],a[7],"-",a[4],a[5],"-",a[0],a[1],a[2],a[3]]
-          let joinedArray = rearranged.join('')
-          this.props.events[i].date = joinedArray
-        })
-      }
+      this.props.events.map((day, i) => {
+        let a = day.date.split('')
+        let rearranged = [a[6],a[7],"-",a[4],a[5],"-",a[0],a[1],a[2],a[3]]
+        let joinedArray = rearranged.join('')
+        this.props.events[i].date = joinedArray
+      })
+    }
 
-     return (
-       <div className='calendarContainer'>
-         <div className='row'>
-           <h3>Upcoming Events</h3>
-           Today is the { easyToReadDate () }
-           <CalendarEntry />
-         </div>
-         <div className="row">
-          <CalendarList days={this.props.events} />
-           <a href='#/home'>Return Home</a>
-         </div>
-       </div>
-     )
+    return (
+      <div className='container'>
+        <ProfileBar />
+        <div className='calendarContainer'>
+          <div className='row'>
+            <h3>Upcoming Events</h3>
+            Today is the { easyToReadDate () }
+            <CalendarEntry />
+          </div>
+          <div className="row">
+            <CalendarList days={this.props.events} />
+            <Link to='/home'>Return Home</Link>
+          </div>
+        </div>
+      </div>
+    )
   }
 })
 
@@ -64,12 +70,9 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps)(Events)
 
+
 function removeDash (value) {
   if (value !== "-") return value
-}
-
-function futureDates (date) {
-  return date > todaysDate()
 }
 
 function todaysDate () {

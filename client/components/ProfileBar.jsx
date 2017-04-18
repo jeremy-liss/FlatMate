@@ -1,7 +1,8 @@
 import React from 'react'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 
-import {fetchItems, fetchBillAllocations} from '../actions'
+import { fetchItems, fetchBillAllocations } from '../actions'
+
 import ProfileBarUser from './ProfileBarUser'
 import ProfileBarJob from './ProfileBarJob'
 import ProfileBarBill from './ProfileBarBill'
@@ -17,26 +18,26 @@ const ProfileBar = React.createClass ({
   render () {
 
     return (
-    <div className="ProfileBar">
-      Hello
-      {this.props.users.map(function(user, i) {
-        if (user.id == 2002) {
-          return <ProfileBarUser name={user.name} id={user.id} key={i} />
-        }
-      })}
-      ! | Your job this week is:
-      {this.props.jobs.map(function(job, i) {
-        if (job.user_id == 2002) {
-          return <ProfileBarJob job={job.job} id={job.id} key={i} />
-        }
-      })}
-      | Current amount owing $
-      {this.props.allocations.map(function(amount, i) {
-        if (amount.user_id == 2002) {
-          return <ProfileBarBill amount={amount.amount} id={amount.id} key={i} />
-        }
-      })}
-    </div>
+      <div className="ProfileBar">
+        Hello
+        {this.props.users.map(function(user, i) {
+          if (user.id == 2002) {
+            return <ProfileBarUser name={user.name} id={user.id} key={i} />
+          }
+        })}
+        ! | Your job this week is:
+        {this.props.jobs.map(function(job, i) {
+          if (job.user_id == 2002) {
+            return <ProfileBarJob job={job.job} id={job.id} key={i} />
+          }
+        })}
+        | Current amount owing $
+        {this.props.allocations.map(function(amount, i) {
+          if (amount.user_id == 2002) {
+            return <ProfileBarBill amount={amount.amount} id={amount.id} key={i} />
+          }
+        })}
+      </div>
     )
   }
 })

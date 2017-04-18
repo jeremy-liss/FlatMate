@@ -6,5 +6,4 @@ const ProfileBarJob = (props) => {
   )
 }
 
-
 export default ProfileBarJob

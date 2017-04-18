@@ -1,7 +1,7 @@
 import React from 'react'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 
-import {postItem} from '../actions'
+import { postItem } from '../actions'
 
 var today = new Date()
 var dd = today.getDate()
@@ -15,7 +15,9 @@ const CalendarEntry = (props) => {
 
   function handleEventAdd(ev) {
     ev.preventDefault(ev)
-    props.dispatch(postItem({date: ev.target.elements[1].value, event: ev.target.elements[0].value}, 'events'))
+    props.dispatch(postItem(
+      {date: ev.target.elements[1].value, event: ev.target.elements[0].value}, 'events'
+    ))
   }
 
   return (
@@ -28,7 +30,6 @@ const CalendarEntry = (props) => {
     </div>
   )
 }
-
 
 const mapStateToProps = (state) => {
   return {

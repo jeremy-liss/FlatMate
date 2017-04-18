@@ -1,13 +1,14 @@
 import React from 'react'
-import {connect} from 'react-redux'
 import getFormData from 'get-form-data'
+import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
+import { fetchItems, postItem, postBill, postAllocation, fetchUsers, fetchFlatUsers, fetchBillAllocations, delBill } from '../actions'
 import BillUsers from './BillUsers'
 import BillItems from './BillItems'
-import {fetchItems, postItem, postBill, postAllocation, fetchUsers, fetchFlatUsers, fetchBillAllocations, delBill} from '../actions'
+import ProfileBar from './ProfileBar'
 
 let table = 'bills'
-
 
 const Bills = React.createClass ({
   componentDidMount () {
@@ -44,17 +45,16 @@ const Bills = React.createClass ({
 
     return  (
       <div className='container'>
-
-      <h2>Flat Bills</h2>
-
+        <ProfileBar />
+        <h2>Flat Bills</h2>
         <table className='bills'>
           <thead>
             <tr>
               <th>Bill</th>
               <th>Amount</th>
-                {this.props.flatUsers.map(function(user, i){
-                 return <BillUsers name={user.name} key={i} id={user.id} />
-               })}
+              {this.props.flatUsers.map(function(user, i){
+                return <BillUsers name={user.name} key={i} id={user.id} />
+              })}
               <th>Paid</th>
             </tr>
           </thead>
@@ -65,15 +65,13 @@ const Bills = React.createClass ({
           </tbody>
         </table>
         <div className='totalBill'>
-        <h5>Total: ${total} | You Owe: ${userTotal}</h5>
-
+          <h5>Total: ${total} | You Owe: ${userTotal}</h5>
           <form onSubmit={(ev)=> this.handleBillAdd(ev)}>
             <input type="text" name="bill" placeholder="bill" />
             <input type="text" name="amount" placeholder="amount" />
             <button type="submit">Add</button>
           </form>
-
-          <a href='#/home'>Return Home</a>
+          <Link to='/home'>Return Home</Link>
         </div>
       </div>
     )
