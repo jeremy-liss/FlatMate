@@ -21,10 +21,10 @@ export const receiveBillAllocations = (allocations) => {
   }
 }
 
-export const shuffleJobs = () => {
+export const shuffleJobs = (chores) => {
   return {
     type: 'SHUFFLE_JOBS',
-    chores: ["Vacuum", "Dishes", "Trash"]
+    chores: ["Vacuum", "Dishes", "Trash", "Bathroom", "Mow Lawn", "Clean Kitchen"]
   }
 }
 
