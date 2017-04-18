@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 
 import {delItem} from '../actions'
 
+
 const CalendarListItem = (props) => {
 
   return (
