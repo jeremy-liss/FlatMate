@@ -12,6 +12,7 @@ const DefaultPage = () => (
             Whether it's splitting bills, creating Flat events or making sure everyone knows what duties they're on.<br />
             We've got you covered.
           </p>
+          <p><strong>Sign In / Sign Up!</strong></p>
         </div>
       </div>
       <div className='row'>
