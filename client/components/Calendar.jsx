@@ -47,7 +47,7 @@ const Events = React.createClass ({
         <div className='calendarContainer'>
           <div className='row'>
             <h3>Upcoming Events</h3>
-            Today is the { easyToReadDate () }
+            <strong>Today is the <em>{ easyToReadDate () }</em></strong>
             <CalendarEntry />
           </div>
           <div className="row">

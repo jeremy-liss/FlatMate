@@ -32,39 +32,39 @@ export const receiveFlatUsers = (flatUsers) => {
 export function fetchItems (table) {
   return (dispatch) => {
     request
-      .get(`http://localhost:3000/api/${table}`)
-      .end((err, res) => {
-        if (err) {
-          return
-        }
-        dispatch(receiveItems(res.body, table))
-      })
+    .get(`http://localhost:3000/api/${table}`)
+    .end((err, res) => {
+      if (err) {
+        return
+      }
+      dispatch(receiveItems(res.body, table))
+    })
   }
 }
 
 export function fetchUsers () {
   return (dispatch) => {
     request
-      .get(`http://localhost:3000/api/users`)
-      .end((err, res) => {
-        if (err) {
-          return
-        }
-        dispatch(receiveUsers(res.body))
-      })
+    .get(`http://localhost:3000/api/users`)
+    .end((err, res) => {
+      if (err) {
+        return
+      }
+      dispatch(receiveUsers(res.body))
+    })
   }
 }
 
 export function fetchFlatUsers () {
   return (dispatch) => {
     request
-      .get(`http://localhost:3000/api/flatusers`)
-      .end((err, res) => {
-        if (err) {
-          return
-        }
-        dispatch(receiveFlatUsers(res.body))
-      })
+    .get(`http://localhost:3000/api/flatusers`)
+    .end((err, res) => {
+      if (err) {
+        return
+      }
+      dispatch(receiveFlatUsers(res.body))
+    })
   }
 }
 
@@ -111,14 +111,13 @@ export function delItem (id, table) {
 
 export function postUser (object, callback) {
   request
-    .post(`http://localhost:3000/api/adduser`)
-    .send(object)
-    .end((err, res) => {
-      if (err) {
-        return
-      }
-      callback(null, res.body)
-    })
+  .post(`http://localhost:3000/api/adduser`)
+  .send(object)
+  .end((err, res) => {
+    if (err) {
+      return
+    }
+  })
 }
 
 export function updateEmail (id, newestEmail) {

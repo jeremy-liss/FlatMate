@@ -6,8 +6,8 @@ import { postUser } from '../actions'
 const Register = () => (
   <div className='registerContainer'>
     <div className='row'>
-      Sign Up!
-      <form onSubmit={confirmPassword} id='register'>
+      <h3><strong>Sign Up!</strong></h3>
+      <form onSubmit={ confirmPassword } id='register'>
         <input type="text" placeholder="User Name" /><br />
         <input type="text" placeholder="Email" /><br />
         <input type="password" placeholder="Password" /><br />
