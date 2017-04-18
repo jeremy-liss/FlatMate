@@ -1,6 +1,7 @@
 import React from 'react'
-import { delAllocation } from '../actions'
+import { delItem } from '../actions'
 import {connect} from 'react-redux'
+import {calculateBillAllocation} from '../lib/billUserTotal'
 
 const BillItems = (props) => {
 
@@ -12,7 +13,7 @@ const BillItems = (props) => {
   }
 
   function handleBillDel () {
-    props.dispatch(delAllocation(props.id, props.table, props.userTotal))
+    props.dispatch(delItem(props.id, props.table))
   }
 
   return (
