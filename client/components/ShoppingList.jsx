@@ -1,9 +1,10 @@
 import React from 'react'
-import {connect} from 'react-redux'
 import getFormData from 'get-form-data'
+import { connect } from 'react-redux'
 
-import {fetchItems, postItem} from '../actions'
+import { fetchItems, postItem } from '../actions'
 import ShoppingListItems from './ShoppingListItems'
+import ProfileBar from './ProfileBar'
 
 let table ='shopping_list_items'
 
@@ -21,26 +22,25 @@ const ShoppingList = React.createClass ({
   render () {
 
     return (
-      <div className="Shoppinglist">
-        <h1>Shopping List</h1>
-
+      <div className="container">
+        <ProfileBar />
+        <div className="Shoppinglist">
+          <h1>Shopping List</h1>
           <div>
             {this.props.list.map(function(item, i){
               return <ShoppingListItems item={item.item} key={i} id={item.id} table={table} />
             })}
           </div>
-
-        <form onSubmit={(ev)=> this.handleItemAdd(ev)}>
-          <input type="text" name="item" placeholder="add item" />
-          <button type="submit">Add</button>
-        </form>
-
-        <a href='#/home'>Return Home</a>
+          <form onSubmit={(ev)=> this.handleItemAdd(ev)}>
+            <input type="text" name="item" placeholder="Add Item" />
+            <button type="submit">Add</button>
+          </form>
+          <a href='#/home'>Return Home</a>
+        </div>
       </div>
     )
   }
 })
-
 
 const mapStateToProps = (state) => {
   return {
