@@ -34,7 +34,7 @@ const Main = () => (
     </div>
     </div>
     <div className="setting">
-    <Link to='/settings'>Settings</Link>
+    <Link to='/settings'><img src='../../css/images/settings.png' alt='link to settings' width='80px' height='80px'/></Link>
     </div>
   </div>
 
