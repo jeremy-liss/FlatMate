@@ -28,6 +28,20 @@ export const shuffleJobs = () => {
   }
 }
 
+export const addBill = (bill) => {
+  return {
+    type: 'ADD_BILL',
+    payload: bill
+  }
+}
+
+export const addItem = (item) => {
+  return {
+    type: 'ADD_ITEM',
+    payload: item
+  }
+}
+
 export function fetchItems (table) {
   return (dispatch) => {
     request
@@ -67,41 +81,59 @@ export function fetchBillAllocations () {
   }
 }
 
-export function postItem (ev, callback) {
-  ev.preventDefault(ev)
+export function postItem (formData) {
+  return (dispatch) => {
   request
-    .post(`http://localhost:3000/api/addshoppinglistitem`)
-    .send({item: ev.target.elements[0].value})
+    .post(`http://localhost:3000/api/shopping_list_items`)
+    .send({item: formData})
     .end((err, res) => {
       if (err) {
         return
       }
-      callback(null, res.body)
+      dispatch(addItem(res.body))
     })
+  }
 }
-export function postBill (ev, callback) {
-  ev.preventDefault(ev)
-  request
-    .post(`http://localhost:3000/api/addBill`)
-    .send({bill: ev.target.elements[0].value, amount: ev.target.elements[1].value})
-    .end((err, res) => {
-      if (err) {
-        return
-      }
-      callback(null, res.body)
-    })
+
+export function postBill (formData) {
+  return (dispatch) => {
+    request
+      .post(`http://localhost:3000/api/bills`)
+      .send(formData)
+      .end((err, res) => {
+        if (err) {
+          return
+        }
+        dispatch(addBill(res.body))
+      })
+    }
 }
 
 export function delItem (id, table) {
-  request
-  .delete(`http://localhost:3000/api/${table}`)
-  .send({id: id})
-  .end((err, res) => {
-    if (err) {
-      return
-    }
-    callback(null, res.body)
-  })
+  return (dispatch) => {
+    request
+    .delete(`http://localhost:3000/api/${table}`)
+    .send({id: id})
+    .end((err, res) => {
+      if (err) {
+        return
+      }
+      dispatch(receiveItems(res.body))
+    })
+  }
+}
+
+export function delBill (id) {
+  return (dispatch) => {
+    request
+    .delete(`http://localhost:3000/api/bills`)
+    .send({id: id})
+    .end((err, res) => {
+      if (err) {
+        return
+      }
+    })
+  }
 }
 
 export function postEvent (ev, callback) {

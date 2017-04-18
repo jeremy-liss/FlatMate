@@ -1,64 +1,73 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import getFormData from 'get-form-data'
 
 import BillUsers from './BillUsers'
 import BillItems from './BillItems'
-import {fetchItems, postBill, fetchUsers, fetchBillAllocations} from '../actions'
+import {fetchItems, postBill, fetchUsers, fetchBillAllocations, delBill} from '../actions'
 
-const Bills = (props) => {
+const Bills = React.createClass ({
 
-  props.dispatch(fetchItems('bills'))
+  componentDidMount () {
+    this.props.dispatch(fetchItems('bills'))
+  },
 
-  let total = 0
-  let userNum = 0
+  handleBillAdd(ev) {
+    ev.preventDefault(ev)
+    this.props.dispatch(postBill(getFormData(ev.target)))
+  },
 
-  props.billItems.map(function(bill){
-    total += bill.amount
-    return total
+  render () {
+
+    let total = 0
+    let userNum = 0
+    this.props.billItems.map(function(bill){
+      total += bill.amount
+      return total
     })
 
-    props.users.map(function(user, i){
+    this.props.users.map(function(user, i){
       userNum += i
       return userNum
     })
 
     let userTotal= Math.round((total/ userNum) * 100) / 100
 
-  return  (
+    return  (
 
-    <div className='container'>
-      <h2>Flat Calendar</h2>
-      <table className='bills'>
-        <thead>
-          <tr>
-            <th>Bill</th>
-            <th>Amount</th>
-            {props.users.map(function(user, i){
-              return <BillUsers name={user.name} key={i} id={user.id} />
+      <div className='container'>
+        <table className='bills'>
+          <thead>
+            <tr>
+              <th>Bill</th>
+              <th>Amount</th>
+                {this.props.users.map(function(user, i){
+                 return <BillUsers name={user.name} key={i} id={user.id} />
+               })}
+              <th>Paid</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.props.billItems.map(function(bill, i){
+              return <BillItems amount={bill.amount} details={bill.details} key={i} id={bill.id} userNum={userNum} />
             })}
-            <th>Paid</th>
-          </tr>
-        </thead>
-        <tbody>
-          {props.billItems.map(function(bill, i){
-            return <BillItems amount={bill.amount} details={bill.details} key={i} id={bill.id} userNum={userNum} />
-          })}
-        </tbody>
-      </table>
+          </tbody>
+        </table>
 
-      <h5>Total: ${total} | You owe: ${userTotal}</h5>
+        <h5>Total: ${total} | You Owe: ${userTotal}</h5>
 
-      <form onSubmit={postBill}>
-        <input type="text" name="bill" placeholder="bill" />
-        <input type="text" name="amount" placeholder="amount" />
-        <button type="submit">Add</button>
-      </form>
+        <form onSubmit={(ev)=> this.handleBillAdd(ev)}>
+          <input type="text" name="bill" placeholder="bill" />
+          <input type="text" name="amount" placeholder="amount" />
+          <button type="submit">Add</button>
+        </form>
 
-      <a href='#/home'>Return Home</a>
+        <a href='#/home'>Return Home</a>
 
-    </div>
-  )
-}
+      </div>
+    )
+  }
+})
 
 const mapStateToProps = (state) => {
   return {
