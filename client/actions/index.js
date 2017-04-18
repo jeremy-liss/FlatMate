@@ -102,6 +102,19 @@ export function postAllocation (newAmount) {
   }
 }
 
+export function postShuffledJobs (object) {
+  return (dispatch) => {
+    request
+    .post(`http://localhost:3000/api/updatejobs`)
+    .send(object)
+    .end((err, res) => {
+      if (err) {
+        return
+      }
+    })
+  }
+}
+
 export function postItem (formData, table) {
   return (dispatch) => {
   request
