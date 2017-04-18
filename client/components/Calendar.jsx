@@ -35,7 +35,7 @@ const Events = (props) => {
   }
 
   return (
-    <div className='container'>
+    <div className='calendarContainer'>
       <div className='row'>
         <h3>Upcoming Events</h3>
         Today is the { easyToReadDate () }

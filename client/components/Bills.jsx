@@ -36,6 +36,9 @@ const Bills = React.createClass ({
     return  (
 
       <div className='container'>
+
+      <h2>Flat Bills</h2>
+
         <table className='bills'>
           <thead>
             <tr>
@@ -53,17 +56,17 @@ const Bills = React.createClass ({
             })}
           </tbody>
         </table>
-
+        <div className='totalBill'>
         <h5>Total: ${total} | You Owe: ${userTotal}</h5>
 
-        <form onSubmit={(ev)=> this.handleBillAdd(ev)}>
-          <input type="text" name="bill" placeholder="bill" />
-          <input type="text" name="amount" placeholder="amount" />
-          <button type="submit">Add</button>
-        </form>
+          <form onSubmit={(ev)=> this.handleBillAdd(ev)}>
+            <input type="text" name="bill" placeholder="bill" />
+            <input type="text" name="amount" placeholder="amount" />
+            <button type="submit">Add</button>
+          </form>
 
-        <a href='#/home'>Return Home</a>
-
+          <a href='#/home'>Return Home</a>
+        </div>
       </div>
     )
   }
