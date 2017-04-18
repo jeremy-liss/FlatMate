@@ -1,12 +1,12 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {fetchItems, shuffleJobs} from '../actions'
+import {fetchItems, shuffleJobs, fetchFlatUsers} from '../actions'
 import Jobs from './Jobs'
 
 const Roster = React.createClass ({
 
   componentDidMount () {
-    this.props.dispatch(fetchItems('users'))
+    this.props.dispatch(fetchFlatUsers())
   },
 
   render (props) {
@@ -24,7 +24,7 @@ const Roster = React.createClass ({
             </tr>
           </thead>
           <tbody>
-            {this.props.users.map(function(job, i){
+            {this.props.flatUsers.map(function(job, i){
               return <Jobs name={job.name} userId={job.id} key={job.id} choreNum={i} />
             })}
 
@@ -44,7 +44,7 @@ const Roster = React.createClass ({
 
 const mapStateToProps = (state) => {
   return {
-    users: state.returnItems.users,
+    flatUsers: state.returnFlatUsers,
     dispatch: state.dispatch,
     chores: state.shuffleJobs
   }

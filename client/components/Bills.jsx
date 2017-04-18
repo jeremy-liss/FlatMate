@@ -35,8 +35,8 @@ const Bills = React.createClass ({
       return total
     })
 
-    this.props.users.map(function(user, i){
-      userNum += i
+    this.props.flatUsers.map(function(user){
+      userNum ++
       return userNum
     })
 
@@ -52,7 +52,7 @@ const Bills = React.createClass ({
             <tr>
               <th>Bill</th>
               <th>Amount</th>
-                {this.props.users.map(function(user, i){
+                {this.props.flatUsers.map(function(user, i){
                  return <BillUsers name={user.name} key={i} id={user.id} />
                })}
               <th>Paid</th>

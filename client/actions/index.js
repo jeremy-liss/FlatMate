@@ -88,7 +88,6 @@ export function fetchBillAllocations () {
   }
 }
 
-
 export function postAllocation (newAmount) {
   return (dispatch) => {
     request
@@ -115,7 +114,6 @@ export function postShuffledJobs (object) {
     })
   }
 }
-
 
 export function postItem (formData, table) {
   return (dispatch) => {
@@ -145,7 +143,6 @@ export function delItem (id, table) {
   }
 }
 
-
 export function postUser (object, callback) {
   request
     .post(`http://localhost:3000/api/adduser`)
@@ -158,39 +155,47 @@ export function postUser (object, callback) {
     })
 }
 
-export function updateEmail (id, newestEmail, callback) {
-  request
+export function updateEmail (id, newestEmail) {
+  return (dispatch) => {
+    request
     .put(`http://localhost:3000/api/updateemail`)
     .send({id: id, newEmail: newestEmail})
     .end((err, res) => {
       if (err) {
         return
       }
-      callback(null, res.body)
+      dispatch(receiveFlatUsers(res.body))
     })
+  }
 }
 
-export function addUserToFlat (ev, callback) {
+export function addUserToFlat (ev) {
+  console.log(ev.target.elements[0].value)
   ev.preventDefault(ev)
-  request
-    .put(`http://localhost:3000/api/updateflatid`)
-    .send({email: ev.target.elements[0].value, flat_id: 1001})
-    .end((err, res) => {
-      if (err) {
-        return
-      }
-      callback(null, res.body)
-    })
+  return (dispatch) => {
+    request
+      .put(`http://localhost:3000/api/updateflatid`)
+      .send({email: ev.target.elements[0].value, flat_id: 1001})
+      .end((err, res) => {
+        if (err) {
+          return
+        }
+        dispatch(receiveFlatUsers(res.body))
+      })
+  }
 }
 
-export function removeFlattie (userEmail, callback) {
-  request
-    .put(`http://localhost:3000/api/updateflatid`)
-    .send({email: userEmail, flat_id: null})
-    .end((err, res) => {
-      if (err) {
-        return
-      }
-      callback(null, res.body)
-    })
+export function removeFlattie (userEmail) {
+  return (dispatch) => {
+    request
+      .put(`http://localhost:3000/api/updateflatid`)
+      .send({email: userEmail, flat_id: null})
+      .end((err, res) => {
+        if (err) {
+          return
+        }
+        console.log(res.body)
+        dispatch(receiveFlatUsers(res.body))
+      })
+  }
 }
