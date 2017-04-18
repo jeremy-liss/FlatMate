@@ -37,7 +37,6 @@
     "react-test-renderer": "^15.5.4",
     "redux": "^3.5.2",
     "tape": "^4.6.3",
-    "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
@@ -53,6 +52,7 @@
     "redux-thunk": "^2.2.0",
     "sqlite3": "^3.1.8",
     "superagent": "^3.5.2",
+    "webpack": "^1.13.1",
     "tape": "^4.6.3"
   }
 }
