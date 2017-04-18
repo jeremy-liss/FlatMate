@@ -11,7 +11,6 @@ let table = 'bills'
 
 const Bills = React.createClass ({
   componentDidMount () {
-    this.props.dispatch(fetchItems('bills'))
     this.props.dispatch(fetchItems('billallocations'))
     this.props.dispatch(fetchFlatUsers())
     this.props.dispatch(fetchItems(table))
@@ -60,7 +59,7 @@ const Bills = React.createClass ({
           </thead>
           <tbody>
             {this.props.billItems.map(function(bill, i){
-              return <BillItems amount={bill.amount} details={bill.details} key={i} id={bill.id} userNum={userNum} table={table}/>
+              return <BillItems amount={bill.amount} details={bill.details} key={i} id={bill.id} userNum={userNum} table={table} userTotal={userTotal} />
             })}
           </tbody>
         </table>

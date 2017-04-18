@@ -89,6 +89,7 @@ export function fetchBillAllocations () {
 }
 
 export function postAllocation (newAmount) {
+  console.log(newAmount);
   return (dispatch) => {
     request
     .post(`http://localhost:3000/api/updateallocation`)
@@ -97,7 +98,6 @@ export function postAllocation (newAmount) {
       if (err) {
         return
       }
-      callback(null, res.body)
     })
   }
 }
@@ -111,7 +111,7 @@ export function postItem (formData, table) {
       if (err) {
         return
       }
-      dispatch(receiveItems(res.body))
+      dispatch(receiveItems(res.body, table))
     })
   }
 }
@@ -125,7 +125,22 @@ export function delItem (id, table) {
       if (err) {
         return
       }
-      dispatch(receiveItems(res.body))
+      dispatch(receiveItems(res.body, table))
+    })
+  }
+}
+
+export function delAllocation (id, table, total) {
+  return (dispatch) => {
+    request
+    .delete(`http://localhost:3000/api/${table}`)
+    .send({id: id})
+    .end((err, res) => {
+      if (err) {
+        return
+      }
+      dispatch(postAllocation(total))
+      dispatch(receiveItems(res.body, table))
     })
   }
 }
@@ -157,7 +172,6 @@ export function updateEmail (id, newestEmail) {
 }
 
 export function addUserToFlat (ev) {
-  console.log(ev.target.elements[0].value)
   ev.preventDefault(ev)
   return (dispatch) => {
     request
@@ -181,7 +195,6 @@ export function removeFlattie (userEmail) {
         if (err) {
           return
         }
-        console.log(res.body)
         dispatch(receiveFlatUsers(res.body))
       })
   }
