@@ -20,7 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
   store.dispatch(fetchBillAllocations())
   store.dispatch(fetchUsers())
 
-
   render(
     <Provider store={store}>
       <App />

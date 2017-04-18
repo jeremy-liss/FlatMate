@@ -5,49 +5,55 @@ import {fetchItems} from '../actions'
 import CalendarEntry from './CalendarEntry'
 import CalendarList from './CalendarList'
 
-const Events = (props) => {
+const Events = React.createClass ({
 
-  props.dispatch(fetchItems('events'))
+  componentDidMount () {
+    this.props.dispatch(fetchItems('events'))
+  },
 
-  if (props.events[0] != undefined) {
-    props.events.map((day, i) => {
-      props.events[i].event = day.event.charAt(0).toUpperCase() + day.event.slice(1)
-      props.events[i].date = day.date.split('').filter(removeDash).join('')
-    })
+  render () {
 
-    props.events.map((day, i) => {
-      while (props.events.length > i) {
-        if (props.events[i].date < todaysDate()) {
-        props.events.splice(i, 1)
-        } else i++
-      }})
+    if (this.props.events[0] != undefined) {
+      this.props.events.map((day, i) => {
+        this.props.events[i].event = day.event.charAt(0).toUpperCase() + day.event.slice(1)
+        this.props.events[i].date = day.date.split('').filter(removeDash).join('')
+      })
 
-    props.events.sort((a, b) => {
-      return a.date - b.date
-    })
+      this.props.events.map((day, i) => {
+        while (this.props.events.length > i) {
+          if (this.props.events[i].date < todaysDate()) {
+            this.props.events.splice(i, 1)
+          } else i++
+        }})
 
-    props.events.map((day, i) => {
-      let a = day.date.split('')
-      let rearranged = [a[6],a[7],"-",a[4],a[5],"-",a[0],a[1],a[2],a[3]]
-      let joinedArray = rearranged.join('')
-      props.events[i].date = joinedArray
-    })
+        this.props.events.sort((a, b) => {
+          return a.date - b.date
+        })
+
+        this.props.events.map((day, i) => {
+          let a = day.date.split('')
+          let rearranged = [a[6],a[7],"-",a[4],a[5],"-",a[0],a[1],a[2],a[3]]
+          let joinedArray = rearranged.join('')
+          this.props.events[i].date = joinedArray
+        })
+      }
+
+      return (
+        <div className='container'>
+          <div className='row'>
+            <h3>Upcoming Events</h3>
+            Today is the { easyToReadDate () }
+            <CalendarEntry />
+          </div>
+          <div className="row">
+            <CalendarList days={this.props.events} />
+            <a href='#/home'>Return Home</a>
+          </div>
+        </div>
+      )
   }
 
-  return (
-    <div className='container'>
-      <div className='row'>
-        <h3>Upcoming Events</h3>
-        Today is the { easyToReadDate () }
-        <CalendarEntry />
-      </div>
-      <div className="row">
-        <CalendarList days={props.events} />
-        <a href='#/home'>Return Home</a>
-      </div>
-    </div>
-  )
-}
+})
 
 const mapStateToProps = (state) => {
   return {

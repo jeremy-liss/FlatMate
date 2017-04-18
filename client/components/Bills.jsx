@@ -4,26 +4,32 @@ import getFormData from 'get-form-data'
 
 import BillUsers from './BillUsers'
 import BillItems from './BillItems'
-import {fetchItems, postBill, postAllocation, fetchUsers, fetchFlatUsers, fetchBillAllocations, delBill} from '../actions'
+import {fetchItems, postItem, postBill, postAllocation, fetchUsers, fetchFlatUsers, fetchBillAllocations, delBill} from '../actions'
+
+let table = 'bills'
+
 
 const Bills = React.createClass ({
   componentDidMount () {
     this.props.dispatch(fetchItems('bills'))
     this.props.dispatch(fetchItems('billallocations'))
     this.props.dispatch(fetchFlatUsers())
+    this.props.dispatch(fetchItems(table))
+    this.props.dispatch(fetchUsers())
   },
 
   handleBillAdd(ev) {
     ev.preventDefault(ev)
     var newAllocation = (Math.round((ev.target.elements.amount.value / this.props.flatUsers.length + this.props.allocations[0].amount) * 100) / 100)
     this.props.dispatch(postAllocation(newAllocation))
-    this.props.dispatch(postBill(getFormData(ev.target)))
+    this.props.dispatch(postItem(getFormData(ev.target), table))
   },
 
   render () {
 
     let total = 0
     let userNum = 0
+
     this.props.billItems.map(function(bill){
       total += bill.amount
       return total
@@ -36,7 +42,6 @@ const Bills = React.createClass ({
 
     let userTotal= Math.round((total/ userNum) * 100) / 100
 
-    console.log(this.props.billItems)
     return  (
       <div className='container'>
         <table className='bills'>
@@ -52,7 +57,7 @@ const Bills = React.createClass ({
           </thead>
           <tbody>
             {this.props.billItems.map(function(bill, i){
-              return <BillItems amount={bill.amount} details={bill.details} key={i} id={bill.id} userNum={userNum} />
+              return <BillItems amount={bill.amount} details={bill.details} key={i} id={bill.id} userNum={userNum} table={table}/>
             })}
           </tbody>
         </table>

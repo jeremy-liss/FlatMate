@@ -1,11 +1,20 @@
 import React from 'react'
+import {connect} from 'react-redux'
 
-const Jobs = (props) => (
-  <tr>
-    <td>{props.name}</td>
-    <td>{props.chores}</td>
-  </tr>
-)
+const Jobs = (props) => {
 
+  return  (
+      <tr>
+        <td>{props.name}</td>
+        <td>{props.chores[props.choreNum]}</td>
+      </tr>
+    )
+}
 
-export default Jobs
+const mapStateToProps = (state) => {
+  return {
+    chores: state.shuffleJobs
+  }
+}
+
+export default connect(mapStateToProps)(Jobs)
