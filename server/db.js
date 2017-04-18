@@ -134,12 +134,21 @@ function updateEmail (id, newEmail) {
   return knex('users')
     .where('id', id)
     .update({'email': newEmail})
+    .then(function(){
+      return knex('users')
+      .select()
+    })
 }
 
 function updateFlatId (email, flatId) {
   return knex('users')
     .where('email', email)
     .update({'flat_id': flatId})
+    .then(function(){
+      return knex('users')
+      .where('flat_id', 1001)
+      .select()
+    })
 }
 
 function delBillAllocation (id) {
