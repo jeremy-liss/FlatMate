@@ -19,8 +19,8 @@ body {
 
 .ProfileBar {
   text-align:center;
-  margin-top:162px;
-  font-size: 16px;
+  margin-top:168px;
+  font-size: 20px;
 
 }
 .rowsOne {
@@ -101,7 +101,17 @@ table.settingInfo {
   margin-right: auto;
 
 }
+#fb-root {
+  width:500px;
+}
 
+.fb-comments {
+  text-align:left;
+  margin-top:-600px;
+  margin: -600px -500px;
+
+
+  }
 
 #fb-login img {
     width: 50%;
