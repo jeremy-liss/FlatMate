@@ -1,29 +1,37 @@
-var path = require('path')
-var express = require('express')
-var bodyParser = require('body-parser')
-var cors = require('cors')
-var path = require('path')
+const path = require('path')
+const express = require('express')
+const bodyParser = require('body-parser')
+const cors = require('cors')
 
-var flat = require('./routes/flat')
-var users = require('./routes/users')
-var bills = require('./routes/bills')
-var jobs = require('./routes/jobs')
-var billAllocations = require('./routes/billAllocations')
-var events = require('./routes/events')
-var addEvent = require('./routes/addEvent')
-var shoppingListItems = require('./routes/shoppingListItems')
-var roster = require('./routes/roster')
-var addShoppingListItem = require('./routes/addShoppingListItem')
-var updateFlatId = require('./routes/updateFlatId')
-var addBillAllocation = require('./routes/addBillAllocation')
-var flatUsers = require('./routes/flatusers')
+//authentication
+const hbs = require('express-handlebars')
+const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn
+const flash = require('connect-flash')
+const FacebookStrategy = require('passport-facebook')
+const passport = require('passport')
 
-var server = express()
+const flat = require('./routes/flat')
+const users = require('./routes/users')
+const bills = require('./routes/bills')
+const jobs = require('./routes/jobs')
+const billAllocations = require('./routes/billAllocations')
+const events = require('./routes/events')
+const addEvent = require('./routes/addEvent')
+const shoppingListItems = require('./routes/shoppingListItems')
+const roster = require('./routes/roster')
+const addShoppingListItem = require('./routes/addShoppingListItem')
+const updateFlatId = require('./routes/updateFlatId')
+const addBillAllocation = require('./routes/addBillAllocation')
+const flatUsers = require('./routes/flatusers')
 
+const server = express()
+//middleware
 server.use(bodyParser.json())
 server.use(bodyParser.urlencoded({
   extended: true
 }))
+
+//routes
 server.use(cors({origin: 'http://localhost:8080'}))
 server.use(express.static(path.join(__dirname, '../public')))
 server.use('/api/flat', flat)
@@ -44,5 +52,22 @@ server.use('/api/updateflatid', updateFlatId)
 server.use('/api/addBillAllocation', addBillAllocation)
 server.use('/api/delBillAllocation', billAllocations)
 server.use('/api/flatusers', flatUsers)
+
+//authentication
+
+server.get('/', index.get)
+server.get('/login', index.login)
+server.get('/logout', index.logout)
+server.get('/add', ensureLoggedIn(), index.add)
+server.post('/add', ensureLoggedIn(), index.save)
+
+server.get('/auth/facebook', passport.authenticate('facebook'))
+server.get('/auth/facebook/callback',
+  passport.authenticate('facebook', { failureRedirect: '/login' }),
+  (req, res) => {
+    req.flash('status', 'Logged in')
+    res.redirect('/')
+  }
+)
 
 module.exports = server

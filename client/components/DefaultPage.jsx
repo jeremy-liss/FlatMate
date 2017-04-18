@@ -16,7 +16,7 @@ const DefaultPage = () => (
       <div className='four columns'>
         <div className='logins'>
           <div id='fb-login'>
-            <p><a href='http://www.facebook.com/login'>
+            <p><a href='/auth/facebook'>
               <img src='https://cdn.fileplanet.com/gen//facebook-pro-app-100x100.png'></img>
             </a></p>
           </div>
