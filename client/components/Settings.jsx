@@ -1,13 +1,13 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-import {fetchItems, postUser, updateEmail, addUserToFlat} from '../actions'
+import {fetchItems, postUser, updateEmail, addUserToFlat, fetchFlatUsers} from '../actions'
 import SettingItems from './SettingItems'
 
 const Settings = React.createClass ({
 
   componentDidMount () {
-    this.props.dispatch(fetchItems('flatUsers'))
+    this.props.dispatch(fetchFlatUsers())
   },
 
   render (props) {
@@ -41,7 +41,7 @@ const Settings = React.createClass ({
 
 const mapStateToProps = (state) => {
   return {
-    flatUsers: state.returnItems.users,
+    flatUsers: state.returnFlatUsers,
     dispatch: state.dispatch
   }
 }

@@ -137,6 +137,7 @@ function updateEmail (id, newEmail) {
     .update({'email': newEmail})
     .then(function(){
       return knex('users')
+      .where('flat_id', 1001)
       .select()
     })
 }
