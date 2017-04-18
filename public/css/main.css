@@ -89,18 +89,45 @@ text-align: center;
   margin-top: 250px;
 }
 
+.setting{
+  margin-right: -70px;
+}
+
 .Settings {
   text-align: center;
   margin-top: 250px;
   margin-left: auto;
   margin-right: auto;
+
+}
+
+/*Registration*/
+.registerContainer {
+  text-align: center;
+  margin-top: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  width:50%;
+  height:50%;
+}
+
+
+
+/*polaroids*/
+
+.polaroidGroup {
+  margin-top: -390px;
+  text-align: center;
+  margin-left: auto;
+  margin: -300px 200px;
 }
 
 table.settingInfo {
   margin-left: auto;
   margin-right: auto;
-
 }
+
+
 #fb-root {
   width:500px;
 }

@@ -4,7 +4,7 @@ import { HashRouter as Router, Route } from 'react-router-dom'
 import {postUser} from '../actions'
 
 const Register = () => (
-  <div className='container'>
+  <div className='registerContainer'>
     <div className='row'>
       Sign Up!
       <form onSubmit={confirmPassword} id='register'>
