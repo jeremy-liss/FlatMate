@@ -7,18 +7,13 @@ module.exports = {
   get,
   add,
   save,
-  login,
-  logout
+  login
 }
 
 function get (req, res) {
   db.getUsers()
     .then(users => {
-      res.render('index', {
-        users: users,
-        isLoggedIn: req.user,
-        flash: req.flash('status')
-      })
+      res.render('index', { users: users })
     })
     .catch(err => {
       res.status(500).send('DATABASE ERROR: ' + err.message)
@@ -42,10 +37,4 @@ function save (req, res) {
 
 function login (req, res) {
   res.render('login')
-}
-
-function logout (req, res) {
-  req.logout()
-  req.flash('status', 'Logged out')
-  res.redirect('/')
 }

@@ -10,6 +10,8 @@ const flash = require('connect-flash')
 const FacebookStrategy = require('passport-facebook')
 const passport = require('passport')
 
+const auth = require('./routes/auth')
+
 const flat = require('./routes/flat')
 const users = require('./routes/users')
 const bills = require('./routes/bills')
@@ -55,11 +57,11 @@ server.use('/api/flatusers', flatUsers)
 
 //authentication
 
-server.get('/', index.get)
-server.get('/login', index.login)
-server.get('/logout', index.logout)
-server.get('/add', ensureLoggedIn(), index.add)
-server.post('/add', ensureLoggedIn(), index.save)
+server.get('/', auth.get)
+server.get('/login', auth.login)
+server.get('/logout', auth.logout)
+server.get('/add', ensureLoggedIn(), auth.add)
+server.post('/add', ensureLoggedIn(), auth.save)
 
 server.get('/auth/facebook', passport.authenticate('facebook'))
 server.get('/auth/facebook/callback',
