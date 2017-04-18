@@ -38,22 +38,22 @@ const Events = React.createClass ({
         })
       }
 
-      return (
-        <div className='container'>
-          <div className='row'>
-            <h3>Upcoming Events</h3>
-            Today is the { easyToReadDate () }
-            <CalendarEntry />
-          </div>
-          <div className="row">
-            <CalendarList days={this.props.events} />
-            <a href='#/home'>Return Home</a>
-          </div>
-        </div>
-      )
+     return (
+       <div className='calendarContainer'>
+         <div className='row'>
+           <h3>Upcoming Events</h3>
+           Today is the { easyToReadDate () }
+           <CalendarEntry />
+         </div>
+         <div className="row">
+          <CalendarList days={this.props.events} />
+           <a href='#/home'>Return Home</a>
+         </div>
+       </div>
+     )
   }
-
 })
+
 
 const mapStateToProps = (state) => {
   return {

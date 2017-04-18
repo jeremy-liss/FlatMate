@@ -8,13 +8,13 @@ const Settings = (props) => {
 
 props.dispatch(fetchItems('flatUsers'))
   return (
-    <div className='container'>
+    <div className='Settings'>
       <h2>Settings Page</h2>
       <form onSubmit={addUserToFlat} id='new-user'>
         <input type='text' placeholder='Users Email'></input>
         <button type='submit' form='new-user' value='Submit'>Add Flattie</button>
       </form>
-        <table>
+        <table className="settingInfo">
           <thead>
             <tr>
               <th>Flattie</th>

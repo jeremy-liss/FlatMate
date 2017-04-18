@@ -2,6 +2,7 @@ import React from 'react'
 
 const DefaultPage = () => (
   <div className='container'>
+   <div className='defaultPage'>
     <div className='row'>
       <div className='info-box'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         In in tellus viverra, mattis diam ac, ornare augue. Ut fermentum et dolor non volutpat.
@@ -35,7 +36,8 @@ const DefaultPage = () => (
         <div id='register-link'>
           <form action="#/register">
             <input type="submit" value="Register" />
-          </form>
+            </form>
+          </div>
         </div>
       </div>
     </div>
