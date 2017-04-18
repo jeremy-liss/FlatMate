@@ -6,8 +6,8 @@ import { removeFlattie, updateEmail } from '../actions'
 const SettingItems = (props) => {
   return (
     <tr>
-      <td>{ props.users.name }</td>
-      <td>{ props.users.email }</td>
+      <td><strong>{props.users.name}</strong></td>
+      <td>{props.users.email}</td>
       <td>
         <input type="text" id={props.id} placeholder="New Email"></input>
         <button onClick={() => props.dispatch(updateEmail(props.id, document.getElementById(props.id).value))}>Update</button>

@@ -10,7 +10,7 @@ const Jobs = (props) => {
 
   return (
     <tr>
-      <td>{props.name}</td>
+      <td><strong>{props.name}</strong></td>
       <td>{props.chores[props.choreNum]}</td>
     </tr>
   )

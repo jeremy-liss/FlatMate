@@ -12,7 +12,7 @@ const BillItems = (props) => {
 
   return (
     <tr>
-      <td>{props.details}</td>
+      <td><strong>{props.details.charAt(0).toUpperCase() + props.details.slice(1)}</strong></td>
       <td>${props.amount}</td>
       {amounts}
       <td>

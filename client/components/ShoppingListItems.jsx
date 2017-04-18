@@ -8,7 +8,7 @@ const ShoppingListItems = (props) => (
 
   <div className="Item">
     <div>
-      {props.item.charAt(0).toUpperCase() + props.item.slice(1)} -
+      <strong>{props.item.charAt(0).toUpperCase() + props.item.slice(1)}</strong> -
       <Link to='/shoppinglist' onClick={() => props.dispatch(delItem(props.id, props.table))}> Delete</Link>
     </div>
   </div>
