@@ -21,24 +21,10 @@ export const receiveBillAllocations = (allocations) => {
   }
 }
 
-export const shuffleJobs = () => {
+export const shuffleJobs = (chores) => {
   return {
     type: 'SHUFFLE_JOBS',
-    chores: ["Vacuum", "Dishes", "Trash"]
-  }
-}
-
-export const addBill = (bill) => {
-  return {
-    type: 'ADD_BILL',
-    payload: bill
-  }
-}
-
-export const addItem = (item) => {
-  return {
-    type: 'ADD_ITEM',
-    payload: item
+    chores: ["Vacuum", "Dishes", "Trash", "Bathroom", "Mow Lawn", "Clean Kitchen"]
   }
 }
 
@@ -81,32 +67,18 @@ export function fetchBillAllocations () {
   }
 }
 
-export function postItem (formData) {
+export function postItem (formData, table) {
   return (dispatch) => {
   request
-    .post(`http://localhost:3000/api/shopping_list_items`)
-    .send({item: formData})
+    .post(`http://localhost:3000/api/${table}`)
+    .send(formData)
     .end((err, res) => {
       if (err) {
         return
       }
-      dispatch(addItem(res.body))
+      dispatch(receiveItems(res.body))
     })
   }
-}
-
-export function postBill (formData) {
-  return (dispatch) => {
-    request
-      .post(`http://localhost:3000/api/bills`)
-      .send(formData)
-      .end((err, res) => {
-        if (err) {
-          return
-        }
-        dispatch(addBill(res.body))
-      })
-    }
 }
 
 export function delItem (id, table) {
@@ -123,43 +95,6 @@ export function delItem (id, table) {
   }
 }
 
-export function delBill (id) {
-  return (dispatch) => {
-    request
-    .delete(`http://localhost:3000/api/bills`)
-    .send({id: id})
-    .end((err, res) => {
-      if (err) {
-        return
-      }
-    })
-  }
-}
-
-export function postEvent (ev, callback) {
-  ev.preventDefault(ev)
-  request
-    .post(`http://localhost:3000/api/addevent`)
-    .send({date: ev.target.elements[1].value, event: ev.target.elements[0].value})
-    .end((err, res) => {
-      if (err) {
-        return
-      }
-      callback(null, res.body)
-    })
-}
-
-export function deleteEvent (id, callback) {
-  request
-    .delete(`http://localhost:3000/api/delevent`)
-    .send({id: id})
-    .end((err, res) => {
-      if (err) {
-        return
-      }
-      callback(null, res.body)
-    })
-}
 
 export function postUser (object, callback) {
   request

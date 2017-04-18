@@ -5,15 +5,17 @@ import getFormData from 'get-form-data'
 import {fetchItems, postItem} from '../actions'
 import ShoppingListItems from './ShoppingListItems'
 
+let table ='shopping_list_items'
+
 const ShoppingList = React.createClass ({
 
   componentDidMount () {
-    this.props.dispatch(fetchItems('shopping_list_items'))
+    this.props.dispatch(fetchItems(table))
   },
 
   handleItemAdd(ev) {
     ev.preventDefault(ev)
-    this.props.dispatch(postItem(ev.target.elements[0].value))
+    this.props.dispatch(postItem({item: ev.target.elements[0].value}, table))
   },
 
   render () {
@@ -24,7 +26,7 @@ const ShoppingList = React.createClass ({
 
           <div>
             {this.props.list.map(function(item, i){
-              return <ShoppingListItems item={item.item} key={i} id={item.id} />
+              return <ShoppingListItems item={item.item} key={i} id={item.id} table={table} />
             })}
           </div>
 

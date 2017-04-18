@@ -22,7 +22,6 @@ router.route('/')
   })
   .delete(function (req, res) {
     db.delBill(req.body.id).then((result) => {
-      console.log(result)
       res.send(result)
     })
     .catch((err) => {

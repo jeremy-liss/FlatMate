@@ -17,7 +17,7 @@ const BillItems = (props) => {
       <td>${props.amount}</td>
       {amounts}
       <td>
-        <button onClick={()=> props.dispatch(delItem(props.id, 'bills'))}>
+        <button onClick={()=> props.dispatch(delItem(props.id, props.table))}>
           Paid
         </button>
       </td>
