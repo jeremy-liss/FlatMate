@@ -23,7 +23,8 @@ module.exports = {
   updateFlatId: updateFlatId,
   addBillAllocation: addBillAllocation,
   delBillAllocation: delBillAllocation,
-  getFlatUsers: getFlatUsers
+  getFlatUsers: getFlatUsers,
+  updateAllocation: updateAllocation
 }
 
 function getUsers () {
@@ -52,8 +53,7 @@ function addBill (flat_id, amount, bill) {
   .insert({flat_id:flat_id, amount:amount, details:bill})
   .then(function(ids){
     return knex('bills')
-    .where('id', ids[0])
-    .first()
+    .select()
   })
 }
 
@@ -80,7 +80,12 @@ function getEvents () {
 }
 
 function addEvent (flat_id, date, event) {
-  return knex('events').insert({flat_id:flat_id, date:date, event:event})
+  return knex('events')
+    .insert({flat_id:flat_id, date:date, event:event})
+    .then(function(){
+      return knex('events')
+      .select()
+    })
 }
 
 function getShoppingListItems() {
@@ -90,10 +95,9 @@ function getShoppingListItems() {
 function addShoppingListItem (flat_id, item) {
   return knex('shopping_list_items')
     .insert({flat_id:flat_id, item:item})
-    .then(function(ids){
+    .then(function(){
       return knex('shopping_list_items')
-      .where('id', ids[0])
-      .first()
+      .select()
     })
 }
 
@@ -121,6 +125,10 @@ function delEvent (id) {
   return knex('events')
     .where('id', id)
     .del()
+    .then(function(){
+      return knex('events')
+      .select()
+    })
 }
 
 function updateEmail (id, newEmail) {
@@ -133,6 +141,12 @@ function updateFlatId (email, flatId) {
   return knex('users')
     .where('email', email)
     .update({'flat_id': flatId})
+}
+
+function updateAllocation (id, amount) {
+  return knex('bill_allocations')
+    .where('bill_id', 4001)
+    .update({'amount': amount})
 }
 
 function delBillAllocation (id) {

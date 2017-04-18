@@ -5,7 +5,7 @@ var db = require('../db')
 
 router.route('/')
   .post(function (req, res) {
-    db.addBillAllocation(req.body.bill_id, req.body.user_id, req.body.amount).then(() => {
+    db.updateAllocation(req.body.bill_id, req.body.amount).then(() => {
       res.send()
     })
     .catch((err) => {

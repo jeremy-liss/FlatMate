@@ -1,6 +1,6 @@
-function returnItems (state = [], action) {
+function returnFlatUsers (state = [], action) {
   switch (action.type) {
-    case 'RECEIVE_ITEMS':
+    case 'RECEIVE_FLAT_USERS':
 
       return [
         ...action.list
@@ -11,4 +11,4 @@ function returnItems (state = [], action) {
   }
 }
 
-export default returnItems
+export default returnFlatUsers

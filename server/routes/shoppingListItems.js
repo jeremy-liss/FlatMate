@@ -22,7 +22,6 @@ router.route('/')
   })
   .delete(function (req, res) {
     db.delShoppingListItem(req.body.id).then((result) => {
-      console.log(result)
       res.send(result)
     })
     .catch((err) => {

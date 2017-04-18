@@ -3,43 +3,48 @@ import {connect} from 'react-redux'
 import {fetchItems, shuffleJobs} from '../actions'
 import Jobs from './Jobs'
 
-const Roster = (props) => {
+const Roster = React.createClass ({
 
-  props.dispatch(fetchItems('roster'))
+  componentDidMount () {
+    this.props.dispatch(fetchItems('users'))
+  },
 
-  return (
-    <div className="roster">
+  render (props) {
 
-      <h2>Duty Calls</h2>
+    return (
+      <div className="roster">
+
+        <h2>Duty Calls</h2>
 
         <table className="center">
           <thead>
             <tr>
               <th>Name</th>
               <th>Job this Week</th>
-              </tr>
-           </thead>
-           <tbody>
-            {props.roster.map(function(job,i){
-
-            return <Jobs name={job.name} key={job.id} chores={props.chores[i]} />
+            </tr>
+          </thead>
+          <tbody>
+            {this.props.users.map(function(job, i){
+              return <Jobs name={job.name} key={job.id} choreNum={i} />
             })}
 
-           </tbody>
+          </tbody>
         </table>
-          <div className="shuffle">
-            <button onClick={()=> props.dispatch(shuffleJobs())}> Shuffle </button>
-          </div>
-
-        <a href='#/home'>Return Home</a>
+        <div className="shuffle">
+          <button onClick={()=> this.props.dispatch(shuffleJobs())}> Shuffle </button>
         </div>
 
-  )
-}
+        <a href='#/home'>Return Home</a>
+      </div>
+
+    )
+  }
+
+})
 
 const mapStateToProps = (state) => {
   return {
-    roster: state.returnItems,
+    users: state.returnItems,
     dispatch: state.dispatch,
     chores: state.shuffleJobs
   }
