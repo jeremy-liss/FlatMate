@@ -4,19 +4,24 @@ import getFormData from 'get-form-data'
 
 import BillUsers from './BillUsers'
 import BillItems from './BillItems'
-import {fetchItems, postItem, fetchUsers} from '../actions'
+import {fetchItems, postItem, postBill, postAllocation, fetchUsers, fetchFlatUsers, fetchBillAllocations, delBill} from '../actions'
 
 let table = 'bills'
 
-const Bills = React.createClass ({
 
+const Bills = React.createClass ({
   componentDidMount () {
+    this.props.dispatch(fetchItems('bills'))
+    this.props.dispatch(fetchItems('billallocations'))
+    this.props.dispatch(fetchFlatUsers())
     this.props.dispatch(fetchItems(table))
     this.props.dispatch(fetchUsers())
   },
 
   handleBillAdd(ev) {
     ev.preventDefault(ev)
+    var newAllocation = (Math.round((ev.target.elements.amount.value / this.props.flatUsers.length + this.props.allocations[0].amount) * 100) / 100)
+    this.props.dispatch(postAllocation(newAllocation))
     this.props.dispatch(postItem(getFormData(ev.target), table))
   },
 
@@ -38,8 +43,10 @@ const Bills = React.createClass ({
     let userTotal= Math.round((total/ userNum) * 100) / 100
 
     return  (
-
       <div className='container'>
+
+      <h2>Flat Bills</h2>
+
         <table className='bills'>
           <thead>
             <tr>
@@ -57,17 +64,17 @@ const Bills = React.createClass ({
             })}
           </tbody>
         </table>
-
+        <div className='totalBill'>
         <h5>Total: ${total} | You Owe: ${userTotal}</h5>
 
-        <form onSubmit={(ev)=> this.handleBillAdd(ev)}>
-          <input type="text" name="bill" placeholder="bill" />
-          <input type="text" name="amount" placeholder="amount" />
-          <button type="submit">Add</button>
-        </form>
+          <form onSubmit={(ev)=> this.handleBillAdd(ev)}>
+            <input type="text" name="bill" placeholder="bill" />
+            <input type="text" name="amount" placeholder="amount" />
+            <button type="submit">Add</button>
+          </form>
 
-        <a href='#/home'>Return Home</a>
-
+          <a href='#/home'>Return Home</a>
+        </div>
       </div>
     )
   }
@@ -75,8 +82,10 @@ const Bills = React.createClass ({
 
 const mapStateToProps = (state) => {
   return {
-    billItems: state.returnItems,
+    billItems: state.returnItems.bills,
     users: state.returnUsers,
+    allocations: state.returnAllocations,
+    flatUsers: state.returnFlatUsers,
     dispatch: state.dispatch
   }
 }

@@ -1,9 +1,10 @@
 import request from 'superagent'
 
-export const receiveItems = (items) => {
+export const receiveItems = (items, table) => {
   return {
     type: 'RECEIVE_ITEMS',
-    list: items.map(item => item)
+    list: items.map(item => item),
+    table
   }
 }
 
@@ -28,6 +29,13 @@ export const shuffleJobs = (chores) => {
   }
 }
 
+export const receiveFlatUsers = (flatUsers) => {
+  return {
+    type: 'RECEIVE_FLAT_USERS',
+    list: flatUsers.map(user => user)
+  }
+}
+
 export function fetchItems (table) {
   return (dispatch) => {
     request
@@ -36,7 +44,7 @@ export function fetchItems (table) {
         if (err) {
           return
         }
-        dispatch(receiveItems(res.body))
+        dispatch(receiveItems(res.body, table))
       })
   }
 }
@@ -54,10 +62,23 @@ export function fetchUsers () {
   }
 }
 
+export function fetchFlatUsers () {
+  return (dispatch) => {
+    request
+      .get(`http://localhost:3000/api/flatusers`)
+      .end((err, res) => {
+        if (err) {
+          return
+        }
+        dispatch(receiveFlatUsers(res.body))
+      })
+  }
+}
+
 export function fetchBillAllocations () {
   return (dispatch) => {
     request
-      .get(`http://localhost:3000/api/bill_allocations`)
+      .get(`http://localhost:3000/api/billallocations`)
       .end((err, res) => {
         if (err) {
           return
@@ -66,6 +87,22 @@ export function fetchBillAllocations () {
       })
   }
 }
+
+
+export function postAllocation (newAmount) {
+  return (dispatch) => {
+    request
+    .post(`http://localhost:3000/api/updateallocation`)
+    .send({amount: newAmount})
+    .end((err, res) => {
+      if (err) {
+        return
+      }
+      callback(null, res.body)
+    })
+  }
+}
+
 
 export function postItem (formData, table) {
   return (dispatch) => {

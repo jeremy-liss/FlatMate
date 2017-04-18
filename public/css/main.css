@@ -7,10 +7,53 @@ body {
   display:block;
  }
 
-h2 {
-  text-align: center;
+ .defaultPage {
+   margin-top: 275px;
+   text-align: center;
  }
 
+.boardContent {
+  margin-top: 55px;
+  text-align: center;
+}
+
+.ProfileBar {
+  text-align:center;
+  margin-top:162px;
+  font-size: 16px;
+
+}
+.rowsOne {
+  margin-top: 20px;
+}
+
+#bills {
+  text-align: center;
+  margin-top: -60px;
+}
+.totalBill {
+  text-align: center;
+  margin-top: 50px;
+}
+table.bills {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#roster {
+ margin: -50px 45px;
+
+}
+h2 {
+  text-align: center;
+  margin-top: 250px;
+ }
+
+/*rosterOverall*/
+.roster {
+  text-align: center;
+  margin-top: 250px;
+}
 /*roster*/
 table.center {
  margin-left: auto;
@@ -23,49 +66,42 @@ table.center {
 text-align: center;
 }
 
-table.bills {
+/*calendar*/
+
+.calendarContainer {
+  text-align: center;
+  margin-top: 250px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .calendar {
-  text-align: center;
-  margin-top: -20%;
   margin-left: auto;
   margin-right: auto;
 }
 
-.roster {
-  text-align: center;
-  margin-top: 25%;
-}
-/*roster*/
+
 
 /*Shoppinglist*/
 
 .Shoppinglist {
   text-align: center;
-  margin-top: 25%;
-}
-/*Shoppinglist*/
-
-
-.ProfileBar {
-  text-align: top;
-  margin-top: -20%;
-  font-family:fantasy;
-  font-size: 18px;
+  margin-top: 250px;
 }
 
-.container {
+.Settings {
   text-align: center;
-  margin-top: 17%;
+  margin-top: 250px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.row {
-  text-align: top;
-  margin-top: 2%;
+table.settingInfo {
+  margin-left: auto;
+  margin-right: auto;
+
 }
+
 
 #fb-login img {
     width: 50%;

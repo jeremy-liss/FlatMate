@@ -9,10 +9,10 @@ const Events = React.createClass ({
 
   componentDidMount () {
     this.props.dispatch(fetchItems('events'))
+
   },
 
   render () {
-
     if (this.props.events[0] != undefined) {
       this.props.events.map((day, i) => {
         this.props.events[i].event = day.event.charAt(0).toUpperCase() + day.event.slice(1)
@@ -38,26 +38,26 @@ const Events = React.createClass ({
         })
       }
 
-      return (
-        <div className='container'>
-          <div className='row'>
-            <h3>Upcoming Events</h3>
-            Today is the { easyToReadDate () }
-            <CalendarEntry />
-          </div>
-          <div className="row">
-            <CalendarList days={this.props.events} />
-            <a href='#/home'>Return Home</a>
-          </div>
-        </div>
-      )
+     return (
+       <div className='calendarContainer'>
+         <div className='row'>
+           <h3>Upcoming Events</h3>
+           Today is the { easyToReadDate () }
+           <CalendarEntry />
+         </div>
+         <div className="row">
+          <CalendarList days={this.props.events} />
+           <a href='#/home'>Return Home</a>
+         </div>
+       </div>
+     )
   }
-
 })
+
 
 const mapStateToProps = (state) => {
   return {
-    events: state.returnItems,
+    events: state.returnItems.events,
     dispatch: state.dispatch
   }
 }

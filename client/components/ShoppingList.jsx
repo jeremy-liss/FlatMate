@@ -44,7 +44,7 @@ const ShoppingList = React.createClass ({
 
 const mapStateToProps = (state) => {
   return {
-    list: state.returnItems,
+    list: state.returnItems.shopping_list_items,
     dispatch: state.dispatch
   }
 }

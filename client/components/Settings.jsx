@@ -12,13 +12,13 @@ const Settings = React.createClass ({
 
   render (props) {
     return (
-      <div className='container'>
+      <div className='Settings'>
         <h2>Settings Page</h2>
         <form onSubmit={(ev)=> this.props.dispatch(addUserToFlat(ev))} id='new-user'>
           <input type='text' placeholder='Users Email'></input>
           <button type='submit' form='new-user' value='Submit'>Add Flattie</button>
         </form>
-        <table>
+        <table className="settingInfo">
           <thead>
             <tr>
               <th>Flattie</th>
@@ -41,7 +41,7 @@ const Settings = React.createClass ({
 
 const mapStateToProps = (state) => {
   return {
-    flatUsers: state.returnItems,
+    flatUsers: state.returnItems.users,
     dispatch: state.dispatch
   }
 }
