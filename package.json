@@ -9,7 +9,8 @@
     "dev": "nodemon --watch server server/index & webpack --watch",
     "knex": "knex",
     "test": "jest",
-    "postinstall": "knex migrate:latest"
+    "postinstall": "knex migrate:latest && npm run build",
+    "build": "webpack -p"
   },
   "babel": {
     "presets": [
