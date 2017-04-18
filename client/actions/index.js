@@ -88,7 +88,6 @@ export function fetchBillAllocations () {
   }
 }
 
-
 export function postAllocation (newAmount) {
   return (dispatch) => {
     request
@@ -103,6 +102,18 @@ export function postAllocation (newAmount) {
   }
 }
 
+export function postShuffledJobs (object) {
+  return (dispatch) => {
+    request
+    .post(`http://localhost:3000/api/updatejobs`)
+    .send(object)
+    .end((err, res) => {
+      if (err) {
+        return
+      }
+    })
+  }
+}
 
 export function postItem (formData, table) {
   return (dispatch) => {
@@ -132,7 +143,6 @@ export function delItem (id, table) {
   }
 }
 
-
 export function postUser (object, callback) {
   request
     .post(`http://localhost:3000/api/adduser`)
@@ -154,7 +164,7 @@ export function updateEmail (id, newestEmail) {
       if (err) {
         return
       }
-      dispatch(receiveItems(res.body))
+      dispatch(receiveFlatUsers(res.body))
     })
   }
 }
@@ -170,7 +180,7 @@ export function addUserToFlat (ev) {
         if (err) {
           return
         }
-        dispatch(receiveItems(res.body))
+        dispatch(receiveFlatUsers(res.body))
       })
   }
 }
@@ -185,7 +195,7 @@ export function removeFlattie (userEmail) {
           return
         }
         console.log(res.body)
-        dispatch(receiveItems(res.body))
+        dispatch(receiveFlatUsers(res.body))
       })
   }
 }

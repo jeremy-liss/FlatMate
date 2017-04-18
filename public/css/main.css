@@ -9,7 +9,7 @@ body {
 
  h2 {
    text-align: center;
-   margin-top: 250px;
+   margin-top: 50px;
   }
 
  .defaultPage {
@@ -35,16 +35,19 @@ body {
 
 .Shoppinglist {
   text-align: center;
-  margin-top: 250px;
+  margin-top: 100px;
   margin-left: auto;
   margin-right: auto;
 }
 
+#Shoppinglist {
+  text-align: center;
+}
 /*calendar*/
 
 .calendarContainer {
   text-align: center;
-  margin-top: 250px;
+  margin-top: 60px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -54,7 +57,7 @@ body {
   margin-right: auto;
 }
 
-/*bills*/
+/*bills button component*/
 
 #bills {
   text-align: center;
@@ -65,29 +68,37 @@ body {
   border: 1px solid red;
 }
 
-.totalBill {
-  text-align: center;
-  margin-top: 50px;
-}
+/*inside table for bills*/
 table.bills {
   margin-left: auto;
   margin-right: auto;
+  margin-top: -20px;
+}
+/*total bill amound and add and return home*/
+.totalBill {
+  text-align: center;
+  margin-top: 20px;
 }
 
 /*rosterOverall*/
+#roster {
+margin: 50px 45px;
+margin-top:20px;
+text-align: center;
+}
+
+/*inside roster page*/
 .roster {
 text-align: center;
-
+margin-top:100px;
 }
 
-#roster {
- margin: 50px 45px;
-
-}
 /*roster*/
 table.center {
- margin-left: auto;
- margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -20px;
+  text-align: center;
  }
 
 .shuffle {
@@ -103,7 +114,7 @@ text-align: center;
 
 .Settings {
   text-align: center;
-  margin-top: 250px;
+  margin-top: 80px;
   margin-left: auto;
   margin-right: auto;
 

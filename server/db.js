@@ -24,7 +24,8 @@ module.exports = {
   addBillAllocation: addBillAllocation,
   delBillAllocation: delBillAllocation,
   getFlatUsers: getFlatUsers,
-  updateAllocation: updateAllocation
+  updateAllocation: updateAllocation,
+  updateJobs: updateJobs
 }
 
 function getUsers () {
@@ -137,6 +138,7 @@ function updateEmail (id, newEmail) {
     .update({'email': newEmail})
     .then(function(){
       return knex('users')
+      .where('flat_id', 1001)
       .select()
     })
 }
@@ -156,6 +158,12 @@ function updateAllocation (id, amount) {
   return knex('bill_allocations')
     .where('bill_id', 4001)
     .update({'amount': amount})
+}
+
+function updateJobs (userId, job) {
+  return knex('jobs')
+    .where('user_id', userId)
+    .update({'job': job})
 }
 
 function delBillAllocation (id) {

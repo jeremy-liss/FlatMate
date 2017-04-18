@@ -1,9 +1,8 @@
 import React from 'react'
 import { delItem } from '../actions'
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 
 const BillItems = (props) => {
-
   let amounts = []
   let userAmount = Math.round((props.amount / props.userNum) * 100) / 100
 

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const DefaultPage = () => (
   <div className='container'>
@@ -17,9 +18,10 @@ const DefaultPage = () => (
       <div className='four columns'>
         <div className='logins'>
           <div id='fb-login'>
-            <p><a href='http://www.facebook.com/login'>
-              <img src='https://cdn.fileplanet.com/gen//facebook-pro-app-100x100.png'></img>
-            </a></p>
+            <p>
+              <Link to='http://www.facebook.com/login'>
+              <img src='https://cdn.fileplanet.com/gen//facebook-pro-app-100x100.png'></img></Link>
+            </p>
           </div>
         </div>
       </div>
