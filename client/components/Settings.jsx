@@ -4,16 +4,20 @@ import {connect} from 'react-redux'
 import {fetchItems, postUser, updateEmail, addUserToFlat} from '../actions'
 import SettingItems from './SettingItems'
 
-const Settings = (props) => {
+const Settings = React.createClass ({
 
-props.dispatch(fetchItems('flatUsers'))
-  return (
-    <div className='Settings'>
-      <h2>Settings Page</h2>
-      <form onSubmit={addUserToFlat} id='new-user'>
-        <input type='text' placeholder='Users Email'></input>
-        <button type='submit' form='new-user' value='Submit'>Add Flattie</button>
-      </form>
+  componentDidMount () {
+    this.props.dispatch(fetchItems('flatUsers'))
+  },
+
+  render (props) {
+    return (
+      <div className='Settings'>
+        <h2>Settings Page</h2>
+        <form onSubmit={(ev)=> this.props.dispatch(addUserToFlat(ev))} id='new-user'>
+          <input type='text' placeholder='Users Email'></input>
+          <button type='submit' form='new-user' value='Submit'>Add Flattie</button>
+        </form>
         <table className="settingInfo">
           <thead>
             <tr>
@@ -24,15 +28,16 @@ props.dispatch(fetchItems('flatUsers'))
             </tr>
           </thead>
           <tbody>
-            {props.flatUsers.map(users => {
+            {this.props.flatUsers.map(users => {
               return <SettingItems users={users} id={users.id} key={users.id} />
             })}
           </tbody>
         </table>
-      <a href='#/home'>Return Home</a>
-    </div>
-  )
-}
+        <a href='#/home'>Return Home</a>
+      </div>
+    )
+  }
+})
 
 const mapStateToProps = (state) => {
   return {
