@@ -17,6 +17,7 @@ var addShoppingListItem = require('./routes/addShoppingListItem')
 var updateFlatId = require('./routes/updateFlatId')
 var addBillAllocation = require('./routes/addBillAllocation')
 var flatUsers = require('./routes/flatusers')
+var updateAllocation = require('./routes/updateAllocation')
 
 var server = express()
 
@@ -30,7 +31,7 @@ server.use('/api/flat', flat)
 server.use('/api/users', users)
 server.use('/api/bills', bills)
 server.use('/api/jobs', jobs)
-server.use('/api/bill_allocations', billAllocations)
+server.use('/api/billallocations', billAllocations)
 server.use('/api/events', events)
 server.use('/api/addEvent', addEvent)
 server.use('/api/shopping_list_items', shoppingListItems)
@@ -44,5 +45,6 @@ server.use('/api/updateflatid', updateFlatId)
 server.use('/api/addBillAllocation', addBillAllocation)
 server.use('/api/delBillAllocation', billAllocations)
 server.use('/api/flatusers', flatUsers)
+server.use('/api/updateallocation', updateAllocation)
 
 module.exports = server

@@ -4,16 +4,19 @@ import getFormData from 'get-form-data'
 
 import BillUsers from './BillUsers'
 import BillItems from './BillItems'
-import {fetchItems, postBill, fetchUsers, fetchBillAllocations, delBill} from '../actions'
+import {fetchItems, postBill, postAllocation, fetchUsers, fetchFlatUsers, fetchBillAllocations, delBill} from '../actions'
 
 const Bills = React.createClass ({
-
   componentDidMount () {
     this.props.dispatch(fetchItems('bills'))
+    this.props.dispatch(fetchItems('billallocations'))
+    this.props.dispatch(fetchFlatUsers())
   },
 
   handleBillAdd(ev) {
     ev.preventDefault(ev)
+    var newAllocation = (Math.round((ev.target.elements.amount.value / this.props.flatUsers.length + this.props.allocations[0].amount) * 100) / 100)
+    this.props.dispatch(postAllocation(newAllocation))
     this.props.dispatch(postBill(getFormData(ev.target)))
   },
 
@@ -33,8 +36,8 @@ const Bills = React.createClass ({
 
     let userTotal= Math.round((total/ userNum) * 100) / 100
 
+    console.log(this.props.billItems)
     return  (
-
       <div className='container'>
         <table className='bills'>
           <thead>
@@ -74,6 +77,7 @@ const mapStateToProps = (state) => {
     billItems: state.returnItems,
     users: state.returnUsers,
     allocations: state.returnAllocations,
+    flatUsers: state.returnFlatUsers,
     dispatch: state.dispatch
   }
 }

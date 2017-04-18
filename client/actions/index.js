@@ -42,6 +42,13 @@ export const addItem = (item) => {
   }
 }
 
+export const receiveFlatUsers = (flatUsers) => {
+  return {
+    type: 'RECEIVE_FLAT_USERS',
+    list: flatUsers.map(user => user)
+  }
+}
+
 export function fetchItems (table) {
   return (dispatch) => {
     request
@@ -68,16 +75,43 @@ export function fetchUsers () {
   }
 }
 
+export function fetchFlatUsers () {
+  return (dispatch) => {
+    request
+      .get(`http://localhost:3000/api/flatusers`)
+      .end((err, res) => {
+        if (err) {
+          return
+        }
+        dispatch(receiveFlatUsers(res.body))
+      })
+  }
+}
+
 export function fetchBillAllocations () {
   return (dispatch) => {
     request
-      .get(`http://localhost:3000/api/bill_allocations`)
+      .get(`http://localhost:3000/api/billallocations`)
       .end((err, res) => {
         if (err) {
           return
         }
         dispatch(receiveBillAllocations(res.body))
       })
+  }
+}
+
+export function postAllocation (newAmount) {
+  return (dispatch) => {
+    request
+    .post(`http://localhost:3000/api/updateallocation`)
+    .send({amount: newAmount})
+    .end((err, res) => {
+      if (err) {
+        return
+      }
+      callback(null, res.body)
+    })
   }
 }
 

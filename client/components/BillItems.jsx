@@ -8,7 +8,7 @@ const BillItems = (props) => {
   let userAmount = Math.round((props.amount / props.userNum) * 100) / 100
 
   for (var i=0; i < props.userNum; i++){
-    amounts.push(<td key={i}>{userAmount}</td>)
+    amounts.push(<td key={i}>${userAmount}</td>)
   }
 
   return (
