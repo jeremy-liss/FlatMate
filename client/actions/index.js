@@ -39,52 +39,52 @@ export const receiveFlatUsers = (flatUsers) => {
 export function fetchItems (table) {
   return (dispatch) => {
     request
-      .get(`http://localhost:3000/api/${table}`)
-      .end((err, res) => {
-        if (err) {
-          return
-        }
-        dispatch(receiveItems(res.body, table))
-      })
+    .get(`http://localhost:3000/api/${table}`)
+    .end((err, res) => {
+      if (err) {
+        return
+      }
+      dispatch(receiveItems(res.body, table))
+    })
   }
 }
 
 export function fetchUsers () {
   return (dispatch) => {
     request
-      .get(`http://localhost:3000/api/users`)
-      .end((err, res) => {
-        if (err) {
-          return
-        }
-        dispatch(receiveUsers(res.body))
-      })
+    .get(`http://localhost:3000/api/users`)
+    .end((err, res) => {
+      if (err) {
+        return
+      }
+      dispatch(receiveUsers(res.body))
+    })
   }
 }
 
 export function fetchFlatUsers () {
   return (dispatch) => {
     request
-      .get(`http://localhost:3000/api/flatusers`)
-      .end((err, res) => {
-        if (err) {
-          return
-        }
-        dispatch(receiveFlatUsers(res.body))
-      })
+    .get(`http://localhost:3000/api/flatusers`)
+    .end((err, res) => {
+      if (err) {
+        return
+      }
+      dispatch(receiveFlatUsers(res.body))
+    })
   }
 }
 
 export function fetchBillAllocations () {
   return (dispatch) => {
     request
-      .get(`http://localhost:3000/api/billallocations`)
-      .end((err, res) => {
-        if (err) {
-          return
-        }
-        dispatch(receiveBillAllocations(res.body))
-      })
+    .get(`http://localhost:3000/api/billallocations`)
+    .end((err, res) => {
+      if (err) {
+        return
+      }
+      dispatch(receiveBillAllocations(res.body))
+    })
   }
 }
 
@@ -145,14 +145,13 @@ export function delItem (id, table) {
 
 export function postUser (object, callback) {
   request
-    .post(`http://localhost:3000/api/adduser`)
-    .send(object)
-    .end((err, res) => {
-      if (err) {
-        return
-      }
-      callback(null, res.body)
-    })
+  .post(`http://localhost:3000/api/adduser`)
+  .send(object)
+  .end((err, res) => {
+    if (err) {
+      return
+    }
+  })
 }
 
 export function updateEmail (id, newestEmail) {
@@ -170,7 +169,6 @@ export function updateEmail (id, newestEmail) {
 }
 
 export function addUserToFlat (ev) {
-  console.log(ev.target.elements[0].value)
   ev.preventDefault(ev)
   return (dispatch) => {
     request
@@ -194,7 +192,6 @@ export function removeFlattie (userEmail) {
         if (err) {
           return
         }
-        console.log(res.body)
         dispatch(receiveFlatUsers(res.body))
       })
   }
