@@ -1,6 +1,9 @@
 import React from 'react'
-import { delItem } from '../actions'
 import { connect } from 'react-redux'
+
+import { delItem } from '../actions'
+import { calculateBillAllocation } from '../lib/billUserTotal'
+
 
 const BillItems = (props) => {
   let amounts = []
@@ -10,13 +13,17 @@ const BillItems = (props) => {
     amounts.push(<td key={i}>${userAmount}</td>)
   }
 
+  function handleBillDel () {
+    props.dispatch(delItem(props.id, props.table))
+  }
+
   return (
     <tr>
       <td><strong>{props.details.charAt(0).toUpperCase() + props.details.slice(1)}</strong></td>
       <td>${props.amount}</td>
       {amounts}
       <td>
-        <button onClick={()=> props.dispatch(delItem(props.id, props.table))}>
+        <button onClick={()=> handleBillDel()}>
           Paid
         </button>
       </td>
