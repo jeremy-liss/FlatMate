@@ -36,7 +36,7 @@ props.dispatch(fetchItems('flatUsers'))
 
 const mapStateToProps = (state) => {
   return {
-    flatUsers: state.returnItems,
+    flatUsers: state.returnItems.users,
     dispatch: state.dispatch
   }
 }

@@ -1,9 +1,10 @@
 import request from 'superagent'
 
-export const receiveItems = (items) => {
+export const receiveItems = (items, table) => {
   return {
     type: 'RECEIVE_ITEMS',
-    list: items.map(item => item)
+    list: items.map(item => item),
+    table
   }
 }
 
@@ -43,7 +44,7 @@ export function fetchItems (table) {
         if (err) {
           return
         }
-        dispatch(receiveItems(res.body))
+        dispatch(receiveItems(res.body, table))
       })
   }
 }

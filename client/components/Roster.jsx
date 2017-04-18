@@ -44,7 +44,7 @@ const Roster = React.createClass ({
 
 const mapStateToProps = (state) => {
   return {
-    users: state.returnItems,
+    users: state.returnItems.users,
     dispatch: state.dispatch,
     chores: state.shuffleJobs
   }
