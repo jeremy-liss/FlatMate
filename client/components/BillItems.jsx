@@ -1,10 +1,11 @@
 import React from 'react'
+import { connect } from 'react-redux'
+
 import { delItem } from '../actions'
-import {connect} from 'react-redux'
-import {calculateBillAllocation} from '../lib/billUserTotal'
+import { calculateBillAllocation } from '../lib/billUserTotal'
+
 
 const BillItems = (props) => {
-
   let amounts = []
   let userAmount = Math.round((props.amount / props.userNum) * 100) / 100
 

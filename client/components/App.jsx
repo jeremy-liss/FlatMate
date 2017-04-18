@@ -3,7 +3,6 @@ import { HashRouter as Router, Route } from 'react-router-dom'
 
 import Calendar from './Calendar'
 import DefaultPage from './DefaultPage'
-import Header from './Header'
 import Main from './Main'
 import Register from './Register'
 import Roster from './Roster'
@@ -12,9 +11,7 @@ import Bills from './Bills'
 import Settings from './Settings'
 
 const App = () => (
-
   <div className='app'>
-    <Header />
     <Router>
       <div>
         <Route exact path='/' component={DefaultPage} />

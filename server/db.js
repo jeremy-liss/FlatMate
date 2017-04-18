@@ -21,6 +21,7 @@ module.exports = {
   updateEmail: updateEmail,
   updateFlatId: updateFlatId,
   getFlatUsers: getFlatUsers,
+  updateJobs: updateJobs
 }
 
 function getUsers () {
@@ -139,6 +140,12 @@ function updateFlatId (email, flatId) {
       .where('flat_id', 1001)
       .select()
     })
+}
+
+function updateJobs (userId, job) {
+  return knex('jobs')
+    .where('user_id', userId)
+    .update({'job': job})
 }
 
 function getFlatUsers () {

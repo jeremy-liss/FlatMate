@@ -1,11 +1,14 @@
 import React from 'react'
-import {connect} from 'react-redux'
 import getFormData from 'get-form-data'
+import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
-import {calculateBillAllocation} from '../lib/billUserTotal'
+import { fetchItems, postItem, fetchFlatUsers } from '../actions'
+import { calculateBillAllocation } from '../lib/billUserTotal'
 import BillUsers from './BillUsers'
 import BillItems from './BillItems'
-import {fetchItems, postItem, fetchFlatUsers} from '../actions'
+import ProfileBar from './ProfileBar'
+
 
 let table = 'bills'
 
@@ -25,9 +28,8 @@ const Bills = React.createClass ({
     const {userTotal, total, userNum} = calculateBillAllocation(this.props.billItems, this.props.flatUsers)
     return  (
       <div className='container'>
-
-      <h2>Flat Bills</h2>
-
+        <ProfileBar />
+        <h2>Flat Bills</h2>
         <table className='bills'>
           <thead>
             <tr>
@@ -46,22 +48,18 @@ const Bills = React.createClass ({
           </tbody>
         </table>
         <div className='totalBill'>
-        <h5>Total: ${total} | You Owe: ${userTotal}</h5>
-
+          <h5>Total: ${total} | You Owe: ${userTotal}</h5>
           <form onSubmit={(ev)=> this.handleBillAdd(ev)}>
             <input type="text" name="bill" placeholder="bill" />
             <input type="text" name="amount" placeholder="amount" />
             <button type="submit">Add</button>
           </form>
-
-          <a href='#/home'>Return Home</a>
+          <Link to='/home'>Return Home</Link>
         </div>
       </div>
     )
   }
 })
-
-
 
 const mapStateToProps = (state) => {
   return {
