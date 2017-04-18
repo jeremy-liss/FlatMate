@@ -36,11 +36,6 @@ const Main = () => (
     <div className="setting">
     <Link to='/settings'><img src='../../css/images/settings.png' alt='link to settings' width='80px' height='90px'/></Link>
     </div>
-    <div className="offset-by-one columns">
-      <div className="polaroidGroup">
-       <img src='../../css/images/polaroid4.png' width='140px'height='150px'/>
-      </div>
-    </div>
   </div>
 )
 

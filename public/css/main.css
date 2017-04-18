@@ -7,6 +7,11 @@ body {
   display:block;
  }
 
+ h2 {
+   text-align: center;
+   margin-top: 250px;
+  }
+
  .defaultPage {
    margin-top: 275px;
    text-align: center;
@@ -24,46 +29,15 @@ body {
 
 }
 .rowsOne {
-  margin-top: 20px;
+  margin-top: -20px;
 }
+/*Shoppinglist*/
 
-#bills {
+.Shoppinglist {
   text-align: center;
-  margin-top: -60px;
-}
-.totalBill {
-  text-align: center;
-  margin-top: 50px;
-}
-table.bills {
+  margin-top: 250px;
   margin-left: auto;
   margin-right: auto;
-}
-
-#roster {
- margin: -50px 45px;
-
-}
-h2 {
-  text-align: center;
-  margin-top: 250px;
- }
-
-/*rosterOverall*/
-.roster {
-  text-align: center;
-  margin-top: 250px;
-}
-/*roster*/
-table.center {
- margin-left: auto;
- margin-right: auto;
- }
-
-.shuffle {
-  display: block;
-    margin: 0 auto;
-text-align: center;
 }
 
 /*calendar*/
@@ -80,15 +54,49 @@ text-align: center;
   margin-right: auto;
 }
 
+/*bills*/
 
-
-/*Shoppinglist*/
-
-.Shoppinglist {
+#bills {
   text-align: center;
-  margin-top: 250px;
+  margin-top: -200px;
 }
 
+#bills a:hover img {
+  border: 1px solid red;
+}
+
+.totalBill {
+  text-align: center;
+  margin-top: 50px;
+}
+table.bills {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*rosterOverall*/
+.roster {
+text-align: center;
+
+}
+
+#roster {
+ margin: 50px 45px;
+
+}
+/*roster*/
+table.center {
+ margin-left: auto;
+ margin-right: auto;
+ }
+
+.shuffle {
+  display: block;
+    margin: 0 auto;
+text-align: center;
+}
+
+/*settings*/
 .setting{
   margin-right: -70px;
 }
@@ -99,6 +107,11 @@ text-align: center;
   margin-left: auto;
   margin-right: auto;
 
+}
+
+table.settingInfo {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /*Registration*/
@@ -112,7 +125,6 @@ text-align: center;
 }
 
 
-
 /*polaroids*/
 
 .polaroidGroup {
@@ -122,24 +134,8 @@ text-align: center;
   margin: -300px 200px;
 }
 
-table.settingInfo {
-  margin-left: auto;
-  margin-right: auto;
-}
 
-
-#fb-root {
-  width:500px;
-}
-
-.fb-comments {
-  text-align:left;
-  margin-top:-600px;
-  margin: -600px -500px;
-
-
-  }
-
+/*facebook*/
 #fb-login img {
     width: 50%;
     height: auto;
