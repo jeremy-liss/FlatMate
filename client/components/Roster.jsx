@@ -25,7 +25,7 @@ const Roster = React.createClass ({
           </thead>
           <tbody>
             {this.props.users.map(function(job, i){
-              return <Jobs name={job.name} key={job.id} choreNum={i} />
+              return <Jobs name={job.name} userId={job.id} key={job.id} choreNum={i} />
             })}
 
           </tbody>

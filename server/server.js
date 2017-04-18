@@ -16,7 +16,7 @@ var roster = require('./routes/roster')
 var updateFlatId = require('./routes/updateFlatId')
 var flatUsers = require('./routes/flatusers')
 var updateAllocation = require('./routes/updateAllocation')
-
+var updateJobs = require('./routes/updateJobs')
 
 var server = express()
 
@@ -42,5 +42,6 @@ server.use('/api/updateEmail', users)
 server.use('/api/updateflatid', updateFlatId)
 server.use('/api/flatusers', flatUsers)
 server.use('/api/updateallocation', updateAllocation)
+server.use('/api/updatejobs', updateJobs)
 
 module.exports = server
