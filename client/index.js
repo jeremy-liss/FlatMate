@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   store.dispatch(fetchItems('users'))
   store.dispatch(fetchItems('jobs'))
-  store.dispatch(fetchBillAllocations())
   store.dispatch(fetchUsers())
 
   render(

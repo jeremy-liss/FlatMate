@@ -7,7 +7,6 @@ module.exports = {
   addShoppingListItem: addShoppingListItem,
   delShoppingListItem: delShoppingListItem,
   delEvent: delEvent,
-  getBillAllocations: getBillAllocations,
   getBills: getBills,
   getEvents: getEvents,
   getFlat: getFlat,
@@ -21,10 +20,7 @@ module.exports = {
   delUser: delUser,
   updateEmail: updateEmail,
   updateFlatId: updateFlatId,
-  addBillAllocation: addBillAllocation,
-  delBillAllocation: delBillAllocation,
   getFlatUsers: getFlatUsers,
-  updateAllocation: updateAllocation,
   updateJobs: updateJobs
 }
 
@@ -66,14 +62,6 @@ function delBill (id) {
       return knex('bills')
       .select()
     })
-}
-
-function getBillAllocations () {
-  return knex('bill_allocations').select()
-}
-
-function addBillAllocation (bill_id, user_id, amount) {
-  return knex('bill_allocations').insert({bill_id:bill_id, user_id:user_id, amount:amount})
 }
 
 function getEvents () {
@@ -154,22 +142,10 @@ function updateFlatId (email, flatId) {
     })
 }
 
-function updateAllocation (id, amount) {
-  return knex('bill_allocations')
-    .where('bill_id', 4001)
-    .update({'amount': amount})
-}
-
 function updateJobs (userId, job) {
   return knex('jobs')
     .where('user_id', userId)
     .update({'job': job})
-}
-
-function delBillAllocation (id) {
-  return knex('bill_allocations')
-    .where('id', id)
-    .del()
 }
 
 function getFlatUsers () {

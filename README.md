@@ -12,7 +12,7 @@ An editable list - items can be added (including quantities) and removed once th
 
 ## Calendar
 
-Hooped up to a calendar API. Key events for the flat can be added.
+Hooked up to a calendar API. Key events for the flat can be added.
 
 ## Roster
 
