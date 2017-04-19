@@ -6,7 +6,7 @@ let initialState = {
   shopping_list_items: []
 }
 
-function returnItems (state = initialState, action) {
+function items (state = initialState, action) {
   switch (action.type) {
     case 'RECEIVE_ITEMS':
     let newState = {}
@@ -23,4 +23,4 @@ function returnItems (state = initialState, action) {
   }
 }
 
-export default returnItems
+export default items

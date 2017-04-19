@@ -63,7 +63,7 @@ const Bills = React.createClass ({
 
 const mapStateToProps = (state) => {
   return {
-    billItems: state.returnItems.bills,
+    billItems: state.items.bills,
     flatUsers: state.returnFlatUsers
   }
 }

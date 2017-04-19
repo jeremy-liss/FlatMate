@@ -1,4 +1,4 @@
-function shuffledJobs (state = ["Vacuum", "Dishes", "Trash", "Bathroom", "Mow Lawn", "Clean Kitchen"], action) {
+function shuffleJobs (state = ["Vacuum", "Dishes", "Trash", "Bathroom", "Mow Lawn", "Clean Kitchen"], action) {
   switch (action.type) {
     case 'SHUFFLE_JOBS':
 
@@ -13,4 +13,4 @@ function shuffledJobs (state = ["Vacuum", "Dishes", "Trash", "Bathroom", "Mow La
   }
 }
 
-export default shuffledJobs
+export default shuffleJobs

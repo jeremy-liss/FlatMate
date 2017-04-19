@@ -63,7 +63,7 @@ const Events = React.createClass ({
 
 const mapStateToProps = (state) => {
   return {
-    events: state.returnItems.events,
+    events: state.items.events,
     dispatch: state.dispatch
   }
 }
