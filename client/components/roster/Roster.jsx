@@ -2,8 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-import { fetchItems, shuffleJobs, fetchFlatUsers } from '../actions'
-import ProfileBar from './ProfileBar'
+import { fetchItems, shuffleJobs, fetchFlatUsers } from '../../actions'
+import ProfileBar from '../profilebar/ProfileBar'
 import Jobs from './Jobs'
 
 const Roster = React.createClass ({

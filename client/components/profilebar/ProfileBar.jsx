@@ -1,8 +1,9 @@
 import React from 'react'
 import {connect} from 'react-redux'
 
-import { fetchItems } from '../actions'
-import {calculateBillAllocation} from '../lib/billUserTotal'
+import { fetchItems, fetchUsers } from '../../actions'
+import { calculateBillAllocation } from '../../lib/billUserTotal'
+
 import ProfileBarUser from './ProfileBarUser'
 import ProfileBarJob from './ProfileBarJob'
 import ProfileBarBill from './ProfileBarBill'

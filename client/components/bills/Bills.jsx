@@ -3,11 +3,11 @@ import getFormData from 'get-form-data'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-import { fetchItems, postItem, fetchFlatUsers } from '../actions'
-import { calculateBillAllocation } from '../lib/billUserTotal'
+import { fetchItems, postItem, fetchFlatUsers } from '../../actions'
+import { calculateBillAllocation } from '../../lib/billUserTotal'
 import BillUsers from './BillUsers'
 import BillItems from './BillItems'
-import ProfileBar from './ProfileBar'
+import ProfileBar from '../profilebar/ProfileBar'
 
 
 let table = 'bills'

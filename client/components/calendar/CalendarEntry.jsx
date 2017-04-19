@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { postItem } from '../actions'
+import { postItem } from '../../actions'
 
 var today = new Date()
 var dd = today.getDate()

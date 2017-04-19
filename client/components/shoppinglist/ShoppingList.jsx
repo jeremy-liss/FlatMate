@@ -2,9 +2,9 @@ import React from 'react'
 import getFormData from 'get-form-data'
 import { connect } from 'react-redux'
 
-import { fetchItems, postItem } from '../actions'
+import { fetchItems, postItem } from '../../actions'
 import ShoppingListItems from './ShoppingListItems'
-import ProfileBar from './ProfileBar'
+import ProfileBar from '../profilebar/ProfileBar'
 
 let table ='shopping_list_items'
 
