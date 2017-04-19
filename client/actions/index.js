@@ -92,7 +92,7 @@ export function delItem (id, table) {
 
 export function postUser (object, callback) {
   request
-  .post(`/api/adduser`)
+  .post(`/api/users`)
   .send(object)
   .end((err, res) => {
     if (err) {
@@ -104,7 +104,7 @@ export function postUser (object, callback) {
 export function updateEmail (id, newestEmail) {
   return (dispatch) => {
     request
-    .put(`/api/updateemail`)
+    .put(`/api/users`)
     .send({id: id, newEmail: newestEmail})
     .end((err, res) => {
       if (err) {
