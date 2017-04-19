@@ -1,6 +1,7 @@
 var env = process.env['NODE_ENV'] || 'development'
 var config = require('../knexfile.js')[env]
 var knex = require('knex')(config)
+console.log(knex);
 
 module.exports = {
   addEvent: addEvent,
@@ -21,7 +22,8 @@ module.exports = {
   updateEmail: updateEmail,
   updateFlatId: updateFlatId,
   getFlatUsers: getFlatUsers,
-  updateJobs: updateJobs
+  updateJobs: updateJobs,
+  knex: knex
 }
 
 function getUsers () {
