@@ -1,14 +1,14 @@
 import React from 'react'
 import { HashRouter as Router, Route } from 'react-router-dom'
 
-import Calendar from './Calendar'
+import Bills from './bills/Bills'
+import Calendar from './calendar/Calendar'
 import DefaultPage from './DefaultPage'
 import Main from './Main'
 import Register from './Register'
-import Roster from './Roster'
-import ShoppingList from './ShoppingList'
-import Bills from './Bills'
-import Settings from './Settings'
+import Roster from './roster/Roster'
+import ShoppingList from './shoppinglist/ShoppingList'
+import Settings from './settings/Settings'
 
 const App = () => (
   <div className='app'>

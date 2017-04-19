@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { removeFlattie, updateEmail } from '../actions'
+import { removeFlattie, updateEmail, updateFlatUsers } from '../../actions'
 
 const SettingItems = (props) => {
   return (
@@ -12,7 +12,7 @@ const SettingItems = (props) => {
         <input type="text" id={props.id} placeholder="New Email"></input>
         <button onClick={() => props.dispatch(updateEmail(props.id, document.getElementById(props.id).value))}>Update</button>
       </td>
-      <td><button onClick={() => props.dispatch(removeFlattie(props.users.email))}>Remove Flattie</button></td>
+      <td><button onClick={() => props.dispatch(updateFlatUsers({email: props.users.email, flat_id: null}))}>Remove Flattie</button></td>
     </tr>
   )
 }

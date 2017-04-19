@@ -4,7 +4,6 @@ import {Provider} from 'react-redux'
 import {createStore, applyMiddleware, compose} from 'redux'
 import thunkMiddleware from 'redux-thunk'
 
-import {fetchItems, fetchUsers, fetchBillAllocations} from './actions'
 import reducers from './reducers'
 import App from './components/App'
 

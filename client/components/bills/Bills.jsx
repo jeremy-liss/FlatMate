@@ -3,11 +3,11 @@ import getFormData from 'get-form-data'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-import { fetchItems, postItem, fetchFlatUsers } from '../actions'
-import { calculateBillAllocation } from '../lib/billUserTotal'
+import { fetchItems, postItem, fetchFlatUsers } from '../../actions'
+import { calculateBillAllocation } from '../../lib/billUserTotal'
 import BillUsers from './BillUsers'
 import BillItems from './BillItems'
-import ProfileBar from './ProfileBar'
+import ProfileBar from '../profilebar/ProfileBar'
 
 
 let table = 'bills'
@@ -50,8 +50,8 @@ const Bills = React.createClass ({
         <div className='totalBill'>
           <h5>Total: ${total} | You Owe: ${userTotal}</h5>
           <form onSubmit={(ev)=> this.handleBillAdd(ev)}>
-            <input type="text" name="bill" placeholder="bill" />
-            <input type="text" name="amount" placeholder="amount" />
+            <input type="text" name="bill" placeholder="Bill" />
+            <input type="text" name="amount" placeholder="Amount" />
             <button type="submit">Add</button>
           </form>
           <Link to='/home'><button>Return Home</button></Link>
@@ -64,7 +64,7 @@ const Bills = React.createClass ({
 const mapStateToProps = (state) => {
   return {
     billItems: state.items.bills,
-    flatUsers: state.returnFlatUsers
+    flatUsers: state.flatUsers
   }
 }
 

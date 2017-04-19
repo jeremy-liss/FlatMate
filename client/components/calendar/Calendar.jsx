@@ -2,11 +2,11 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-import { fetchItems } from '../actions'
+import { fetchItems } from '../../actions'
 
 import CalendarEntry from './CalendarEntry'
 import CalendarList from './CalendarList'
-import ProfileBar from './ProfileBar'
+import ProfileBar from '../profilebar/ProfileBar'
 
 const Events = React.createClass ({
 
