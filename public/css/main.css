@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'MyWebFont';
+  src:  url('myfont.woff2') format('woff2'),
+        url('myfont.woff') format('woff');
+           src: url('http://domain.com/fonts/font.ttf'); /*URL to font*/
+}
 body {
   margin: 250px 200px;
   background-image:url("./images/background2017.png");
@@ -5,7 +11,25 @@ body {
   background-repeat: no-repeat;
   margin-top: 30px;
   display:block;
+  font-family: 'MyWebFont', Fallback, sans-serif;
  }
+
+/*shoppingList*/
+h1 {
+ font-family:'Rock Salt', cursive;
+ font-size: 55px;
+}
+/*roster and bills*/
+ h2 {
+   text-align: center;
+   margin-top: 65px;
+   font-family:'Rock Salt';
+   }
+/*calendar*/
+h3 {
+  font-family:'Rock Salt';
+  font-size: 45px;
+}
 
  .defaultPage {
    margin-top: 275px;
@@ -19,45 +43,97 @@ body {
 
 .ProfileBar {
   text-align:center;
-  margin-top:162px;
-  font-size: 16px;
+  margin-top:168px;
+  font-size: 20px;
 
 }
 .rowsOne {
-  margin-top: 20px;
+  margin-top: -20px;
 }
+/*Shoppinglist*/
+
+.Shoppinglist {
+  text-align: center;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 30px;
+}
+
+#shoppingList a:hover img {
+  border: 1px solid red;
+}
+
+/*calendar*/
+
+.calendarContainer {
+  text-align: center;
+  margin-top: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 20px;
+  padding-right: 10px 10px;
+
+}
+
+.calendar {
+  margin-left: auto;
+  margin-right: auto;
+    font-size: 14px;
+}
+
+#calendar a:hover img {
+  border: 1px solid red;
+}
+
+/*bills button component*/
 
 #bills {
   text-align: center;
-  margin-top: -60px;
+  margin-top: -200px;
 }
-.totalBill {
-  text-align: center;
-  margin-top: 50px;
+
+#bills a:hover img {
+  border: 1px solid red;
 }
+
+/*inside table for bills*/
 table.bills {
   margin-left: auto;
   margin-right: auto;
+  margin-top: 45px;
+  font-size: 20px;
 }
-
-#roster {
- margin: -50px 45px;
-
-}
-h2 {
+/*total bill amound and add and return home*/
+.totalBill {
   text-align: center;
-  margin-top: 250px;
- }
+  margin-top: 20px;
+}
 
 /*rosterOverall*/
-.roster {
-  text-align: center;
-  margin-top: 250px;
+#roster {
+margin: 50px 45px;
+margin-top:20px;
+text-align: center;
 }
+
+#roster a:hover img {
+  border: 1px solid red;
+}
+
+/*inside roster page*/
+.roster {
+text-align: center;
+margin-top:100px;
+font-size: 30px;
+}
+
 /*roster*/
 table.center {
- margin-left: auto;
- margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -20px;
+  text-align: center;
  }
 
 .shuffle {
@@ -66,43 +142,50 @@ table.center {
 text-align: center;
 }
 
-/*calendar*/
-
-.calendarContainer {
-  text-align: center;
-  margin-top: 250px;
-  margin-left: auto;
-  margin-right: auto;
+/*settings*/
+.setting{
+  margin-right: -70px;
 }
 
-.calendar {
-  margin-left: auto;
-  margin-right: auto;
-}
-
-
-
-/*Shoppinglist*/
-
-.Shoppinglist {
-  text-align: center;
-  margin-top: 250px;
+#Setting a:hover img {
+  border: 1px solid red;
 }
 
 .Settings {
   text-align: center;
-  margin-top: 250px;
+  margin-top: 80px;
   margin-left: auto;
   margin-right: auto;
+
 }
 
 table.settingInfo {
   margin-left: auto;
   margin-right: auto;
+}
 
+/*Registration*/
+.registerContainer {
+  text-align: center;
+  margin-top: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  width:50%;
+  height:50%;
 }
 
 
+/*polaroids*/
+
+.polaroidGroup {
+  margin-top: -390px;
+  text-align: center;
+  margin-left: auto;
+  margin: -300px 200px;
+}
+
+
+/*facebook*/
 #fb-login img {
     width: 50%;
     height: auto;
