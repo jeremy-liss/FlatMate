@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { removeFlattie, updateEmail } from '../../actions'
+import { removeFlattie, updateEmail, updateFlatUsers } from '../../actions'
 
 const SettingItems = (props) => {
   return (
