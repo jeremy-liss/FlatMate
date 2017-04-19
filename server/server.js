@@ -9,7 +9,7 @@ var users = require('./routes/users')
 var bills = require('./routes/bills')
 var jobs = require('./routes/jobs')
 var events = require('./routes/events')
-var addEvent = require('./routes/addEvent')
+
 var shoppingListItems = require('./routes/shoppingListItems')
 var roster = require('./routes/roster')
 var updateFlatId = require('./routes/updateFlatId')
@@ -27,8 +27,10 @@ server.use('/api/flat', flat)
 server.use('/api/users', users)
 server.use('/api/bills', bills)
 server.use('/api/jobs', jobs)
+
 server.use('/api/events', events)
-server.use('/api/addEvent', addEvent)
+
+
 server.use('/api/shopping_list_items', shoppingListItems)
 server.use('/api/roster', roster)
 server.use('/api/delEvent', events)
