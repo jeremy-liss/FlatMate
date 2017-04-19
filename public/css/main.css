@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'MyWebFont';
+  src:  url('myfont.woff2') format('woff2'),
+        url('myfont.woff') format('woff');
+           src: url('http://domain.com/fonts/font.ttf'); /*URL to font*/
+}
 body {
   margin: 250px 200px;
   background-image:url("./images/background2017.png");
@@ -5,12 +11,25 @@ body {
   background-repeat: no-repeat;
   margin-top: 30px;
   display:block;
+  font-family: 'MyWebFont', Fallback, sans-serif;
  }
 
+/*shoppingList*/
+h1 {
+ font-family:'Rock Salt', cursive;
+ font-size: 55px;
+}
+/*roster and bills*/
  h2 {
    text-align: center;
-   margin-top: 50px;
-  }
+   margin-top: 65px;
+   font-family:'Rock Salt';
+   }
+/*calendar*/
+h3 {
+  font-family:'Rock Salt';
+  font-size: 45px;
+}
 
  .defaultPage {
    margin-top: 275px;
@@ -38,11 +57,13 @@ body {
   margin-top: 100px;
   margin-left: auto;
   margin-right: auto;
+  font-size: 30px;
 }
 
-#Shoppinglist {
-  text-align: center;
+#shoppingList a:hover img {
+  border: 1px solid red;
 }
+
 /*calendar*/
 
 .calendarContainer {
@@ -50,11 +71,19 @@ body {
   margin-top: 60px;
   margin-left: auto;
   margin-right: auto;
+  font-size: 20px;
+  padding-right: 10px 10px;
+
 }
 
 .calendar {
   margin-left: auto;
   margin-right: auto;
+    font-size: 14px;
+}
+
+#calendar a:hover img {
+  border: 1px solid red;
 }
 
 /*bills button component*/
@@ -72,7 +101,8 @@ body {
 table.bills {
   margin-left: auto;
   margin-right: auto;
-  margin-top: -20px;
+  margin-top: 45px;
+  font-size: 20px;
 }
 /*total bill amound and add and return home*/
 .totalBill {
@@ -87,10 +117,15 @@ margin-top:20px;
 text-align: center;
 }
 
+#roster a:hover img {
+  border: 1px solid red;
+}
+
 /*inside roster page*/
 .roster {
 text-align: center;
 margin-top:100px;
+font-size: 30px;
 }
 
 /*roster*/
@@ -110,6 +145,10 @@ text-align: center;
 /*settings*/
 .setting{
   margin-right: -70px;
+}
+
+#Setting a:hover img {
+  border: 1px solid red;
 }
 
 .Settings {
