@@ -1,4 +1,4 @@
-function returnFlatUsers (state = [], action) {
+function flatUsers (state = [], action) {
   switch (action.type) {
     case 'RECEIVE_FLAT_USERS':
 
@@ -11,4 +11,4 @@ function returnFlatUsers (state = [], action) {
   }
 }
 
-export default returnFlatUsers
+export default flatUsers
