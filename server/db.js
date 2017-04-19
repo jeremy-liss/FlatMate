@@ -146,6 +146,10 @@ function updateJobs (userId, job) {
   return knex('jobs')
     .where('user_id', userId)
     .update({'job': job})
+    .then(function(){
+      return knex('jobs')
+      .select()
+    })
 }
 
 function getFlatUsers () {
