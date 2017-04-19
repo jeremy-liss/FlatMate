@@ -52,7 +52,7 @@ const Events = React.createClass ({
           </div>
           <div className="row">
             <CalendarList days={this.props.events} />
-            <Link to='/home'>Return Home</Link>
+            <Link to='/home'><button>Return Home</button></Link>
           </div>
         </div>
       </div>

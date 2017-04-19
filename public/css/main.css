@@ -4,6 +4,11 @@
         url('myfont.woff') format('woff');
            src: url('http://domain.com/fonts/font.ttf'); /*URL to font*/
 }
+
+.button {
+
+}
+
 body {
   margin: 250px 200px;
   background-image:url("./images/background2017.png");
@@ -35,6 +40,14 @@ h3 {
    margin-top: 275px;
    text-align: center;
  }
+
+p {
+  font-size: 22px;
+  /*background-color: rgba(255, 255, 255, 0.5) 20px;*/
+border-radius: 4px;
+  text-indent: 10px;
+
+}
 
 .boardContent {
   margin-top: 55px;
@@ -156,12 +169,22 @@ text-align: center;
   margin-top: 80px;
   margin-left: auto;
   margin-right: auto;
+width: 100%;
+}
 
+.dan{
+padding-left: 50px;
 }
 
 table.settingInfo {
-  margin-left: auto;
+  margin-left: 0;
+  margin-right: 0;
   margin-right: auto;
+  padding-left: 20px;
+  background-color: #ffffff;
+  border-radius: 6px;
+  width: 100%;
+
 }
 
 /*Registration*/
@@ -177,19 +200,18 @@ table.settingInfo {
 
 /*polaroids*/
 
-.polaroidGroup {
-  margin-top: -390px;
-  text-align: center;
-  margin-left: auto;
-  margin: -300px 200px;
+#polaroid1 {
+position:absolute;
+top:250px;
+right:10px;
 }
 
-
-/*facebook*/
-#fb-login img {
-    width: 50%;
-    height: auto;
+#post-note {
+  position:absolute;
+  top:250px;
+  left:10px;
 }
+
 #remove-button {
   text-align: right;
 }
