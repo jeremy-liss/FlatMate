@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { delItem } from '../actions'
-import { calculateBillAllocation } from '../lib/billUserTotal'
+import { delItem } from '../../actions'
+import { calculateBillAllocation } from '../../lib/billUserTotal'
 
 
 const BillItems = (props) => {

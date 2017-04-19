@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { postShuffledJobs } from '../actions'
+import { postShuffledJobs } from '../../actions'
 
 const Jobs = (props) => {
   props.dispatch(postShuffledJobs(

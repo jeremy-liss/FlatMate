@@ -1,7 +1,7 @@
 
 import React from 'react'
 import { Link } from 'react-router-dom'
-import ProfileBar from './ProfileBar'
+import ProfileBar from './profilebar/ProfileBar'
 
 const Main = () => (
 
