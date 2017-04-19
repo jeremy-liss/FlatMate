@@ -118,7 +118,7 @@ export function updateEmail (id, newestEmail) {
 export function updateFlatUsers (formData) {
   return (dispatch) => {
     request
-      .put(`/api/updateflatid`)
+      .put(`/api/flatusers`)
       .send(formData)
       .end((err, res) => {
         if (err) {
