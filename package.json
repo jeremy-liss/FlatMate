@@ -4,8 +4,19 @@
   "description": "React Redux using express",
   "main": "server/index.js",
   "scripts": {
-    "start": "nodemon --watch server server/index & webpack --watch",
-    "watch": "nodemon -e js,jsx -x npm test"
+    "start": "node server/index",
+    "watch": "nodemon -e js,jsx -x npm test",
+    "dev": "nodemon --watch server server/index & webpack --watch",
+    "knex": "knex",
+    "test": "jest",
+    "postinstall": "knex migrate:latest && npm run build",
+    "build": "webpack -p"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "react"
+    ]
   },
   "keywords": [
     "react",
@@ -16,24 +27,45 @@
   "devDependencies": {
     "babel-core": "^6.13.2",
     "babel-loader": "^6.2.4",
-    "babel-preset-es2015": "^6.18.0",
-    "babel-preset-react": "^6.16.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "jest": "^19.0.2",
     "nodemon": "^1.11.0",
     "react": "^15.3.0",
     "react-dom": "^15.3.0",
     "react-redux": "^4.4.5",
+    "react-test-renderer": "^15.5.4",
     "redux": "^3.5.2",
-    "webpack": "^1.13.1",
+    "tape": "^4.6.3",
     "webpack-dev-server": "^1.14.1"
   },
-  "babel": {
-    "presets": [
-      "es2015",
-      "react"
-    ]
-  },
   "dependencies": {
+    "babel-core": "^6.13.2",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
     "body-parser": "^1.17.1",
-    "express": "^4.15.2"
+    "bourbon": "^4.3.4",
+    "cors": "^2.8.3",
+    "express": "^4.15.2",
+    "get-form-data": "^1.2.5",
+    "knex": "^0.12.9",
+    "pg": "^6.1.5",
+    "react-flip-move": "^2.9.2",
+    "react-router-dom": "^4.1.1",
+    "redux-thunk": "^2.2.0",
+    "sqlite3": "^3.1.8",
+    "superagent": "^3.5.2",
+    "webpack": "^1.13.1",
+    "jest": "^19.0.2",
+    "nodemon": "^1.11.0",
+    "react": "^15.3.0",
+    "react-dom": "^15.3.0",
+    "react-redux": "^4.4.5",
+    "react-test-renderer": "^15.5.4",
+    "redux": "^3.5.2",
+    "tape": "^4.6.3",
+    "webpack-dev-server": "^1.14.1",
+    "tape": "^4.6.3"
   }
 }

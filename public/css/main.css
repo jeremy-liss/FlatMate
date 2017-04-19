@@ -1,61 +1,112 @@
 body {
-  width: 75%;
-  margin: auto;
-}
-
-h1 {
+  margin: 250px 200px;
+  background-image:url("./images/background2017.png");
+  background-position: top;
+  background-repeat: no-repeat;
   margin-top: 30px;
+  display:block;
+ }
+
+ .defaultPage {
+   margin-top: 275px;
+   text-align: center;
+ }
+
+.boardContent {
+  margin-top: 55px;
+  text-align: center;
 }
 
-.welcome {
-  margin-bottom: 40px;
+.ProfileBar {
+  text-align:center;
+  margin-top:162px;
+  font-size: 16px;
+
+}
+.rowsOne {
+  margin-top: 20px;
 }
 
-.beer p {
-  margin: 5px 0;
+#bills {
+  text-align: center;
+  margin-top: -60px;
+}
+.totalBill {
+  text-align: center;
+  margin-top: 50px;
+}
+table.bills {
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.beer .name {
-  margin-top: 40px;
-  font-size: x-large;
-  font-weight: 300;
+#roster {
+ margin: -50px 45px;
+
+}
+h2 {
+  text-align: center;
+  margin-top: 250px;
+ }
+
+/*rosterOverall*/
+.roster {
+  text-align: center;
+  margin-top: 250px;
+}
+/*roster*/
+table.center {
+ margin-left: auto;
+ margin-right: auto;
+ }
+
+.shuffle {
+  display: block;
+    margin: 0 auto;
+text-align: center;
 }
 
-.beer p:last-child {
-  display: flex;
-  justify-content: space-between;
-  color: darkgray;
+/*calendar*/
+
+.calendarContainer {
+  text-align: center;
+  margin-top: 250px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.beer .country {
-  font-style: italic;
+.calendar {
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.beer .abv {
-  font-style: italic;
+
+
+/*Shoppinglist*/
+
+.Shoppinglist {
+  text-align: center;
+  margin-top: 250px;
 }
 
-.beer .cart-link {
+.Settings {
+  text-align: center;
+  margin-top: 250px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table.settingInfo {
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+
+#fb-login img {
+    width: 50%;
+    height: auto;
+}
+#remove-button {
   text-align: right;
 }
-
-.cart table {
-  width: 100%;
-}
-
-.cart .update-input {
-  width: 40px;
-  text-align: center;
-  margin-bottom: 0px; /* skeleton override */
-}
-
-.cart tbody button {
-  border: 0;
-  padding-top: 10px;
-}
-
-.cart .actions {
-  display: flex;
-  justify-content: space-between;
-}
-
