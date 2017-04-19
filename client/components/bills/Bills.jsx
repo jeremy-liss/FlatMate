@@ -50,8 +50,8 @@ const Bills = React.createClass ({
         <div className='totalBill'>
           <h5>Total: ${total} | You Owe: ${userTotal}</h5>
           <form onSubmit={(ev)=> this.handleBillAdd(ev)}>
-            <input type="text" name="bill" placeholder="bill" />
-            <input type="text" name="amount" placeholder="amount" />
+            <input type="text" name="bill" placeholder="Bill" />
+            <input type="text" name="amount" placeholder="Amount" />
             <button type="submit">Add</button>
           </form>
           <Link to='/home'>Return Home</Link>
