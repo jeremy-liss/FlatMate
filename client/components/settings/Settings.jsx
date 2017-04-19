@@ -2,9 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
-import { fetchItems, postUser, updateEmail, updateFlatUsers, fetchFlatUsers } from '../actions'
+import { fetchItems, postUser, updateEmail, addUserToFlat, fetchFlatUsers } from '../../actions'
 import SettingItems from './SettingItems'
-import ProfileBar from './ProfileBar'
+import ProfileBar from '../profilebar/ProfileBar'
 
 const Settings = React.createClass ({
 
