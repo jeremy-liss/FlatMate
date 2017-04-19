@@ -34,7 +34,7 @@ const Roster = React.createClass ({
           <div className="shuffle">
             <button onClick={()=> this.props.dispatch(shuffleJobs())}> Shuffle </button>
           </div>
-          <Link to='/home'>Return Home</Link>
+          <Link to='/home'><button>Return Home</button></Link>
         </div>
       </div>
     )

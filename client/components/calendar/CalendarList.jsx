@@ -10,6 +10,7 @@ const CalendarList = (props) => (
           <th>Date</th>
           <th>Event</th>
           <th>Delete</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>

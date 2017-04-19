@@ -54,7 +54,7 @@ const Bills = React.createClass ({
             <input type="text" name="amount" placeholder="Amount" />
             <button type="submit">Add</button>
           </form>
-          <Link to='/home'>Return Home</Link>
+          <Link to='/home'><button>Return Home</button></Link>
         </div>
       </div>
     )
