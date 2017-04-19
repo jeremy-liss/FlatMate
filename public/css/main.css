@@ -1,61 +1,217 @@
+@font-face {
+  font-family: 'MyWebFont';
+  src:  url('myfont.woff2') format('woff2'),
+        url('myfont.woff') format('woff');
+           src: url('http://domain.com/fonts/font.ttf'); /*URL to font*/
+}
+
+.button {
+
+}
+
 body {
-  width: 75%;
-  margin: auto;
-}
-
-h1 {
+  margin: 250px 200px;
+  background-image:url("./images/background2017.png");
+  background-position: top;
+  background-repeat: no-repeat;
   margin-top: 30px;
+  display:block;
+  font-family: 'MyWebFont', Fallback, sans-serif;
+ }
+
+/*shoppingList*/
+h1 {
+ font-family:'Rock Salt', cursive;
+ font-size: 55px;
+}
+/*roster and bills*/
+ h2 {
+   text-align: center;
+   margin-top: 50px;
+   font-family:'Rock Salt';
+   font-size: 60px;
+   }
+/*calendar*/
+h3 {
+  font-family:'Rock Salt';
+  font-size: 45px;
 }
 
-.welcome {
-  margin-bottom: 40px;
+ .defaultPage {
+   margin-top: 275px;
+   text-align: center;
+ }
+
+p {
+  font-size: 22px;
+ border-radius: 4px;
+  text-indent: 10px;
+
 }
 
-.beer p {
-  margin: 5px 0;
+.boardContent {
+  margin-top: 55px;
+  text-align: center;
 }
 
-.beer .name {
-  margin-top: 40px;
-  font-size: x-large;
-  font-weight: 300;
+.ProfileBar {
+  text-align:center;
+  margin-top:168px;
+  font-size: 20px;
+
+}
+.rowsOne {
+  margin-top: -20px;
+}
+/*Shoppinglist*/
+
+.Shoppinglist {
+  text-align: center;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 30px;
 }
 
-.beer p:last-child {
-  display: flex;
-  justify-content: space-between;
-  color: darkgray;
+#shoppingList a:hover img {
+  border: 1px solid red;
 }
 
-.beer .country {
-  font-style: italic;
+/*calendar*/
+
+.calendarContainer {
+  text-align: center;
+  margin-top: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 20px;
+  padding-right: 10px 10px;
+
+
 }
 
-.beer .abv {
-  font-style: italic;
+.calendar {
+  margin-left: auto;
+  margin-right: auto;
+    font-size: 14px;
 }
 
-.beer .cart-link {
+#calendar a:hover img {
+  border: 1px solid red;
+}
+
+/*bills button component*/
+
+#bills {
+  text-align: center;
+  margin-top: -200px;
+}
+
+#bills a:hover img {
+  border: 1px solid red;
+}
+
+/*inside table for bills*/
+table.bills {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 55px;
+  font-size: 20px;
+}
+/*total bill amound and add and return home*/
+.totalBill {
+  text-align: center;
+  margin-top: 20px;
+}
+
+/*rosterOverall*/
+#roster {
+margin: 50px 45px;
+margin-top:20px;
+text-align: center;
+}
+
+#roster a:hover img {
+  border: 1px solid red;
+}
+
+/*inside roster page*/
+.roster {
+text-align: center;
+margin-top:80px;
+font-size: 30px;
+}
+
+/*roster*/
+table.center {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0px;
+  text-align: center;
+ }
+
+.shuffle {
+  display: block;
+    margin: 0 auto;
+text-align: center;
+}
+
+/*settings*/
+.setting{
+  margin-right: -70px;
+}
+
+#Setting a:hover img {
+  border: 1px solid red;
+}
+
+.Settings {
+  text-align: center;
+  margin-top: 80px;
+  margin-left: auto;
+  margin-right: auto;
+width: 100%;
+}
+
+.dan{
+padding-left: 50px;
+}
+
+table.settingInfo {
+  margin-left: 0;
+  margin-right: 0;
+  margin-right: auto;
+  padding-left: 20px;
+  border-radius: 6px;
+  width: 100%;
+
+}
+
+/*Registration*/
+.registerContainer {
+  text-align: center;
+  margin-top: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  width:50%;
+  height:50%;
+}
+
+
+/*polaroids*/
+
+#polaroid1 {
+position:absolute;
+top:250px;
+right:10px;
+}
+
+#post-note {
+  position:absolute;
+  top:250px;
+  left:10px;
+}
+
+#remove-button {
   text-align: right;
 }
-
-.cart table {
-  width: 100%;
-}
-
-.cart .update-input {
-  width: 40px;
-  text-align: center;
-  margin-bottom: 0px; /* skeleton override */
-}
-
-.cart tbody button {
-  border: 0;
-  padding-top: 10px;
-}
-
-.cart .actions {
-  display: flex;
-  justify-content: space-between;
-}
-
