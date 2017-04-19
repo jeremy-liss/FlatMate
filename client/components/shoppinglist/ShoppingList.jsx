@@ -35,7 +35,7 @@ const ShoppingList = React.createClass ({
             <input type="text" name="item" placeholder="Add Item" />
             <button type="submit">Add</button>
           </form>
-          <a href='#/home'>Return Home</a>
+          <a href='#/home'><button>Return Home</button></a>
         </div>
       </div>
     )

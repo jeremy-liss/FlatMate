@@ -30,7 +30,7 @@ const Settings = React.createClass ({
           <table className="settingInfo">
             <thead>
               <tr>
-                <th>Flattie</th>
+                <th className='dan'>Flattie</th>
                 <th>Email</th>
                 <th>Update</th>
                 <th>Delete</th>
@@ -42,7 +42,7 @@ const Settings = React.createClass ({
               })}
             </tbody>
           </table>
-          <Link to='/home'>Return Home</Link>
+          <Link to='/home'><button>Return Home</button></Link>
         </div>
       </div>
     )
