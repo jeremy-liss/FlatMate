@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 
 import { fetchItems } from '../../actions'
 
+import { dateOrganiser} from '../../lib/eventDateOrganiser'
+
 import CalendarEntry from './CalendarEntry'
 import CalendarList from './CalendarList'
 import ProfileBar from '../profilebar/ProfileBar'
@@ -16,31 +18,8 @@ const Events = React.createClass ({
   },
 
   render () {
-    if (this.props.events[0] != undefined) {
-      this.props.events.map((day, i) => {
-        this.props.events[i].event = day.event.charAt(0).toUpperCase() + day.event.slice(1)
-        this.props.events[i].date = day.date.split('').filter(removeDash).join('')
-      })
 
-      this.props.events.map((day, i) => {
-        while (this.props.events.length > i) {
-          if (this.props.events[i].date < todaysDate()) {
-            this.props.events.splice(i, 1)
-          } else i++
-      }})
-
-      this.props.events.sort((a, b) => {
-        return a.date - b.date
-      })
-
-      this.props.events.map((day, i) => {
-        let a = day.date.split('')
-        let rearranged = [a[6],a[7],"-",a[4],a[5],"-",a[0],a[1],a[2],a[3]]
-        let joinedArray = rearranged.join('')
-        this.props.events[i].date = joinedArray
-      })
-    }
-
+    const events = dateOrganiser(this.props.events)
     return (
       <div className='container'>
         <ProfileBar />
@@ -51,15 +30,14 @@ const Events = React.createClass ({
             <CalendarEntry />
           </div>
           <div className="row">
-            <CalendarList days={this.props.events} />
-            <Link to='/home'><button>Return Home</button></Link>
+            <CalendarList days={events} />
+            <Link to='/home'>Return Home</Link>
           </div>
         </div>
       </div>
     )
   }
 })
-
 
 const mapStateToProps = (state) => {
   return {
@@ -69,25 +47,6 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps)(Events)
-
-
-function removeDash (value) {
-  if (value !== "-") return value
-}
-
-function todaysDate () {
-  var currentDate = new Date()
-  var day = currentDate.getDate()
-  var month = currentDate.getMonth() + 1
-  var year = currentDate.getFullYear()
-  if (day < 10) {
-    day = "0" + day
-  }
-  if (month < 10) {
-    month = "0" + month
-  }
-  return [year, month, day].join('')
-}
 
 function easyToReadDate () {
   var currentDate = new Date()

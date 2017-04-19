@@ -11,7 +11,6 @@ module.exports = {
   getEvents: getEvents,
   getFlat: getFlat,
   getJobs: getJobs,
-  getRoster:  getRoster,
   addBill: addBill,
   delBill: delBill,
   getShoppingListItems: getShoppingListItems,
@@ -21,7 +20,8 @@ module.exports = {
   updateEmail: updateEmail,
   updateFlatId: updateFlatId,
   getFlatUsers: getFlatUsers,
-  updateJobs: updateJobs
+  updateJobs: updateJobs,
+  knex: knex
 }
 
 function getUsers () {
@@ -34,11 +34,6 @@ function getFlat () {
 
 function getJobs () {
   return knex('jobs').select()
-}
-
-function getRoster() {
-  return knex('jobs')
-    .join('users', 'users.id', '=', 'jobs.user_id')
 }
 
 function getBills () {
@@ -91,7 +86,12 @@ function addShoppingListItem (flat_id, item) {
 }
 
 function addUser (name, email, hash, flat_id) {
-  return knex ('users').insert({name:name, email:email, hash:hash, flat_id:flat_id})
+  return knex ('users')
+    .insert({name:name, email:email, hash:hash, flat_id:flat_id})
+    .then(function(){
+      return knex('users')
+      .select()
+    })
 }
 
 function delUser (id) {
