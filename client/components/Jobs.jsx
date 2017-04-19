@@ -18,7 +18,7 @@ const Jobs = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    chores: state.shuffleJobs,
+    chores: state.shuffledJobs,
     dispatch: state.dispatch
   }
 }

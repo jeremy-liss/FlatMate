@@ -1,13 +1,11 @@
 import { combineReducers } from 'redux'
 
-import returnItems from './returnItems'
-import returnUsers from './returnUsers'
-import shuffleJobs from './shuffleJobs'
+import items from './items'
+import shuffledJobs from './shuffledJobs'
 import returnFlatUsers from './returnFlatUsers'
 
 export default combineReducers({
-  returnItems,
-  returnUsers,
+  items,
   returnFlatUsers,
-  shuffleJobs
+  shuffledJobs
 })

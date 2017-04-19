@@ -1,9 +1,8 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import {connect} from 'react-redux'
 
-import { fetchItems } from '../actions'
-import { calculateBillAllocation } from '../lib/billUserTotal'
-
+import { fetchItems, fetchUsers } from '../actions'
+import {calculateBillAllocation} from '../lib/billUserTotal'
 import ProfileBarUser from './ProfileBarUser'
 import ProfileBarJob from './ProfileBarJob'
 import ProfileBarBill from './ProfileBarBill'
@@ -22,11 +21,11 @@ const ProfileBar = React.createClass ({
     const name = getName(this.props.users)
 
     return (
-      <div className="ProfileBar">
-       Hello {name}! |
-       Your job this week is: <ProfileBarJob job={job.job} id={job.id} /> |
-        Current amount owing ${userTotal}
-      </div>
+    <div className="ProfileBar">
+      Hello {name}! |
+      Your job this week is: <ProfileBarJob job={job.job} id={job.id} /> |
+      Current amount owing ${userTotal}
+    </div>
     )
   }
 })
@@ -46,9 +45,10 @@ function getJob(jobs) {
 
 const mapStateToProps = (state) => {
   return {
-    users: state.returnUsers,
-    billItems: state.returnItems.bills,
-    jobs: state.returnItems.jobs,
+    users: state.items.users,
+    billItems: state.items.bills,
+    jobs: state.items.jobs,
+
   }
 }
 

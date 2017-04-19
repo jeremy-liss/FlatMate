@@ -15,10 +15,6 @@ let store = createStore(reducers, compose(
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  store.dispatch(fetchItems('users'))
-  store.dispatch(fetchItems('jobs'))
-  store.dispatch(fetchUsers())
-
   render(
     <Provider store={store}>
       <App />

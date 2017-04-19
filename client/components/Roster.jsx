@@ -45,7 +45,7 @@ const mapStateToProps = (state) => {
   return {
     flatUsers: state.returnFlatUsers,
     dispatch: state.dispatch,
-    chores: state.shuffleJobs
+    chores: state.shuffledJobs
   }
 }
 
