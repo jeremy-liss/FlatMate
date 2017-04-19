@@ -11,6 +11,7 @@
     "test": "jest",
     "postinstall": "knex migrate:latest && npm run build",
     "server-test": "NODE_ENV=test node test/server/server-tests.js | tap-spec",
+    "client-test": "NODE_ENV=test node test/client/client-tests.js | tap-spec",
     "build": "webpack -p"
   },
   "babel": {
