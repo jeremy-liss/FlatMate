@@ -2,15 +2,13 @@ module.exports = {
   dateOrganiser: dateOrganiser
 }
 
+//Filters all events from api
 function dateOrganiser(events) {
 
-  spruceAndSimplify (events) //Capitalizes Event name
-
-  filterEventDates (events)
-
-  sortEventDates (events)
-
-  correctDatesDisplay (events)
+  spruceAndSimplify (events) //Capitalizes Event name and removes dashes from date
+  filterEventDates (events) //Removes all past event dates
+  sortEventDates (events) //Places all events in chronological order
+  correctDatesDisplay (events) //Switches the dates from yyyy-mm-dd to dd-mm-yyyy
 
   return events
 }
