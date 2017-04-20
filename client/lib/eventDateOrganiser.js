@@ -51,6 +51,7 @@ function correctDatesDisplay (events) {
     let joinedArray = rearranged.join('')
     events[i].date = joinedArray
   })
+  return events
 }
 
 function todaysDate () {
